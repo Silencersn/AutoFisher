@@ -1,0 +1,26 @@
+DisplayName: 基础 服务端配置
+
+Regulation: {
+	Tooltip: ""
+	Label: 规则
+}
+
+AllowPlayers: {
+	Tooltip: ""
+	Label: 允许玩家
+}
+
+FishingPowerInfluences: {
+	Label: 渔力影响因素
+	Tooltip: ""
+}
+
+FishingQuests: {
+	Label: 渔夫任务
+	Tooltip: ""
+}
+
+AnglerArmorsGenerateEffects: {
+	Label: 渔夫盔甲生效位置
+	Tooltip: ""
+}

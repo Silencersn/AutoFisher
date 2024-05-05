@@ -1,0 +1,26 @@
+DisplayName: Catches Counter
+
+TotalCatches: {
+	Label: Total Catches
+	Tooltip: ""
+}
+
+CurrentOrLastCatches: {
+	Label: Current Or Last Catches
+	Tooltip: ""
+}
+
+ClearData: {
+	Label: Clear Data
+	Tooltip: ""
+}
+
+MaxDisplayCount: {
+	Label: Max Display Count
+	Tooltip: ""
+}
+
+SortBy: {
+	Label: Sort By
+	Tooltip: ""
+}

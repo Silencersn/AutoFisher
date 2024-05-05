@@ -1,0 +1,32 @@
+DisplayName: 卖出价格过滤器
+Headers.SellValueFilter: 卖出价格过滤器
+
+EnableSellValueFilter: {
+	Label: 启用卖出价格过滤器
+	Tooltip: ""
+}
+
+Platinum: {
+	// Label: "[i/s{0}:74] [c/DCDCC6:{$ItemName.PlatinumCoin}]"
+	// Tooltip: ""
+}
+
+Gold: {
+	// Label: "[i/s{0}:73] [c/E0C95C:{$ItemName.GoldCoin}]"
+	// Tooltip: ""
+}
+
+Silver: {
+	// Label: "[i/s{0}:72] [c/B5C0C1:{$ItemName.SilverCoin}]"
+	// Tooltip: ""
+}
+
+Copper: {
+	// Label: "[i/s{0}:71] [c/F68A60:{$ItemName.CopperCoin}]"
+	// Tooltip: ""
+}
+
+TotalValue: {
+	Label: 总价值
+	Tooltip: ""
+}

@@ -1,0 +1,7 @@
+CatchInfomationText: 钓起 {0}
+NotCatchInfomationText: 未钓起 {0}
+FilteredText: " [自动过滤]"
+AutoOpenedText: " [自动打开]"
+AutoSoldText: " [自动卖出{0}]"
+ConsumeBaitText: " [消耗鱼饵[i:{0}]]"
+AutoKilledText: " [自动击杀]"

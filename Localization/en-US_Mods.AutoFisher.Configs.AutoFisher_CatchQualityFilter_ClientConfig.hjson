@@ -1,0 +1,32 @@
+DisplayName: Catch Quality Filter
+Headers.CatchQualityFilter: Catch Quality Filter
+
+EnableCatchQualityFilter: {
+	Label: Enable Catch Quality Filter
+	Tooltip: ""
+}
+
+Common: {
+	Label: Common
+	Tooltip: ""
+}
+
+Uncommon: {
+	Label: Uncommon
+	Tooltip: ""
+}
+
+Rare: {
+	Label: Rare
+	Tooltip: ""
+}
+
+VeryRare: {
+	Label: Very Rare
+	Tooltip: ""
+}
+
+ExtremelyRare: {
+	Label: Extremely Rare
+	Tooltip: ""
+}

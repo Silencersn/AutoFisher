@@ -1,0 +1,26 @@
+Tooltip: ""
+
+AllJunks: {
+	Label: 所有垃圾
+	Tooltip: ""
+}
+
+OldShoe: {
+	// Label: "[i:2337] {$ItemName.OldShoe}"
+	// Tooltip: ""
+}
+
+Seaweed: {
+	// Label: "[i:2338] {$ItemName.FishingSeaweed}"
+	// Tooltip: ""
+}
+
+TinCan: {
+	// Label: "[i:2339] {$ItemName.TinCan}"
+	// Tooltip: ""
+}
+
+JojaCola: {
+	// Label: "[i:5275] {$ItemName.JojaCola}"
+	// Tooltip: ""
+}

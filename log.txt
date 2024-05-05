@@ -1,0 +1,187 @@
+(2024/4/12 17:00) v2.1.7
+【改进】卖出价格过滤器中的总价值选项可以与其它选项互操作了
+【改进】为多线钓鱼数量选项提供了更精确的控制器
+【改进】渔获计算时的尝试次数的下限降低至0，这意味着该功能可以被关闭
+[IMPROVE] The Total Value option in the Sell Price Filter is now interoperable with other options
+[IMPROVE] Added a more precise controller for multi-line fishing options
+[IMPROVE] The minimum number of attempts to Calculate Catches has been reduced to 0, meaning the feature can be turned off
+
+(2024/4/9 19:00) v2.1.6
+【改进】将多线钓鱼的鱼线数量上限调至256
+【改进】重置物品类型过滤器的部分选项
+[IMPROVE] Adjusted the maximum number of lines for multi-line fishing to 256
+[IMPROVE] Reset some options for item type filters
+
+(2024/4/7 8:00) v2.1.5
+【改进】在物品ID过滤器中添加尝试次数滑块，若开始钓鱼时卡顿，请降低该值
+【改进】优化ID过滤器对可能钓起的渔获的计算逻辑
+【修复】游玩时所使用的Mod不一致，可能导致角色无法加载
+【修复】物品ID过滤器配置潜在的保存问题
+【修复】渔获统计中的清除数据开关显示异常
+[IMPROVE] Add a slider to ItemID Filter to control attempts, if game lags, reduce it
+[IMPROVE] Optimized the calculation logic of the ID filter for possible catches
+[FIX] The mods used during gameplay are inconsistent, which may cause characters to fail to load
+[FIX] Potential wrong saving of ItemID filter config
+[FIX] The Clear Data switch in Catch Statistics was displayed incorrectly
+
+(2024/4/6 11:00) v2.1.4
+【改进】将部分On代码替换为IL
+【修复】渔力受运气影响无效
+[IMPROVE] Replace some On with IL
+[FIX] Fishing Power Effected By Luck switch is ineffective
+
+(2024/4/2 10:00) v2.1.3
+【改进】显示渔获信息时可以屏蔽被过滤或未捕获的渔获的信息
+【改进】提高对其它模组的兼容性
+[IMPROVE] Can block infomation of filtered or not caught catches
+[IMPROVE] Improve compatibility with other mods
+
+(2024/3/31 14:00) v2.1.2
+【改进】为物品ID过滤器提供了将渔获便捷加入黑名单的功能
+感谢 @陈大 提供的建议
+[IMPROVE] Item ID Filter now provides the ability to easily add catches to the blocklist
+thanks @陈大
+
+(2024/3/29 20:00) v2.1
+【新增】渔获统计，可在进入世界后在配置面板中查看
+【修复】IL失效
+[NEW] Catcher Counter, can be checked in Config after entering the world
+[FIX] IL loses efficacy
+
+(2024/3/24 10:00) v2.0.2
+【改进】修改配置结构，如有需要，请重新设置
+[IMPROVE] Modify the configuration structure, if necessary, please reset the settings
+
+(2024/3/17 10:00) v2.0.1
+调整代码，提高对其它mod的兼容性
+Modify the code to improve compatibility with other mods
+【新增】当玩家在水中时也可以钓鱼（在服务端配置的【其它】中可以找到开关）
+[NEW] Player can fish in water (in Sever Config - Others)
+
+(2024/3/16 11:00) v1.11
+【新增】物品ID过滤器，可以将物品添加进黑名单/白名单，来防止钓起/仅钓起名单中的物品
+[NEW] Item ID Filter, you can add item into blocklist / allowlist to avoid catching / only catch the items in the list
+
+(2024/3/15 23:00) v1.10
+【新增】渔夫任务可设置为立即刷新
+[NEW] Angler Quest can changed immediately when the quest is finished
+
+(2024/3/14 12:00) v1.9
+【新增】任务鱼相关选项（可以决定是否在背包中存在任务鱼、渔夫不存在或渔夫任务已完成时钓到任务鱼，可以决定是否在背包中存在任务鱼时捡起任务鱼）
+【改进】显示自动卖出信息时会显示卖出的价格
+【修复】物品种类过滤器中的所用可使用物品开关无效
+【修复】渔力相关开关无效
+[NEW] Quest Fish related options (you can decide whether the quest fish can be caught when there is a quest fish in the inventory, the Angler does not exist, or the Angler quest is completed, and you can decide whether to pick up the quest fish when there is a quest fish in the inventory)
+[IMPROVE] The sell price is displayed when displaying an Auto Sell info
+[FIX] The switch: The switch: The available items in the item type filter are ineffective
+[FIX] Fishing power related switch is ineffective
+
+(2024/2/29 21:00) v1.8.7
+【修复】鱼饵数量统计错误
+【修复】鱼竿在背包打开时显示鱼饵数量
+[FIX] Bait count error
+[FIX] The rod shows the amount of bait when the inventory is opened
+
+(2024/2/28 21:00) v1.8.6
+【改进】卖出价格过滤器优化显示
+【修复】鱼饵消耗信息显示错误
+【修复】通过自动卖出渔获获得钱币时，信息显示位置可能错误
+【修复】在未打开的虚空袋中寻找鱼饵
+[IMPROVE] Optimized the display of the sell price filter
+[FIX] Bait consumption information is displayed incorrectly
+[FIX] When getting coins by auto selling catches, the information may be displayed in the wrong position
+[FIX] Find bait in a not open Void Bag
+
+(2024/2/27 23:00) v1.8.5
+【修复】自动卖出的价格异常
+[FIX] The auto sell price is wrong
+
+(2024/2/27 21:00) v1.8.4
+【新增】自动钓起NPC：若钓鱼时钓到NPC（如血月时钓起怪物），会自动钓起
+【新增】自动击杀NPC：自动钓起NPC后可自动击杀NPC
+【新增】多线钓鱼:单次抛竿可抛出多条鱼线
+【新增】自动售卖：自动可选择卖出所有渔获、被过滤的渔获或者未被过滤的渔获
+【新增】物品类型过滤器
+【改进】修改大量配置项
+【改进】调整渔获信息显示，现在可选择是否显示时间、自动过滤、自动打开、自动卖出和鱼饵消耗信息
+【修复】自动使用药水开关在部分情况下不生效
+【修复】删除用于Debug的忘记删除的代码
+[NEW] Auto Catch NPC: If you catch NPCs while fishing (e.g. monsters during a Blood Moon), they will be automatically fished
+[NEW] Auto Kill NPC: Automatically kill NPCs after automatically fishing for them
+[NEW] Multiple Fishing Lines: Multiple fishing lines can be cast in a single cast
+[NEW] Auto Sell: You can choose to automatically sell all catches, filtered catches, or unfiltered catches
+[NEW] Item Type Filter
+[IMPROVE] Modify a large number of config items
+[IMPROVE] Adjusted the showing of catches information, now allows you to choose whether to show time, auto filter, auto open, auto sell, and bait consumption information
+[FIX] The Auto Use Potion Switch did not work in some cases
+[FIX] Delete the code used for Debug and forgot to delete it
+
+(2024/2/25 22:00) v1.7.1
+【修复】启用模组开关对部分功能不生效
+[FIX] Enable Mod Switch does not take effect for some functions
+
+(2024/2/25 18:00) v1.7
+【新增】渔力影响因素开关：可修改渔力是否受天气、时间、月亮、湖泊大小、运气影响（服务端配置）
+【NEW】Fishing Power Influencing Factor Switch: You can modify whether fishing power is affected by weather, time, moon, lake size, and luck (Server Config)
+
+(2024/2/25 1:00) v1.6
+【新增】卖出价格过滤器：若渔获的卖出价格低于配置中四种钱币的价格之和，那么渔获将会被过滤
+【改进】启用自动寻找鱼饵开关后，钓竿旁所显示的鱼饵数量将会计算除背包外的鱼饵
+【改进】提高自动使用药水对非原版物品的兼容性
+[NEW] Sell Value Filter: If the sell value of the catch is less than the sum of the prices of the four kinds of coins in the config, the catch will be filtered
+[IMPROVE] When the Auto Find Bait toggle is enabled, the amount of bait displayed next to the rod will be counted except for the backpack
+[IMPROVE] Improved compatibility of Auto Use Potions with non-vanilla items
+
+(2024/2/24 15:00) v1.5
+【新增】自动寻找鱼饵开关：自动在打开的虚空带、猪猪存钱罐、保险箱、护卫熔炉中按顺序寻找鱼饵（默认只能在打开的虚空带寻找，对于其它个人收纳物品，可以在服务端配置中打开）
+【改进】再次提高对一个玩家同时拥有多个浮标的情况的支持性
+[NEW] Auto Find Baits Switch: Automatically find baits in the open Void Bag, Pig Piggy Bank, Safe, and Defender's Forge in order (by default, it can only be found in the open Void Zone, and for other personal storage items, it can be turned on in the Server Config)
+[IMPROVE] Again improved support for cases where a player has multiple bobbers at the same time
+
+
+(2024/2/23 23:00) v1.4
+【新增】自动使用药水开关：钓鱼时可以自动使用钓鱼药水、宝匣药水、声纳药水（使用声纳药水后，若渔获被过滤器过滤，则不会消耗鱼饵）以及麦芽酒或清酒
+【改进】除过滤器总开关外，单独对渔获品质过滤器与稀有度过滤器设置了开关
+【改进】对稀有度过滤器的字体颜色进行修改，使其与对应的稀有度颜色相当
+[NEW] Auto Use Potions Switch: When fishing, you can automatically use fishing potions, crate potions, sonar potions (after using sonar potions, if the catch is filtered by the filter, it will not consume bait) and ales or sakes
+[IMPROVE] In addition to the Main Filters Switch, the Catch Quality Filter and Rarity Filter can be set on and off separately
+[IMPROVE] Changed the font color of the Rarity Filter to match the corresponding rarity color
+
+(2024/2/23 19:00) v1.3.1
+【修复】尝试修复由过滤器导致的无法钓鱼的情况，修改过滤器的实现方式与在配置中的样式使其更稳定
+[FIX] Try to fix the situation caused by the filter that player cannot fish, and modify the implementation of the filter and the style in the configuration to make it more stable
+(thanks @Hex: Powdered Donut)
+
+(2024/2/23 14:00) v1.3
+【新增】过滤器：通过在配置中将过滤器中的选项打开，可以在收获渔获时过滤掉不想要的渔获，当前版本支持渔获品质过滤器与物品稀有度过滤器
+[NEW] Filters: By turning on the option in the filter in the config, you can filter out unwanted catches when catching, the current version supports the Catch Quality Filter and the Item Rarity Filter
+
+(2024/2/22 22:00) v1.2
+【新增】自动打开宝匣开关：钓起宝匣时可自动打开（默认关闭，需在客户端配置中设置）
+【新增】自动打开牡蛎开关：钓起牡蛎时可自动打开（默认关闭，需在客户端配置中设置）
+【改进】将配置分为服务端配置与客户端配置（渔获消息显示开关由服务端配置移动至客户端配置）
+【改进】提高对一个玩家同时拥有多个浮标的情况的支持性
+【改进】渔获信息中现在可以显示堆叠数量（如炸弹鱼、寒霜飞鱼）
+【修复】在岩浆或蜂蜜中钓鱼时，即使未钓到鱼（即渔获的ItemID为0（None）)，依旧会提示获得渔获且消耗鱼饵
+[NEW] Auto Open Crates Switch: Crates can be automatically opened when fishing (false by default, need to be set in the client config)
+[NEW] Auto Open Oysters Switch: Oysters can be automatically opened on when fishing (false by default, need to be set in client config)
+[IMPROVE] Divide the config into server config and client config (the Show Catches Infomation Switch is moved from the server config to the client config)
+[IMPROVE] Improved support for cases where a player has multiple bobbers at the same time
+[IMPROVE] Stack quantities can now be displayed in catches information (e.g. Bomb Fish, Frost Daggerfish)
+[FIX] When fishing in lava or honey, even if no fish are caught (i.e. the catch has an ItemID of 0 (None)), it will still show catches infomation and consume bait
+
+(2024/2/22 03:00) v1.1
+【改进】修改鱼饵消耗逻辑，使其更加接近原版
+[IMPROVE] Changed the bait consumption logic to bring it closer to the original
+
+(2024/2/22 02:00) v1.0
+【新增】自动钓鱼功能：抛竿后无需收竿，自动收获渔获并放入背包（若背包已满则丢出）
+【新增】启用模组开关：可在游戏内启用或关闭模组
+【新增】渔获消息显示开关：决定在收获渔获时是否显示信息（包含收获时间、鱼线是否断裂、渔获种类及个数）
+【新增】消耗鱼饵开关：模拟原版钓鱼时的鱼饵消耗（鱼饵消耗逻辑与原版相似，与鱼饵和饰品相关）
+【新增】鱼线断裂开关：模拟原版钓鱼时的鱼线断裂（鱼线断裂逻辑与原版相似，与饰品相关）
+[NEW] Auto Fishig Function: There is no need to reel the rod after casting, the catch is automatically harvested and placed in the inventory (if the inventory is full, it will be spawned in the world)
+[NEW] Enable Mod Switch: Mod can be enabled or disabled in-game
+[NEW] Show Catches Infomation Switch: determines whether to show information when the catch is harvested (including harvest time, whether the fishing line is broken, the type and number of catches)
+[NEW] Consume Bait Switch: Simulates the consumption of bait during fishing in vanilla (the logic of bait consumption is similar to that of vanilla, related to bait and accessories)
+[NEW] Fishing Line Break Switch: Simulates the breaking of the fishing line during fishing in vanilla (the breaking logic of the fishing line is similar to that of vanilla, and is related to accessories)

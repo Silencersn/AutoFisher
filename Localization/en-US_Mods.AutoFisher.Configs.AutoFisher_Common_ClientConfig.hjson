@@ -1,0 +1,48 @@
+DisplayName: Auto Fisher Client Config
+
+EnableMod: {
+	Label: Enable Mod
+	Tooltip: ""
+}
+
+Headers.Filters: Filters
+
+AutoOpen: {
+	Label: Auto Open
+	Tooltip: ""
+}
+
+AutoUse: {
+	Label: Auto Use
+	Tooltip: ""
+}
+
+AutoSell: {
+	Label: Auto Sell
+	Tooltip: ""
+}
+
+AutoFindBaits: {
+	Label: Auto Find Baits
+	Tooltip: ""
+}
+
+CatchesInfomation: {
+	Label: Catches Infomation
+	Tooltip: ""
+}
+
+MultipleFishingLines: {
+	Label: Multiple Fishing Lines
+	Tooltip: ""
+}
+
+AutoSpawnNPC: {
+	Label: Auto Spawn NPC
+	Tooltip: ""
+}
+
+Filters: {
+	Label: Filters
+	Tooltip: ""
+}
