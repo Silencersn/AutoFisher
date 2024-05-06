@@ -11,7 +11,22 @@
 取消任务鱼的相关限制 / Remove restrictions on quest fish
 渔获统计 / Catch Counter
 
+Github: https://github.com/Silencersn/AutoFisher
+By Bilibili@Silencersn
+
 [h1]更新日志 / Update Logs[/h1]
+(2024/5/6 23:00) v2.2.2.2
+【改进】减少抛出异常时导致mod无法加载的情况
+【改进】渔获信息优化
+【改进】为部分配置选项添加说明
+【修复】部分情况下，其它mod对渔获堆叠数量的修改无效
+【修复】部分情况下，消耗鱼饵时会消耗无法消耗的鱼饵
+[IMPROVE] Reduced the number of cases where mods fail to load when throwing exceptions
+[IMPROVE] Optimization of catch information
+[IMPROVE] Added descriptions to some config options
+[FIX] In some cases, other mods had no effect on the amount of the catch stack
+[FIX] In some cases, consuming bait would consume unconsumable bait
+
 (2024/5/4 10:00) v2.2.2
 【新增】渔力仅会受正的运气影响的开关
 【新增】钓起NPC的信息显示
@@ -61,32 +76,3 @@ thanks @Poke 笨雞
 [FIX] Catches Counter show the wrong item after adding or subtracting mods
 [FIX] May consume additional bait
 [FIX] In some cases, the judgment of whether a player is wet or not is incorrect
-
-(2024/4/14 18:00) v2.1.8.2
-【修复】自动击杀NPC会击杀城镇史莱姆
-【修复】单人模式下自动击杀NPC会导致浮标收回
-【修复】物品类型过滤器中的垃圾海草选项无效
-[FIX] Auto Kill NPC will kill town slimes
-[FIX] Auto Kill NPC in single-player mode will cause the bobber to retract
-[FIX] Seaweed filter is not working
-thanks @oinkoinkmooo
-
-(2024/4/14 3:00) v2.1.8
-【改进】自动钓起或击杀NPC现在支持多人模式
-【改进】自动钓起NPC配置选项逻辑优化，自动钓起NPC为自动击杀NPC的前置要求
-【修复】自动钓鱼获取的新物品在物品栏内不会发亮
-【修复】渔获统计对于堆叠数量大于1的渔获出现统计错误
-【修复】自动卖出渔获时，即使价格为0，也会有获取钱币的音效
-【修复】自动钓起NPC时，总是会尝试消耗鱼饵
-【修复】服务端配置允许玩家自动寻找鱼饵开关无效
-【修复】鱼线断裂规则对自动钓起NPC不适用
-[IMPROVE] Auto Spawn NPC now supports multiplayer mode
-[IMPROVE] The logic of the config option of Auto Spawn NPC has been optimized, and Auto Catch NPC is a pre-requirement for Auto Kill NPC
-[FIX] New items obtained from auto-fishing do not glow in the inventory
-[FIX] Catch Counting Error for Catches with Stack Size > 1
-[FIX] When selling a catch automatically, there will be a sound effect to get coins even if the price is 0
-[FIX] When automatically catching NPCs, always try to consume bait
-[Fix] The Allow Players Enable Auto Find Baits switch in Sever Config is invalid
-[FIX] Line Break rule does not apply to Auto Spawn NPC
-
-By Bilibili@Silencersn

@@ -8,14 +8,15 @@ namespace AutoFisher.Common.Systems
         public bool fishingLineBreaks;
         public bool consumedBait;
         public int bait;
+        public bool catchSuccessfully;
 
         public bool filtered;
         public bool autoOpened;
         public bool autoSold;
-        
+
         public int itemDrop;
         public int stack;
-        
+
         public int[] coins;
 
         public int npcSpawn;
@@ -31,10 +32,11 @@ namespace AutoFisher.Common.Systems
         public static LocalizedText AutoSoldText { get; set; }
         public static LocalizedText ConsumeBaitText { get; set; }
         public static LocalizedText AutoKilledText { get; set; }
+        public static LocalizedText FishingLineBreaksText { get; set; }
 
-        public static void ShowCatchesInfomation(CatchesInfo info)
+        public static void Show(CatchesInfo info)
         {
-            if (!info.fishingLineBreaks && !info.filtered)
+            if (info.catchSuccessfully && !info.filtered)
             {
                 CatchesRecorder.AddCatchToLocalPlayer(info.itemDrop, info.stack);
             }
@@ -43,26 +45,18 @@ namespace AutoFisher.Common.Systems
 
             if (!config.Enable) return;
             if (info.filtered && !config.ShowFilteredCatchesInfomation) return;
-            if (info.fishingLineBreaks && !config.ShowNotCaughtCatchesInfomation) return;
+            if (!info.catchSuccessfully && !config.ShowNotCaughtCatchesInfomation) return;
 
-            float hours = Utils.GetDayTimeAs24FloatStartingFromMidnight();
-            float minutes = (hours - (int)hours) * 60;
-            float seconds = (minutes - (int)minutes) * 60;
+            string infoText = config.ShowTimeInfomation ? AutoFisherUtils.GetTimeString(" ") : string.Empty;
 
-            static string format(float value)
+            LocalizedText text = info.catchSuccessfully ? CatchInfomationText : NotCatchInfomationText;
+            if (info.npcSpawn > 0) text = text.WithFormatArgs(NPC.GetFullnameByID(info.npcSpawn));
+            else text = text.WithFormatArgs(AutoFisherUtils.GetItemIconString(info.itemDrop, info.stack));
+            infoText += text;
+
+            if (info.catchSuccessfully)
             {
-                return ((int)value).ToString().PadLeft(2, '0');
-            }
-
-            LocalizedText text = info.fishingLineBreaks ? NotCatchInfomationText : CatchInfomationText;
-            string itemDrop = $"[i/s{info.stack}:{info.itemDrop}]";
-            string infoText = config.ShowTimeInfomation ? string.Format("[{0}:{1}:{2}] ", format(hours), format(minutes), format(seconds)) : "";
-            
-            if (info.npcSpawn > 0) infoText += text.Format(NPC.GetFullnameByID(info.npcSpawn));
-            else infoText += text.Format(itemDrop);
-
-            if (!info.fishingLineBreaks)
-            {
+                Main.NewText(infoText);
                 if (info.filtered && config.ShowFilterInfomation) infoText += FilteredText;
                 if (info.autoOpened && config.ShowAutoOpenInfomation) infoText += AutoOpenedText;
                 if (info.autoSold && config.ShowAutoSellInfomation)
@@ -72,13 +66,19 @@ namespace AutoFisher.Common.Systems
                     {
                         if (info.coins[i] > 0)
                         {
-                            temp += $"[i/s{info.coins[i]}:{ItemID.CopperCoin + i}]";
+                            temp += AutoFisherUtils.GetItemIconString(ItemID.CopperCoin + i, info.coins[i]);
                         }
                     }
                     infoText += AutoSoldText.Format(temp);
                 }
                 if (info.autoKilled) infoText += AutoKilledText;
             }
+            else
+            {
+                if (info.fishingLineBreaks) infoText += FishingLineBreaksText;
+                else infoText += FilteredText;
+            }
+
             if (info.consumedBait && config.ShowComsumedBaitInfomation) infoText += ConsumeBaitText.Format(info.bait);
             Main.NewText(infoText);
         }
@@ -88,7 +88,7 @@ namespace AutoFisher.Common.Systems
     {
         public override void OnModLoad()
         {
-            string key = "Mods.AutoFisher.Infomation.";
+            const string key = "Mods.AutoFisher.Infomation.";
             CatchesInformation.CatchInfomationText = Language.GetOrRegister(key + nameof(CatchesInformation.CatchInfomationText));
             CatchesInformation.NotCatchInfomationText = Language.GetOrRegister(key + nameof(CatchesInformation.NotCatchInfomationText));
             CatchesInformation.FilteredText = Language.GetOrRegister(key + nameof(CatchesInformation.FilteredText));
@@ -96,6 +96,7 @@ namespace AutoFisher.Common.Systems
             CatchesInformation.AutoSoldText = Language.GetOrRegister(key + nameof(CatchesInformation.AutoSoldText));
             CatchesInformation.ConsumeBaitText = Language.GetOrRegister(key + nameof(CatchesInformation.ConsumeBaitText));
             CatchesInformation.AutoKilledText = Language.GetOrRegister(key + nameof(CatchesInformation.AutoKilledText));
+            CatchesInformation.FishingLineBreaksText = Language.GetOrRegister(key + nameof(CatchesInformation.FishingLineBreaksText));
         }
     }
 }

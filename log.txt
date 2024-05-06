@@ -1,3 +1,30 @@
+(2024/4/14 18:00) v2.1.8.2
+【修复】自动击杀NPC会击杀城镇史莱姆
+【修复】单人模式下自动击杀NPC会导致浮标收回
+【修复】物品类型过滤器中的垃圾海草选项无效
+[FIX] Auto Kill NPC will kill town slimes
+[FIX] Auto Kill NPC in single-player mode will cause the bobber to retract
+[FIX] Seaweed filter is not working
+thanks @oinkoinkmooo
+
+(2024/4/14 3:00) v2.1.8
+【改进】自动钓起或击杀NPC现在支持多人模式
+【改进】自动钓起NPC配置选项逻辑优化，自动钓起NPC为自动击杀NPC的前置要求
+【修复】自动钓鱼获取的新物品在物品栏内不会发亮
+【修复】渔获统计对于堆叠数量大于1的渔获出现统计错误
+【修复】自动卖出渔获时，即使价格为0，也会有获取钱币的音效
+【修复】自动钓起NPC时，总是会尝试消耗鱼饵
+【修复】服务端配置允许玩家自动寻找鱼饵开关无效
+【修复】鱼线断裂规则对自动钓起NPC不适用
+[IMPROVE] Auto Spawn NPC now supports multiplayer mode
+[IMPROVE] The logic of the config option of Auto Spawn NPC has been optimized, and Auto Catch NPC is a pre-requirement for Auto Kill NPC
+[FIX] New items obtained from auto-fishing do not glow in the inventory
+[FIX] Catch Counting Error for Catches with Stack Size > 1
+[FIX] When selling a catch automatically, there will be a sound effect to get coins even if the price is 0
+[FIX] When automatically catching NPCs, always try to consume bait
+[Fix] The Allow Players Enable Auto Find Baits switch in Sever Config is invalid
+[FIX] Line Break rule does not apply to Auto Spawn NPC
+
 (2024/4/12 17:00) v2.1.7
 【改进】卖出价格过滤器中的总价值选项可以与其它选项互操作了
 【改进】为多线钓鱼数量选项提供了更精确的控制器

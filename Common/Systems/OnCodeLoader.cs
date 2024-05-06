@@ -1,5 +1,4 @@
 ﻿using AutoFisher.Common.GlobalProjectiles;
-using static AutoFisher.AutoUtils;
 
 namespace AutoFisher.Common.Systems
 {
@@ -136,7 +135,11 @@ namespace AutoFisher.Common.Systems
         {
             orig(self, out bait);
             if (ConfigContent.NotEnableMod) return;
-            bait ??= FindBait(self, false);
+            bait ??= self.FindItem(item => item.bait > 0, false, 
+                ConfigContent.FindBaitsInVoidBag, 
+                ConfigContent.FindBaitsInPiggyBank, 
+                ConfigContent.FindBaitsInSafe, 
+                ConfigContent.FindBaitsInDefendersForge);
         }
     }
 }

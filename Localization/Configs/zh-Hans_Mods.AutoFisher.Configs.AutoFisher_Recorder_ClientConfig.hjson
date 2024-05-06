@@ -1,0 +1,35 @@
+DisplayName: 渔获统计
+
+TotalCatches: {
+	Label: 所有渔获
+	Tooltip: ""
+}
+
+CurrentOrLastCatches: {
+	Label: 当前或上次钓鱼的渔获
+	Tooltip: ""
+}
+
+ClearData: {
+	Label: 清除数据
+	Tooltip:
+		'''
+		[c/FF0000:警告：此为破坏性操作]
+		仅在玩家进入世界后有效
+		'''
+}
+
+MaxDisplayCount: {
+	Label: 最大显示数量
+	Tooltip: ""
+}
+
+SortBy: {
+	Label: 排序方式
+	Tooltip: ""
+}
+
+Character: {
+	Label: 人物
+	Tooltip: ""
+}

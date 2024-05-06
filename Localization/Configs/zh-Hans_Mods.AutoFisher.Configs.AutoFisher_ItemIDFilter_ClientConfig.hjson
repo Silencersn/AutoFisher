@@ -1,0 +1,35 @@
+DisplayName: 物品ID过滤器(渔获计算)
+
+Headers: {
+	ItemIDFilter: 物品ID过滤器
+	CalculateCatches: 渔获计算
+}
+
+EnableItemIDFilter: {
+	Label: 启用物品ID过滤器
+	Tooltip: ""
+}
+
+TurnBlockListToAllowList: {
+	Label: 将黑名单反转为白名单
+	Tooltip: ""
+}
+
+BlockList: {
+	Label: 黑名单
+	Tooltip: ""
+}
+
+CatchesInTheLakeWhereCurrentOrLastFishing: {
+	Label: 在当前或上次钓鱼所在的水域中可获取的渔获
+	Tooltip: ""
+}
+
+Attempts: {
+	Label: 尝试次数
+	Tooltip:
+		'''
+		该值越高，结果越准确
+		若开始钓鱼时游戏卡顿，请适当降低该值
+		'''
+}

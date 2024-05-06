@@ -28,6 +28,8 @@ namespace AutoFisher.Configs.ClientConfigs
         [DefaultValue(SortBy.CountDescending)]
         public SortBy SortBy;
         [ShowDespiteJsonIgnore]
+        public string Character => Main.LocalPlayer.name;
+        [ShowDespiteJsonIgnore]
         public List<ItemCounter> TotalCatches
         {
             get

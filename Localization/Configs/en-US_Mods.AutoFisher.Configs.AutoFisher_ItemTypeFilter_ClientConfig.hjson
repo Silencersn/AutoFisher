@@ -1,0 +1,42 @@
+DisplayName: Item Type Filter
+
+Headers: {
+	ItemTypeFilter: Item Type Filter
+	Fish: Fish
+	UsableItems: Usable Items
+}
+
+EnableItemTypeFilter: {
+	Label: Enable Item Type Filter
+	Tooltip: ""
+}
+
+UsableItems: {
+	Label: Usable Items
+	Tooltip: ""
+}
+
+Crates: {
+	Label: Crates
+	Tooltip: ""
+}
+
+Fishes: {
+	Label: Fishes
+	Tooltip: ""
+}
+
+Junks: {
+	Label: Junks
+	Tooltip: ""
+}
+
+AllItems: {
+	Label: All Items
+	Tooltip: ""
+}
+
+ModItems: {
+	Label: Mod Items
+	Tooltip: ""
+}

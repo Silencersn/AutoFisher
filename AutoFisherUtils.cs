@@ -2,18 +2,6 @@
 {
     public static class AutoFisherUtils
     {
-        /// <summary>
-        /// Try to find item in player's Inventory, OpenVoidBag, PiggyBank, Safe and Defender's Forge.
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="type"></param>
-        /// <param name="index"></param>
-        /// <param name="includeInventory"></param>
-        /// <param name="includeOpenVoidBag"></param>
-        /// <param name="includePiggyBank"></param>
-        /// <param name="inlcudeSafe"></param>
-        /// <param name="includeDefendersForge"></param>
-        /// <returns>If find item, return item and index. If not, return new Item(ItemID.None) </returns>
         public static Item FindItem(this Player player, Func<Item, bool> match, bool includeInventory, bool includeOpenVoidBag, bool includePiggyBank, bool inlcudeSafe, bool includeDefendersForge)
         {
             int index = -1;
@@ -92,13 +80,6 @@
             }
             return count;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="item"></param>
-        /// <returns>return true if no excess</returns>
         public static bool TryGiveItemToPlayerElseDropItem(Entity source, Player player, Item item, bool newAndShiny)
         {
             item.newAndShiny = newAndShiny;
@@ -116,6 +97,23 @@
                 PopupText.NewText(PopupTextContext.RegularItemPickup, item, 0);
                 return true;
             }
+        }
+        public static string GetTimeString(string end = "")
+        {
+            float hours = Utils.GetDayTimeAs24FloatStartingFromMidnight();
+            float minutes = (hours - (int)hours) * 60;
+            float seconds = (minutes - (int)minutes) * 60;
+
+            static string format(float value)
+            {
+                return ((int)value).ToString().PadLeft(2, '0');
+            }
+
+            return $"[{format(hours)}:{format(minutes)}:{format(seconds)}]{end}";
+        }
+        public static string GetItemIconString(int type, int stack = 1)
+        {
+            return $"[i/s{stack}:{type}]";
         }
     }
 }

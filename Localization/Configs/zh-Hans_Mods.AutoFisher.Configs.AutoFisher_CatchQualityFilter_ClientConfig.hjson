@@ -1,0 +1,32 @@
+DisplayName: 渔获品质过滤器
+Headers.CatchQualityFilter: 渔获品质过滤器
+
+EnableCatchQualityFilter: {
+	Label: 启用渔获品质过滤器
+	Tooltip: ""
+}
+
+Common: {
+	Label: 常见
+	Tooltip: ""
+}
+
+Uncommon: {
+	Label: 不常见
+	Tooltip: ""
+}
+
+Rare: {
+	Label: 罕见
+	Tooltip: ""
+}
+
+VeryRare: {
+	Label: 非常罕见
+	Tooltip: ""
+}
+
+ExtremelyRare: {
+	Label: 极度罕见
+	Tooltip: ""
+}

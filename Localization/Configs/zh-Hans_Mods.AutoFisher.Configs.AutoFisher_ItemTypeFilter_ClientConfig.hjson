@@ -1,0 +1,42 @@
+DisplayName: 物品类型过滤器
+
+Headers: {
+	ItemTypeFilter: 物品类型过滤器
+	Fish: 鱼
+	UsableItems: 可使用物品
+}
+
+EnableItemTypeFilter: {
+	Label: 启用物品类型过滤器
+	Tooltip: ""
+}
+
+UsableItems: {
+	Label: 可使用物品
+	Tooltip: ""
+}
+
+Crates: {
+	Label: 宝匣
+	Tooltip: ""
+}
+
+Fishes: {
+	Label: 鱼类
+	Tooltip: ""
+}
+
+Junks: {
+	Label: 垃圾
+	Tooltip: ""
+}
+
+AllItems: {
+	Label: 所有物品
+	Tooltip: ""
+}
+
+ModItems: {
+	Label: 模组物品
+	Tooltip: ""
+}

@@ -6,6 +6,9 @@ namespace AutoFisher.Common.Systems
     {
         public static MethodInfo RF_Projectile_ReduceRemainingChumsInPool { get; private set; }
         public static MethodInfo RF_Projectile_GetFishingPondState { get; private set; }
+        public static MethodInfo RF_Projectile_AI_061_FishingBobber_GiveItemToPlayer { get; private set; }
+
+        public static MethodInfo RF_Player_ItemCheck_CheckFishingBobber_PickAndConsumeBait { get; private set; }
 
         public override void OnModLoad()
         {
@@ -14,6 +17,12 @@ namespace AutoFisher.Common.Systems
                 type.GetMethod(nameof(RF_Projectile.ReduceRemainingChumsInPool), BindingFlags.Instance | BindingFlags.NonPublic);
             RF_Projectile_GetFishingPondState =
                 type.GetMethod(nameof(RF_Projectile.GetFishingPondState), BindingFlags.Static | BindingFlags.NonPublic);
+            RF_Projectile_AI_061_FishingBobber_GiveItemToPlayer =
+                type.GetMethod(nameof(RF_Projectile.AI_061_FishingBobber_GiveItemToPlayer), BindingFlags.Instance | BindingFlags.NonPublic);
+
+            type = typeof(Player);
+            RF_Player_ItemCheck_CheckFishingBobber_PickAndConsumeBait =
+                type.GetMethod(nameof(RF_Player.ItemCheck_CheckFishingBobber_PickAndConsumeBait), BindingFlags.Instance | BindingFlags.NonPublic);
         }
 
     }
@@ -26,12 +35,27 @@ namespace AutoFisher.Common.Systems
         }
         public static void GetFishingPondState(int x, int y, out bool lava, out bool honey, out int numWaters, out int chumCount)
         {
-            object[] objects = { x, y, false, false, 0, 0 };
-            ReflectionCodeLoader.RF_Projectile_GetFishingPondState?.Invoke(null, objects);
-            lava = (bool)objects[2];
-            honey = (bool)objects[3];
-            numWaters = (int)objects[4];
-            chumCount = (int)objects[5];
+            object[] objs = [x, y, false, false, 0, 0];
+            ReflectionCodeLoader.RF_Projectile_GetFishingPondState?.Invoke(null, objs);
+            lava = (bool)objs[2];
+            honey = (bool)objs[3];
+            numWaters = (int)objs[4];
+            chumCount = (int)objs[5];
+        }
+        public static void AI_061_FishingBobber_GiveItemToPlayer(this Projectile self, Player thePlayer, int itemType)
+        {
+            object[] objs = [thePlayer, itemType];
+            ReflectionCodeLoader.RF_Projectile_AI_061_FishingBobber_GiveItemToPlayer?.Invoke(self, objs);
+        }
+    }
+    public static class RF_Player
+    {
+        public static void ItemCheck_CheckFishingBobber_PickAndConsumeBait(this Player self, Projectile bobber, out bool pullTheBobber, out int baitTypeUsed)
+        {
+            object[] objs = [bobber, false, 0];
+            ReflectionCodeLoader.RF_Player_ItemCheck_CheckFishingBobber_PickAndConsumeBait?.Invoke(self, objs);
+            pullTheBobber = (bool)objs[1];
+            baitTypeUsed = (int)objs[2];
         }
     }
 }
