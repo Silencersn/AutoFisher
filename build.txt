@@ -3,3 +3,4 @@ author = Silencersn
 version = 2.2.2.2
 includeSource = true
 buildIgnore = icon.aseprite, log.txt, AutoFisher.sln, AutoFisher.Debuging.cs
+homepage = https://github.com/Silencersn/AutoFisher
