@@ -56,7 +56,6 @@ namespace AutoFisher.Common.Systems
 
             if (info.catchSuccessfully)
             {
-                Main.NewText(infoText);
                 if (info.filtered && config.ShowFilterInfomation) infoText += FilteredText;
                 if (info.autoOpened && config.ShowAutoOpenInfomation) infoText += AutoOpenedText;
                 if (info.autoSold && config.ShowAutoSellInfomation)
