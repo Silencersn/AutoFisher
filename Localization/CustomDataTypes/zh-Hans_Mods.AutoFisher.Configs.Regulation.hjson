@@ -1,0 +1,26 @@
+Tooltip: ""
+
+ConsumeBait: {
+	Label: 消耗鱼饵
+	Tooltip: ""
+}
+
+BreakFishingLine: {
+	Label: 鱼线断裂
+	Tooltip: ""
+}
+
+FishInWater: {
+	Label: 在液体中钓鱼
+	Tooltip: 玩家可浸没在液体中
+}
+
+FishInShimmer: {
+	Label: 在微光中钓鱼
+	Tooltip: 浮标在微光中不会消失
+}
+
+ChangeHeldItemWhenFishing: {
+	Label: 钓鱼时切换手中物品
+	Tooltip: ""
+}

@@ -1,0 +1,26 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+AutoFindBaitsInVoidBag: {
+	Label: Auto Find Baits in Void Bag
+	Tooltip: ""
+}
+
+AutoFindBaitsInPiggyBank: {
+	Label: Auto Find Baits in Piggy Bank
+	Tooltip: ""
+}
+
+AutoFindBaitsInSafe: {
+	Label: Auto Find Baits in Safe
+	Tooltip: ""
+}
+
+AutoFindBaitsInDefendersForge: {
+	Label: Auto Find Baits in Defender's Forge
+	Tooltip: ""
+}

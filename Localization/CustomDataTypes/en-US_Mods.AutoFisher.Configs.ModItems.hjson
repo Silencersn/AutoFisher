@@ -1,0 +1,11 @@
+Tooltip: ""
+
+Mod: {
+	Label: Mod Items
+	Tooltip: ""
+}
+
+NotMod: {
+	Label: Not Mod Items
+	Tooltip: ""
+}

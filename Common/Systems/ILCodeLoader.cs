@@ -1,7 +1,4 @@
-﻿using AutoFisher.Common.GlobalProjectiles;
-using AutoFisher.Configs.ClientConfigs;
-using AutoFisher.Filters;
-using Mono.Cecil.Cil;
+﻿using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria.Audio;
 using Terraria.UI;
@@ -12,64 +9,88 @@ namespace AutoFisher.Common.Systems
     {
         public override void Load()
         {
-            try
-            {
-                IL_Projectile.FishingCheck += IL_Projectile_FishingCheck;
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
-            {
-                IL_Projectile.AI_061_FishingBobber += IL_Projectile_AI_061_FishingBobber;
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
-            {
-                IL_Player.GetItem += IL_Player_GetItem;
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
-            {
-                IL_Projectile.FishingCheck_ProbeForQuestFish += IL_Projectile_FishingCheck_ProbeForQuestFish;
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
-            {
-                IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += IL_ItemSlot_Draw_SpriteBatch_ItemArray_int_int_Vector2_Color;
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
+            TryCatch(() => IL_Projectile.FishingCheck += IL_Projectile_FishingCheck, nameof(IL_Projectile_FishingCheck));
+            TryCatch(() => IL_Projectile.AI_061_FishingBobber += IL_Projectile_AI_061_FishingBobber, nameof(IL_Projectile_AI_061_FishingBobber));
+            TryCatch(() => IL_Player.GetItem += IL_Player_GetItem, nameof(IL_Player_GetItem));
+            TryCatch(() => IL_Projectile.FishingCheck_ProbeForQuestFish += IL_Projectile_FishingCheck_ProbeForQuestFish, nameof(IL_Projectile_FishingCheck_ProbeForQuestFish));
+            TryCatch(() => IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += IL_ItemSlot_Draw_SpriteBatch_ItemArray_int_int_Vector2_Color, nameof(IL_ItemSlot_Draw_SpriteBatch_ItemArray_int_int_Vector2_Color));
+            TryCatch(() => IL_Main.DrawProj_DrawExtras += IL_Main_DrawProj_DrawExtras, nameof(IL_Main_DrawProj_DrawExtras));
+            TryCatch(() => IL_Main.DrawProj_FishingLine += IL_Main_DrawProj_FishingLine, nameof(IL_Main_DrawProj_FishingLine));
         }
 
         /// <summary>
-        /// 在微光中钓鱼
+        /// 修改钓鱼时切换物品后绘制鱼线时的鱼线颜色
+        /// </summary>
+        /// <param name="il"></param>
+        private void IL_Main_DrawProj_FishingLine(ILContext il)
+        {
+            ILCursor c = new(il);
+            c.GotoNext(MoveType.After, i => i.MatchLdloc2());
+            c.Emit(OpCodes.Ldarg_0);
+            c.EmitDelegate(FishingLineColor);
+        }
+        private static Color FishingLineColor(Color source, Projectile proj)
+        {
+            if (ConfigContent.NotEnableMod) return source;
+            if (!ConfigContent.Sever.Common.Regulation.ChangeHeldItemWhenFishing) return source;
+
+            int type = proj.type;
+            if (type is ProjectileID.BobberWooden) source = new Color(200, 200, 200, 100);
+            else if (type is ProjectileID.BobberGolden) source = new Color(100, 180, 230, 100);
+            else if (type is ProjectileID.BobberMechanics) source = new Color(250, 90, 70, 100);
+            else if (type is ProjectileID.BobberFisherOfSouls) source = new Color(203, 190, 210, 100);
+            else if (type is ProjectileID.BobberFleshcatcher) source = new Color(183, 77, 112, 100);
+            else if (type is ProjectileID.BobberHotline) source = new Color(255, 226, 116, 100);
+            else if (type is ProjectileID.BobberBloody) source = new Color(200, 100, 100, 100);
+            else if (type is ProjectileID.BobberScarab) source = new Color(100, 100, 200, 100);
+            return source;
+        }
+
+        /// <summary>
+        /// 钓鱼时切换物品后绘制鱼线
+        /// </summary>
+        /// <param name="il"></param>
+        private void IL_Main_DrawProj_DrawExtras(ILContext il)
+        {
+            TryCatch(() =>
+            {
+                ILCursor c = new(il);
+                c.GotoNext(MoveType.After, i => i.MatchLdfld<Item>(nameof(Item.holdStyle)));
+                c.EmitDelegate(HoldStyle);
+            }, nameof(HoldStyle));
+        }
+        private static int HoldStyle(int source)
+        {
+            if (ConfigContent.NotEnableMod) return source;
+            return ConfigContent.Sever.Common.Regulation.ChangeHeldItemWhenFishing ? -1 : source;
+        }
+
+        /// <summary>
+        /// 在微光中钓鱼<br/>
+        /// 钓鱼时可切换物品
         /// </summary>
         /// <param name="il"></param>
         private void IL_Projectile_AI_061_FishingBobber(ILContext il)
         {
-            try
+            TryCatch(() =>
+            {
+                ILCursor c = new(il);
+                c.GotoNext(MoveType.After, i => i.MatchLdcI4(out int value) && value is 1);
+                c.EmitDelegate(KillBobber);
+                c.GotoNext(MoveType.After, i => i.MatchLdcI4(out int value) && value is 1);
+                c.EmitDelegate(KillBobber);
+            }, nameof(KillBobber));
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdfld<Entity>(nameof(Entity.shimmerWet)));
                 c.EmitDelegate(ShimmerWet);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
+            }, nameof(ShimmerWet));
+        }
+        private static bool KillBobber(bool source)
+        {
+            if (ConfigContent.NotEnableMod) return source;
+            return !ConfigContent.Sever.Common.Regulation.ChangeHeldItemWhenFishing;
         }
         private static bool ShimmerWet(bool source)
         {
@@ -84,21 +105,17 @@ namespace AutoFisher.Common.Systems
         /// <param name="il"></param>
         private void IL_ItemSlot_Draw_SpriteBatch_ItemArray_int_int_Vector2_Color(ILContext il)
         {
-            try
+            TryCatch(() =>
             {
                 const byte index = 30;
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdfld<Item>(nameof(Item.fishingPole)));
-                c.GotoNext(MoveType.After, i => i.MatchBlt(out ILLabel label));
+                c.GotoNext(MoveType.After, i => i.MatchBlt(out _));
                 c.Emit(OpCodes.Ldloc_S, index);
                 c.Emit(OpCodes.Ldloc_0);
                 c.EmitDelegate(CountBaits);
                 c.Emit(OpCodes.Stloc_S, index);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
+            }, nameof(CountBaits));
         }
         private static int CountBaits(int source, Player player)
         {
@@ -118,38 +135,24 @@ namespace AutoFisher.Common.Systems
         /// <param name="il"></param>
         private void IL_Projectile_FishingCheck_ProbeForQuestFish(ILContext il)
         {
-            try
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchCallvirt<Player>(nameof(Player.HasItem)));
                 c.EmitDelegate(WhetherHasQuestFish);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-
-            try
+            }, nameof(WhetherHasQuestFish));
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchCall<NPC>(nameof(NPC.AnyNPCs)));
                 c.EmitDelegate(WhetherExistsAngler);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-
-            try
+            }, nameof(WhetherExistsAngler));
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdsfld<Main>(nameof(Main.anglerQuestFinished)));
                 c.EmitDelegate(IsAnglerQuestFinished);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
+            }, nameof(IsAnglerQuestFinished));
         }
         private static bool WhetherHasQuestFish(bool hasItem)
         {
@@ -173,16 +176,12 @@ namespace AutoFisher.Common.Systems
         /// <param name="il"></param>
         private void IL_Player_GetItem(ILContext il)
         {
-            try
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdfld<Item>(nameof(Item.uniqueStack)));
                 c.EmitDelegate(IsUniqueStack);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
+            }, nameof(IsUniqueStack));
         }
         private static bool IsUniqueStack(bool uniqueStack)
         {
@@ -199,52 +198,36 @@ namespace AutoFisher.Common.Systems
         /// <param name="il"></param>
         private void IL_Projectile_FishingCheck(ILContext il)
         {
-            try
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdfld<Entity>(nameof(Entity.wet)));
                 c.EmitDelegate(IsWet);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
+            }, nameof(IsWet));
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdfld<FishingAttempt>(nameof(FishingAttempt.rolledItemDrop)));
                 c.Emit(OpCodes.Ldarg_0);
                 c.Emit(OpCodes.Ldloc_0);
                 c.EmitDelegate(DropItem);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
+            }, nameof(DropItem));
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 c.GotoNext(MoveType.After, i => i.MatchLdfld<FishingAttempt>(nameof(FishingAttempt.rolledEnemySpawn)));
                 c.Emit(OpCodes.Ldarg_0);
                 c.Emit(OpCodes.Ldloc_0);
                 c.EmitDelegate(SpawnNPC);
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
-            try
+            }, nameof(SpawnNPC));
+            TryCatch(() =>
             {
                 ILCursor c = new(il);
                 while (c.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>(nameof(Player.luck))))
                 {
                     c.EmitDelegate(Luck);
                 }
-            }
-            catch (Exception ex)
-            {
-                ExceptionReporter.Add(ex);
-            }
+            }, nameof(Luck));
         }
         private static bool IsWet(bool wet)
         {
@@ -254,13 +237,11 @@ namespace AutoFisher.Common.Systems
         }
         private static int DropItem(int itemDrop, Projectile bobber, FishingAttempt attempt)
         {
-            //Main.NewText("item: " + itemDrop);
-
             if (ConfigContent.NotEnableMod) return itemDrop;
             if (itemDrop <= 0) return itemDrop;
-            if (bobber == FishingCatchesCalculator.Calculater)
+            if (bobber == BobberManager.Calculater)
             {
-                var catches = CatchesCalculator.catches;
+                var catches = FishingCatchesCalculator.Catches;
                 catches.TryGetValue(itemDrop, out int num);
                 catches[itemDrop] = num + 1;
 
@@ -310,11 +291,11 @@ namespace AutoFisher.Common.Systems
 
             return 0;
         }
-        public static Item DropItem_GetCatches(int finalFishingLevel, int type, Player player)
+        private static Item DropItem_GetCatches(int finalFishingLevel, int type, Player player)
         {
             #region Projectile.AI_061_FishingBobber_GiveItemToPlayer
             Item item = new(type);
-            if (type == ItemID.BombFish)
+            if (type is ItemID.BombFish)
             {
                 int minValue = (finalFishingLevel / 20 + 3) / 2;
                 int maxValue = (finalFishingLevel / 10 + 6) / 2;
@@ -324,7 +305,7 @@ namespace AutoFisher.Common.Systems
                 if (Main.rand.Next(200) < finalFishingLevel) maxValue++;
                 item.stack = Main.rand.Next(minValue, maxValue + 1);
             }
-            if (type == ItemID.FrostDaggerfish)
+            if (type is ItemID.FrostDaggerfish)
             {
                 int minValue = (finalFishingLevel / 4 + 15) / 2;
                 int maxValue = (finalFishingLevel / 2 + 40) / 2;
@@ -398,7 +379,7 @@ namespace AutoFisher.Common.Systems
             if (ConfigContent.NotEnableMod) return npcSpawn;
             if (npcSpawn <= 0) return npcSpawn;
             if (!ConfigContent.CatchNPC) return 0;
-            if (bobber == FishingCatchesCalculator.Calculater) return 0;
+            if (bobber == BobberManager.Calculater) return 0;
 
             Player player = Main.player[bobber.owner];
 
@@ -423,13 +404,28 @@ namespace AutoFisher.Common.Systems
                     packet.Write(npcSpawn);
                     packet.Write(ConfigContent.KillNPC);
                     packet.Send();
+                    if (ConfigContent.KillNPC)
+                    {
+                        NPC npc = new();
+                        npc.SetDefaults(npcSpawn);
+                        if (npc.netID != npc.type) npc.SetDefaults(npc.netID);
+                        int banner = Item.NPCtoBanner(npc.BannerID());
+                        player.lastCreatureHit = banner;
+                    }
                 }
                 else
                 {
                     if (npcSpawn is NPCID.TownSlimeRed) NPC.unlockedSlimeRedSpawn = true;
-                    int npc = NPC.NewNPC(new EntitySource_AutoSpawnNPC(player, ConfigContent.KillNPC), point.X, point.Y, npcSpawn);
+                    int npcIndex = NPC.NewNPC(new EntitySource_AutoSpawnNPC(player, ConfigContent.KillNPC), point.X, point.Y, npcSpawn);
+                    NPC npc = Main.npc[npcIndex];
                     if (npcSpawn is NPCID.TownSlimeRed) WorldGen.CheckAchievement_RealEstateAndTownSlimes();
-                    else if (ConfigContent.KillNPC) Main.npc[npc].StrikeInstantKill();
+                    else if (ConfigContent.KillNPC)
+                    {
+                        npc.playerInteraction[bobber.owner] = true;
+                        int banner = Item.NPCtoBanner(npc.BannerID());
+                        player.lastCreatureHit = banner;
+                        npc.StrikeInstantKill();
+                    }
                 }
             }
 
@@ -451,7 +447,7 @@ namespace AutoFisher.Common.Systems
         /// <summary>
         /// Source Code: <see cref="Player"/>.ItemCheck_CheckFishingBobber_PickAndConsumeBait
         /// </summary>
-        public static void DropItemAndSpawnNPC_PickAndConsumeBait(Projectile bobber, Item bait, out bool consumeBait)
+        private static void DropItemAndSpawnNPC_PickAndConsumeBait(Projectile bobber, Item bait, out bool consumeBait)
         {
             consumeBait = false;
             Player player = Main.player[bobber.owner];
@@ -477,7 +473,6 @@ namespace AutoFisher.Common.Systems
             {
                 Item item = new();
                 item.SetDefaults((int)bobber.localAI[1]);
-                Main.NewText(AutoFisherUtils.GetItemIconString(item.type, 1));
                 if (item.rare < ItemRarityID.White)
                 {
                     consumeBait = false;

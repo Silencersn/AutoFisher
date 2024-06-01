@@ -1,16 +1,13 @@
-﻿using AutoFisher.Common.GlobalProjectiles;
+﻿using Terraria;
 
 namespace AutoFisher.Common.Players
 {
     public class AutoUsePotionsPlayer : ModPlayer
     {
-        public static bool IsFishing => MultipleFishingLines.Bobbers.Count > 0;
-
         public override void PreUpdate()
         {
             if (ConfigContent.NotEnableMod) return;
-            if (!IsFishing) return;
-            MultipleFishingLines.RemoveNotActiveProjectiles();
+            if (!BobberManager.IsFishing) return;
             TryAddAllBuffAboutFishing();
         }
 
@@ -23,25 +20,27 @@ namespace AutoFisher.Common.Players
         }
         private static void TryAddBuffByUsePotions(Player player, int buffType)
         {
-            for (int i = 0; i < player.buffType.Length; i++)
+            if (player.HasBuff(buffType)) return;
+
+            //new ModItem().ConsumeItem
+            List<Item> traversed = [];
+            while (true)
             {
-                if (player.buffType[i] == buffType)
+                Item? potion = player.FindItem(item => item.buffType == buffType && !traversed.Contains(item), true, true, false, false, false);
+                if (potion is null) return;
+                traversed.Add(potion);
+
+                if (!CombinedHooks.CanUseItem(player, potion)) continue;
+
+                ItemLoader.UseItem(potion, player);
+                player.AddBuff(potion.buffType, potion.buffTime);
+                if (ItemLoader.ConsumeItem(potion, player) && potion.stack > 0)
                 {
-                    if (player.buffTime[i] > 0) return;
-                    else break;
+                    potion.stack--;
                 }
-            }
-            for (int i = 0; i < 58; i++)
-            {
-                Item item = player.inventory[i];
-                if (item.stack > 0 && item.buffType == buffType)
+                if (potion.stack <= 0)
                 {
-                    player.AddBuff(item.buffType, item.buffTime);
-                    item.stack--;
-                    if (item.stack <= 0)
-                    {
-                        item.SetDefaults();
-                    }
+                    potion.SetDefaults(0);
                 }
             }
         }

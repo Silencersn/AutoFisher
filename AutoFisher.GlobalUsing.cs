@@ -1,0 +1,22 @@
+﻿#pragma warning disable IDE0001
+global using global::AutoFisher.Common.Configs;
+global using global::AutoFisher.Common.Configs.ClientConfigs;
+global using global::AutoFisher.Common.Configs.SeverConfigs;
+global using global::AutoFisher.Common.EntitySources;
+global using global::AutoFisher.Common.GlobalProjectiles;
+global using global::AutoFisher.Common.Players;
+global using global::AutoFisher.Filters;
+global using global::Microsoft.Xna.Framework;
+global using global::System;
+global using global::System.Collections.Generic;
+global using global::System.IO;
+global using global::System.Linq;
+global using global::Terraria;
+global using global::Terraria.DataStructures;
+global using global::Terraria.ID;
+global using global::Terraria.Localization;
+global using global::Terraria.ModLoader;
+global using global::Terraria.ModLoader.Config;
+global using global::Terraria.ModLoader.IO;
+global using static global::AutoFisher.Common.Systems.ExceptionReporter;
+global using static global::AutoFisher.Common.Systems.LocalizedTextLoader;

@@ -2,7 +2,7 @@
 {
     public static class AutoFisherUtils
     {
-        public static Item FindItem(this Player player, Func<Item, bool> match, bool includeInventory, bool includeOpenVoidBag, bool includePiggyBank, bool inlcudeSafe, bool includeDefendersForge)
+        public static Item? FindItem(this Player player, Func<Item, bool> match, bool includeInventory, bool includeOpenVoidBag, bool includePiggyBank, bool inlcudeSafe, bool includeDefendersForge)
         {
             int index = -1;
             if (includeInventory)

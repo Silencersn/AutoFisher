@@ -1,0 +1,16 @@
+Tooltip: ""
+
+AllFishes: {
+	Label: 所有鱼类
+	Tooltip: ""
+}
+
+NotQueseFish: {
+	Label: 非任务鱼
+	Tooltip: ""
+}
+
+QueseFish: {
+	Label: 任务鱼
+	Tooltip: ""
+}

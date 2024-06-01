@@ -1,0 +1,11 @@
+Tooltip: ""
+
+PreHardmodeCrates: {
+	Label: "[i:2334] Pre-Hardmode Crates"
+	Tooltip: ""
+}
+
+HardmodeCrates: {
+	Label: "[i:3979] Hardmode Crates"
+	Tooltip: ""
+}

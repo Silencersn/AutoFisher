@@ -1,0 +1,16 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+AutoOpenCrates: {
+	Label: "[i:2334] 自动打开宝匣"
+	Tooltip: ""
+}
+
+AutoOpenOysters: {
+	Label: "[i:4410] 自动打开牡蛎"
+	Tooltip: ""
+}

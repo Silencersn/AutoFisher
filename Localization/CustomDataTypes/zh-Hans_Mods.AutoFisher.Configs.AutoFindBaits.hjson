@@ -1,0 +1,26 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+AutoFindBaitsInVoidBag: {
+	Label: 自动在打开的虚空袋中寻找鱼饵
+	Tooltip: ""
+}
+
+AutoFindBaitsInPiggyBank: {
+	Label: 自动在猪猪存钱罐中寻找鱼饵
+	Tooltip: ""
+}
+
+AutoFindBaitsInSafe: {
+	Label: 自动在保险箱中寻找鱼饵
+	Tooltip: ""
+}
+
+AutoFindBaitsInDefendersForge: {
+	Label: 自动在护卫熔炉中寻找鱼饵
+	Tooltip: ""
+}

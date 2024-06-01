@@ -1,0 +1,11 @@
+Tooltip: ""
+
+PreHardmodeCrates: {
+	Label: "[i:2334] 困难模式前的宝匣"
+	Tooltip: ""
+}
+
+HardmodeCrates: {
+	Label: "[i:3979] 困难模式的宝匣"
+	Tooltip: ""
+}

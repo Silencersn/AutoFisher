@@ -1,0 +1,11 @@
+Tooltip: ""
+
+Mod: {
+	Label: 模组物品
+	Tooltip: ""
+}
+
+NotMod: {
+	Label: 非模组物品
+	Tooltip: ""
+}

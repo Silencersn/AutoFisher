@@ -33,3 +33,8 @@ Character: {
 	Label: 人物
 	Tooltip: ""
 }
+
+TotalCoins: {
+	Label: 总钱币
+	Tooltip: 通过自动卖出渔获获取的钱币
+}

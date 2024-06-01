@@ -1,0 +1,31 @@
+Tooltip: ""
+
+Weather: {
+	Label: 天气
+	Tooltip: ""
+}
+
+Time: {
+	Label: 时间
+	Tooltip: ""
+}
+
+Moon: {
+	Label: 月相
+	Tooltip: ""
+}
+
+LakeSize: {
+	Label: 湖泊大小
+	Tooltip: ""
+}
+
+Luck: {
+	Label: 运气
+	Tooltip: ""
+}
+
+OnlyPositiveLuck: {
+	Label: 仅正的运气
+	Tooltip: ""
+}

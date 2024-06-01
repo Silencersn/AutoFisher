@@ -1,0 +1,31 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+EnableCatchQualityFilter: {
+	Label: 启用渔获品质过滤器
+	Tooltip: ""
+}
+
+EnableRarityFilter: {
+	Label: 启用稀有度过滤器
+	Tooltip: ""
+}
+
+EnableSellValueFilter: {
+	Label: 启用卖出价格过滤器
+	Tooltip: ""
+}
+
+EnableItemTypeFilter: {
+	Label: 启用物品类型过滤器
+	Tooltip: ""
+}
+
+EnableItemIDFilter: {
+	Label: 启用物品ID过滤器
+	Tooltip: ""
+}

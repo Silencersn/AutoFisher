@@ -20,14 +20,14 @@
         public static ItemTypeFilter ItemTypeFilter { get; } = new();
         public static SellValueFilter SellValueFilter { get; } = new();
 
-        public static readonly ICatchFilter<IFilterConfig>[] Filters = new ICatchFilter<IFilterConfig>[]
-        {
+        public static readonly ICatchFilter<IFilterConfig>[] Filters =
+        [
             RarityFilter,
             ItemIDFilter,
             CatchQualityFilter,
             ItemTypeFilter,
             SellValueFilter
-        };
+        ];
 
         public static bool FitsFilter(ICatchFilter<IFilterConfig> filter, Item item, FishingAttempt attempt)
         {

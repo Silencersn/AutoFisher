@@ -1,0 +1,31 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+EnableCatchQualityFilter: {
+	Label: Enable Catch Quality Filter
+	Tooltip: ""
+}
+
+EnableRarityFilter: {
+	Label: Enable Rarity Filter
+	Tooltip: ""
+}
+
+EnableSellValueFilter: {
+	Label: Enable Sell Value Filter
+	Tooltip: ""
+}
+
+EnableItemTypeFilter: {
+	Label: Enable Item Type Filter
+	Tooltip: ""
+}
+
+EnableItemIDFilter: {
+	Label: Enable Item ID Filter
+	Tooltip: ""
+}

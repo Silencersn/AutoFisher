@@ -1,6 +1,4 @@
-﻿
-
-namespace AutoFisher
+﻿namespace AutoFisher
 {
     public enum AFMessageType : byte
     {
@@ -33,17 +31,21 @@ namespace AutoFisher
                     }
                     x *= 16;
                     y *= 16;
-                    NPC npc = new();
-                    npc.SetDefaults(type);
-                    int netID = npc.netID;
+                    NPC temp = new();
+                    temp.SetDefaults(type);
                     int index = NPC.NewNPC(new EntitySource_AutoSpawnNPC(Main.player[whoAmI], kill), x, y, type);
-                    if (netID != npc.type)
+                    NPC npc = Main.npc[index];
+                    if (temp.netID != temp.type)
                     {
-                        Main.npc[index].SetDefaults(netID);
+                        npc.SetDefaults(temp.netID);
                         NetMessage.TrySendData(MessageID.SyncNPC, number: index);
                     }
                     if (type is NPCID.TownSlimeRed) WorldGen.CheckAchievement_RealEstateAndTownSlimes();
-                    else if (kill) Main.npc[index].StrikeInstantKill();
+                    else if (kill)
+                    {
+                        npc.playerInteraction[whoAmI] = true;
+                        npc.StrikeInstantKill();
+                    }
                     break;
             }
         }

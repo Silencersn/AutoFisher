@@ -1,0 +1,16 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+FishingLinesCount: {
+	Label: Fishing Lines Count
+	Tooltip: ""
+}
+
+FishingLinesCountIncrement: {
+	Label: Fishing Lines Count
+	Tooltip: ""
+}

@@ -1,0 +1,16 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+AutoCatchNPC: {
+	Label: 自动钓起NPC
+	Tooltip: ""
+}
+
+AutoKillNPC: {
+	Label: 自动击杀NPC
+	Tooltip: ""
+}

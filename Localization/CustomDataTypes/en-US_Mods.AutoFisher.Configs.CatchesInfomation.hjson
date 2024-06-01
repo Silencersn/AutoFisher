@@ -1,0 +1,41 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+ShowTimeInfomation: {
+	Label: Show Time Infomation
+	Tooltip: ""
+}
+
+ShowFilterInfomation: {
+	Label: Show Filter Infomation
+	Tooltip: ""
+}
+
+ShowAutoOpenInfomation: {
+	Label: Show Auto Open Infomation
+	Tooltip: ""
+}
+
+ShowAutoSellInfomation: {
+	Label: Show Auto Sell Infomation
+	Tooltip: ""
+}
+
+ShowComsumedBaitInfomation: {
+	Label: Show Comsumed Bait Infomation
+	Tooltip: ""
+}
+
+ShowNotCaughtCatchesInfomation: {
+	Tooltip: ""
+	Label: Show Not Caught Catches Infomation
+}
+
+ShowFilteredCatchesInfomation: {
+	Tooltip: ""
+	Label: Show Filtered Catches Infomation
+}

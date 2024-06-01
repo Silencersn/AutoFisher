@@ -1,0 +1,35 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+AutoUseFishingPotions: {
+	Label: "[i:2354] Auto Use Fishing Potions"
+	Tooltip: ""
+}
+
+AutoUseCratePotions: {
+	Label: "[i:2356] Auto Use Crate Potions"
+	Tooltip: ""
+}
+
+AutoUseSonarPotions: {
+	Label: "[i:2355] Auto Use Sonar Potions"
+	Tooltip: ""
+}
+
+AutoUseAlesOrSakes: {
+	Label: "[i:353] Auto Use Ales or Sakes"
+	Tooltip: ""
+}
+
+AutoUseChumBuckets: {
+	Label: "[i:4608] Auto Use Chum Buckets"
+	Tooltip:
+		'''
+		the count of chums in the pond
+		the larger it is, the higher the fishing power is
+		'''
+}

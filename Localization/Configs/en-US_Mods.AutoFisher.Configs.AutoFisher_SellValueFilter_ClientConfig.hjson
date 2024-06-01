@@ -3,7 +3,7 @@ Headers.SellValueFilter: Sell Value Filter
 
 EnableSellValueFilter: {
 	Label: Enable Sell Value Filter
-	Tooltip: ""
+	Tooltip: This price is the unit price of the item
 }
 
 Platinum: {
@@ -28,5 +28,5 @@ Copper: {
 
 TotalValue: {
 	Label: Total Value
-	Tooltip: ""
+	Tooltip: This price is the unit price of the item
 }

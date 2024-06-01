@@ -1,0 +1,26 @@
+Tooltip: ""
+
+CanCatchQuestFishWhenSameOneIsInInventory: {
+	Label: 可以在背包中已存在相同任务鱼时钓到任务鱼
+	Tooltip: ""
+}
+
+CanCatchQuestFishWhenAnglerNotExists: {
+	Label: 可以在渔夫不存在时钓到任务鱼
+	Tooltip: ""
+}
+
+CanCatchQuestFishWhenAnglerQuestIsFinished: {
+	Label: 可以在渔夫任务已完成时钓到任务鱼
+	Tooltip: ""
+}
+
+CanPickUpQuestFishWhenSameOneIsInInventory: {
+	Label: 可以在背包中已存在相同任务鱼时拾起任务鱼
+	Tooltip: ""
+}
+
+ChangeAnglerQuestAfterThatIsFinished: {
+	Label: 完成渔夫任务时立即刷新任务
+	Tooltip: ""
+}

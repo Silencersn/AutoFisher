@@ -1,6 +1,4 @@
-﻿using AutoFisher.Configs.ClientConfigs;
-
-namespace AutoFisher.Filters
+﻿namespace AutoFisher.Filters
 {
     public class CatchQualityFilter : ACatchFilter<AutoFisher_CatchQualityFilter_ClientConfig>
     {

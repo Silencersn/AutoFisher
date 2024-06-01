@@ -33,3 +33,8 @@ Attempts: {
 		If game lags when start fishing, reduce the value
 		'''
 }
+
+CalculateImmediately: {
+	Tooltip: If game lags when start fishing, turn it off
+	Label: Finish Calculating Immediately
+}

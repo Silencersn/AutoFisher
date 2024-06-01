@@ -1,0 +1,28 @@
+[h1]Fishing without clicking[/h1]
+Automatically simulate the vanilla fishing
+Automatically open crates and oysters
+Automatically filter unwanted catches
+Automatically use potions
+Automatically find baits in personal storage items (e.t. Piggy Bank)
+Modify the influencing factors of fishing power
+Automatically catch and kill NPCs
+Automatically sell catches
+Multiple Fishing Lines
+Remove restrictions on quest fish
+Catch Counter
+
+Github: https://github.com/Silencersn/AutoFisher
+By Bilibili@Silencersn
+
+[h1]Update Logs[/h1]
+(2024/6/1 11:00) v2.3
+[NEW] Held item can be switched when fishing (server configuration, disabled by default)
+[NEW] Coin statistics obtained through automatic selling (displayed in Catches Counter)
+[IMPROVE] Optimized some filters
+[IMPROVE] Catch Calculator can be set to not calculate immediately (if the buoy freezes when entering the water, this can be enabled)
+[IMPROVE] Auto Kill will be counted by the Bestiary and will trigger the Tally Counter
+[FIX] Some potential issues related to the Angler armor function
+[FIX] Some config defaults are incorrect
+[FIX] None item would be displayed in the catch stats
+[FIX] Fishing power is repeated due to time
+[FIX] Fishing power modifications from other mods were not accepted

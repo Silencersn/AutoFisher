@@ -1,0 +1,26 @@
+Tooltip: ""
+
+CanCatchQuestFishWhenSameOneIsInInventory: {
+	Label: Can Catch Quest Fish When Same One Is In Inventory
+	Tooltip: ""
+}
+
+CanCatchQuestFishWhenAnglerNotExists: {
+	Label: Can Catch Quest Fish When Angler Not Exists
+	Tooltip: ""
+}
+
+CanCatchQuestFishWhenAnglerQuestIsFinished: {
+	Label: Can Catch Quest Fish When Angler Quest Is Finished
+	Tooltip: ""
+}
+
+CanPickUpQuestFishWhenSameOneIsInInventory: {
+	Label: Can Pick Up Quest Fish When Same One Is In Inventory
+	Tooltip: ""
+}
+
+ChangeAnglerQuestAfterThatIsFinished: {
+	Label: Change Angler Quest After That Is Finished
+	Tooltip: ""
+}

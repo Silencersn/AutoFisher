@@ -1,0 +1,26 @@
+Tooltip: ""
+
+ConsumeBait: {
+	Label: Consume Bait
+	Tooltip: ""
+}
+
+BreakFishingLine: {
+	Label: Break Fishing Line
+	Tooltip: ""
+}
+
+FishInWater: {
+	Label: Fish In Water
+	Tooltip: The player can be submerged in liquids
+}
+
+FishInShimmer: {
+	Label: Fish In Shimmer
+	Tooltip: The bobbers do not disappear in the shimmer
+}
+
+ChangeHeldItemWhenFishing: {
+	Label: Change Held Item When Fishing
+	Tooltip: ""
+}

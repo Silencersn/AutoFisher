@@ -1,7 +1,4 @@
-﻿using AutoFisher.Common.Players;
-using Terraria.Localization;
-
-namespace AutoFisher.Common.Systems
+﻿namespace AutoFisher.Common.Systems
 {
     public struct CatchesInfo
     {
@@ -25,20 +22,15 @@ namespace AutoFisher.Common.Systems
 
     public static class CatchesInformation
     {
-        public static LocalizedText CatchInfomationText { get; set; }
-        public static LocalizedText NotCatchInfomationText { get; set; }
-        public static LocalizedText FilteredText { get; set; }
-        public static LocalizedText AutoOpenedText { get; set; }
-        public static LocalizedText AutoSoldText { get; set; }
-        public static LocalizedText ConsumeBaitText { get; set; }
-        public static LocalizedText AutoKilledText { get; set; }
-        public static LocalizedText FishingLineBreaksText { get; set; }
-
         public static void Show(CatchesInfo info)
         {
             if (info.catchSuccessfully && !info.filtered)
             {
                 CatchesRecorder.AddCatchToLocalPlayer(info.itemDrop, info.stack);
+            }
+            if (info.autoSold)
+            {
+                CatchesRecorder.AddCoinsToLocalPlayer(info.coins);
             }
 
             var config = ConfigContent.Client.Common.CatchesInfomation;
@@ -80,22 +72,6 @@ namespace AutoFisher.Common.Systems
 
             if (info.consumedBait && config.ShowComsumedBaitInfomation) infoText += ConsumeBaitText.Format(info.bait);
             Main.NewText(infoText);
-        }
-    }
-
-    public class LocalizedTextLoader : ModSystem
-    {
-        public override void OnModLoad()
-        {
-            const string key = "Mods.AutoFisher.Infomation.";
-            CatchesInformation.CatchInfomationText = Language.GetOrRegister(key + nameof(CatchesInformation.CatchInfomationText));
-            CatchesInformation.NotCatchInfomationText = Language.GetOrRegister(key + nameof(CatchesInformation.NotCatchInfomationText));
-            CatchesInformation.FilteredText = Language.GetOrRegister(key + nameof(CatchesInformation.FilteredText));
-            CatchesInformation.AutoOpenedText = Language.GetOrRegister(key + nameof(CatchesInformation.AutoOpenedText));
-            CatchesInformation.AutoSoldText = Language.GetOrRegister(key + nameof(CatchesInformation.AutoSoldText));
-            CatchesInformation.ConsumeBaitText = Language.GetOrRegister(key + nameof(CatchesInformation.ConsumeBaitText));
-            CatchesInformation.AutoKilledText = Language.GetOrRegister(key + nameof(CatchesInformation.AutoKilledText));
-            CatchesInformation.FishingLineBreaksText = Language.GetOrRegister(key + nameof(CatchesInformation.FishingLineBreaksText));
         }
     }
 }

@@ -33,3 +33,8 @@ Character: {
 	Label: Player
 	Tooltip: ""
 }
+
+TotalCoins: {
+	Label: Total Coins
+	Tooltip: Coins obtained by auto selling catches
+}

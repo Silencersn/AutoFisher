@@ -1,0 +1,16 @@
+Tooltip: ""
+
+InVanitySlots: {
+	Label: 时装栏
+	Tooltip: ""
+}
+
+InInventoryOrVoidBag: {
+	Label: 物品栏或虚空袋
+	Tooltip: ""
+}
+
+InInventoryOrVoidBagAndFavorited: {
+	Label: 物品栏或虚空袋（处于收藏状态）
+	Tooltip: ""
+}

@@ -1,0 +1,21 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+AutoSellAllCatches: {
+	Label: Auto Sell All Catches
+	Tooltip: ""
+}
+
+AutoSellFilteredCatches: {
+	Label: Auto Sell Filtered Catches
+	Tooltip: ""
+}
+
+AutoSellUnfilteredCatches: {
+	Label: Auto Sell Unfiltered Catches
+	Tooltip: ""
+}

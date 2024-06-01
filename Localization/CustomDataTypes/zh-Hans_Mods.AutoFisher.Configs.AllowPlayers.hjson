@@ -1,0 +1,41 @@
+Tooltip: ""
+
+EnableMod: {
+	Label: 启用模组
+	Tooltip: ""
+}
+
+EnableMultipleFishingLines: {
+	Label: 启用多线钓鱼
+	Tooltip: ""
+}
+
+EnableFilters: {
+	Label: 启用过滤器
+	Tooltip: ""
+}
+
+EnableAutoOpen: {
+	Label: 启用自动打开
+	Tooltip: ""
+}
+
+EnableAutoUse: {
+	Label: 启用自动使用
+	Tooltip: ""
+}
+
+EnableAutoSell: {
+	Label: 启用自动卖出
+	Tooltip: ""
+}
+
+EnableAutoSpawnNPC: {
+	Label: 启用自动钓起NPC
+	Tooltip: ""
+}
+
+EnableAutoFindBaits: {
+	Label: 启用自动寻找鱼饵
+	Tooltip: ""
+}

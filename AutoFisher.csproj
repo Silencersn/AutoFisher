@@ -4,7 +4,6 @@
   <PropertyGroup>
     <AssemblyName>AutoFisher</AssemblyName>
     <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-  </ItemGroup>
 </Project>

@@ -1,0 +1,16 @@
+Tooltip: ""
+
+Enable: {
+	Label: Enable
+	Tooltip: ""
+}
+
+AutoOpenCrates: {
+	Label: "[i:2334] Auto Open Crates"
+	Tooltip: ""
+}
+
+AutoOpenOysters: {
+	Label: "[i:4410] Auto Open Oysters"
+	Tooltip: ""
+}

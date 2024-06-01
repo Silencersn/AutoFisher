@@ -1,0 +1,31 @@
+Tooltip: ""
+
+Weather: {
+	Label: Weather
+	Tooltip: ""
+}
+
+Time: {
+	Label: Time
+	Tooltip: ""
+}
+
+Moon: {
+	Label: Moon
+	Tooltip: ""
+}
+
+LakeSize: {
+	Label: Lake Size
+	Tooltip: ""
+}
+
+Luck: {
+	Label: Luck
+	Tooltip: ""
+}
+
+OnlyPositiveLuck: {
+	Label: Only Positive Luck
+	Tooltip: ""
+}

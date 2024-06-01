@@ -3,7 +3,7 @@ Headers.SellValueFilter: 卖出价格过滤器
 
 EnableSellValueFilter: {
 	Label: 启用卖出价格过滤器
-	Tooltip: ""
+	Tooltip: 该价格为物品单价
 }
 
 Platinum: {
@@ -28,5 +28,5 @@ Copper: {
 
 TotalValue: {
 	Label: 总价值
-	Tooltip: ""
+	Tooltip: 该价格为物品单价
 }

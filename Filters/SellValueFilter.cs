@@ -1,6 +1,4 @@
-﻿using AutoFisher.Configs.ClientConfigs;
-
-namespace AutoFisher.Filters
+﻿namespace AutoFisher.Filters
 {
     public class SellValueFilter : ACatchFilter<AutoFisher_SellValueFilter_ClientConfig>
     {

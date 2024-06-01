@@ -6,21 +6,25 @@ AllJunks: {
 }
 
 OldShoe: {
+	// Localization Keys
 	// Label: "[i:2337] {$ItemName.OldShoe}"
 	// Tooltip: ""
 }
 
 Seaweed: {
+	// Localization Keys
 	// Label: "[i:2338] {$ItemName.FishingSeaweed}"
 	// Tooltip: ""
 }
 
 TinCan: {
+	// Localization Keys
 	// Label: "[i:2339] {$ItemName.TinCan}"
 	// Tooltip: ""
 }
 
 JojaCola: {
+	// Localization Keys
 	// Label: "[i:5275] {$ItemName.JojaCola}"
 	// Tooltip: ""
 }

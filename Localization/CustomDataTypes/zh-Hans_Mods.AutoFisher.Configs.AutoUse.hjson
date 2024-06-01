@@ -1,0 +1,35 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+AutoUseFishingPotions: {
+	Label: "[i:2354] 自动使用钓鱼药水"
+	Tooltip: ""
+}
+
+AutoUseCratePotions: {
+	Label: "[i:2356] 自动使用宝匣药水"
+	Tooltip: ""
+}
+
+AutoUseSonarPotions: {
+	Label: "[i:2355] 自动使用声纳药水"
+	Tooltip: ""
+}
+
+AutoUseAlesOrSakes: {
+	Label: "[i:353] 自动使用麦芽酒或清酒"
+	Tooltip: ""
+}
+
+AutoUseChumBuckets: {
+	Label: "[i:4608] 自动使用鱼饵桶"
+	Tooltip:
+		'''
+		池塘中鱼饵的数量
+		数量越多，增加的渔力越多，最大数量为3
+		'''
+}

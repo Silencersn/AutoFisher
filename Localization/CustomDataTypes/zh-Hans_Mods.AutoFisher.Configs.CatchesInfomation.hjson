@@ -1,0 +1,41 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+ShowTimeInfomation: {
+	Label: 显示时间信息
+	Tooltip: ""
+}
+
+ShowFilterInfomation: {
+	Label: 显示自动过滤信息
+	Tooltip: ""
+}
+
+ShowAutoOpenInfomation: {
+	Label: 显示自动打开信息
+	Tooltip: ""
+}
+
+ShowAutoSellInfomation: {
+	Label: 显示自动卖出信息
+	Tooltip: ""
+}
+
+ShowComsumedBaitInfomation: {
+	Label: 显示鱼饵消耗信息
+	Tooltip: ""
+}
+
+ShowNotCaughtCatchesInfomation: {
+	Tooltip: ""
+	Label: 显示未捕获的渔获信息
+}
+
+ShowFilteredCatchesInfomation: {
+	Tooltip: ""
+	Label: 显示被过滤的的渔获信息
+}

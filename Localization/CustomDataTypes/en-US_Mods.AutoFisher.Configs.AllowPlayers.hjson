@@ -1,0 +1,41 @@
+Tooltip: ""
+
+EnableMod: {
+	Label: Enable Mod
+	Tooltip: ""
+}
+
+EnableMultipleFishingLines: {
+	Label: Enable Multiple Fishing Lines
+	Tooltip: ""
+}
+
+EnableFilters: {
+	Label: Enable Filters
+	Tooltip: ""
+}
+
+EnableAutoOpen: {
+	Label: Enable Auto Open
+	Tooltip: ""
+}
+
+EnableAutoUse: {
+	Label: Enable Auto Use
+	Tooltip: ""
+}
+
+EnableAutoSell: {
+	Label: Enable Auto Sell
+	Tooltip: ""
+}
+
+EnableAutoSpawnNPC: {
+	Label: Enable Auto Spawn NPC
+	Tooltip: ""
+}
+
+EnableAutoFindBaits: {
+	Label: Enable Auto Find Baits
+	Tooltip: ""
+}

@@ -1,0 +1,11 @@
+Tooltip: ""
+
+ItemDefinition: {
+	Label: 渔获
+	Tooltip: ""
+}
+
+Count: {
+	Label: 数量
+	Tooltip: ""
+}

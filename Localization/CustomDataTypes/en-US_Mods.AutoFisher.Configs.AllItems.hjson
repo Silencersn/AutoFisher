@@ -1,0 +1,67 @@
+Misc: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabMisc] {$CreativePowers.TabMisc}"
+}
+
+Materials: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabMaterials] {$CreativePowers.TabMaterials}"
+}
+
+Tools: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabTools] {$CreativePowers.TabTools}"
+}
+
+Consumables: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabConsumables] {$CreativePowers.TabConsumables}"
+}
+
+MiscAccessories: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabAccessoriesMisc] {$CreativePowers.TabAccessoriesMisc}"
+}
+
+Accessories: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabAccessories] {$CreativePowers.TabAccessories}"
+}
+
+Furniture: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabFurniture] {$CreativePowers.TabFurniture}"
+}
+
+BuildingBlock: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabBlocks] {$CreativePowers.TabBlocks}"
+}
+
+Vanity: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabVanity] {$CreativePowers.TabVanity}"
+}
+
+Armor: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabArmor] {$CreativePowers.TabArmor}"
+}
+
+Weapon: {
+	// Localization Keys
+	Tooltip: ""
+	Label: "[i:AutoFisher/TabWeapons] {$CreativePowers.TabWeapons}"
+}
+
+Tooltip: ""

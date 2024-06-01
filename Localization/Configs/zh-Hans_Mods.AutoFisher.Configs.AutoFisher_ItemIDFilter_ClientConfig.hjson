@@ -33,3 +33,8 @@ Attempts: {
 		若开始钓鱼时游戏卡顿，请适当降低该值
 		'''
 }
+
+CalculateImmediately: {
+	Tooltip: 若开始钓鱼时游戏卡顿，请关闭该项
+	Label: 立即完成计算
+}

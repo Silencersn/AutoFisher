@@ -1,0 +1,21 @@
+Tooltip: ""
+
+Enable: {
+	Label: 启用
+	Tooltip: ""
+}
+
+AutoSellAllCatches: {
+	Label: 自动卖出所有渔获
+	Tooltip: ""
+}
+
+AutoSellFilteredCatches: {
+	Label: 自动卖出被过滤的渔获
+	Tooltip: ""
+}
+
+AutoSellUnfilteredCatches: {
+	Label: 自动卖出未被过滤的渔获
+	Tooltip: ""
+}
