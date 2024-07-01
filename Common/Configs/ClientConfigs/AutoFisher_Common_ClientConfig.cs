@@ -11,12 +11,12 @@ namespace AutoFisher.Common.Configs.ClientConfigs
 
         public CatchesInfomation CatchesInfomation = new();
         public MultipleFishingLines MultipleFishingLines = new();
+        public Filters Filters = new();
         public AutoOpen AutoOpen = new();
         public AutoUse AutoUse = new();
         public AutoSell AutoSell = new();
         public AutoSpawnNPC AutoSpawnNPC = new();
         public AutoFindBaits AutoFindBaits = new();
-        public Filters Filters = new();
     }
 
     public class CatchesInfomation
@@ -58,7 +58,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         public bool AutoUseCratePotions = false;
         public bool AutoUseSonarPotions = false;
         public bool AutoUseAlesOrSakes = false;
-        [Range(0, 3)]
+        [Range(0, 99)]
         [Increment(1)]
         public int AutoUseChumBuckets = 0;
     }

@@ -30,3 +30,8 @@ TotalValue: {
 	Label: Total Value
 	Tooltip: This price is the unit price of the item
 }
+
+PromptEnableAllFilters: {
+	Label: Prompt
+	Tooltip: ""
+}

@@ -2,25 +2,25 @@ Tooltip: ""
 
 ConsumeBait: {
 	Label: 消耗鱼饵
-	Tooltip: ""
+	Tooltip: 开启后，钓起时有概率消耗鱼饵
 }
 
 BreakFishingLine: {
 	Label: 鱼线断裂
-	Tooltip: ""
+	Tooltip: 开启后，钓起时鱼线有概率断裂，导致失去渔获
 }
 
 FishInWater: {
 	Label: 在液体中钓鱼
-	Tooltip: 玩家可浸没在液体中
+	Tooltip: 开启后，玩家可浸没在液体中
 }
 
 FishInShimmer: {
 	Label: 在微光中钓鱼
-	Tooltip: 浮标在微光中不会消失
+	Tooltip: 开启后，浮标在微光中不会消失
 }
 
 ChangeHeldItemWhenFishing: {
 	Label: 钓鱼时切换手中物品
-	Tooltip: ""
+	Tooltip: 开启后，切换手中物品不会导致钓鱼停止
 }

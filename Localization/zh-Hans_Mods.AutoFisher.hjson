@@ -1,1 +1,16 @@
 // InfoDisplays.PondStateInfoDisplay.DisplayName: Pond State Info Display
+
+Configs: {
+	PromptEnableAllFilters: {
+		// Tooltip: ""
+
+		EnableAllFilters: {
+			Label: 启用过滤器
+			Tooltip:
+				'''
+				该选项在基础客户端配置中
+				若该选项关闭，则过滤器将不会工作
+				'''
+		}
+	}
+}

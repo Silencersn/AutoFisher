@@ -8,6 +8,8 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         public override ConfigScope Mode => ConfigScope.ClientSide;
         bool IFilterConfig.Enable => EnableItemTypeFilter;
 
+        public PromptEnableAllFilters PromptEnableAllFilters = new();
+
         [Header("ItemTypeFilter")]
         [DefaultValue(false)]
         public bool EnableItemTypeFilter = false;

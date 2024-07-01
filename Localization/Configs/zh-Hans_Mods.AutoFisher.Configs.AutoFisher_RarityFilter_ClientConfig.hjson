@@ -85,3 +85,8 @@ Master: {
 	Label: "[c/FF8C00:火][c/FF5000:红][c/FF1400:色]"
 	Tooltip: ""
 }
+
+PromptEnableAllFilters: {
+	Label: 提示
+	Tooltip: ""
+}

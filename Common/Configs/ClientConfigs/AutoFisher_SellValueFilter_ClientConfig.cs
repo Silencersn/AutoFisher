@@ -7,6 +7,8 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         public override ConfigScope Mode => ConfigScope.ClientSide;
         bool IFilterConfig.Enable => EnableSellValueFilter;
 
+        public PromptEnableAllFilters PromptEnableAllFilters = new();
+
         [Header("SellValueFilter")]
         [DefaultValue(false)]
         public bool EnableSellValueFilter;

@@ -2,30 +2,36 @@ Tooltip: ""
 
 Enable: {
 	Label: Enable
-	Tooltip: ""
+	Tooltip:
+		'''
+		The filters only work when this switch enable and the other switch in matching config of the filter enable
+		For example:
+		Enable: on; EnableCatchQualityFilter off; EnableItemIDFilter on; -> CatchQualityFilter does not work while ItemIDFilter works
+		Enable: off; EnableCatchQualityFilter off; EnableItemIDFilter on; -> Both of them do not work
+		'''
 }
 
 EnableCatchQualityFilter: {
 	Label: Enable Catch Quality Filter
-	Tooltip: ""
+	Tooltip: This switch is in Catch Quality Filter Config
 }
 
 EnableRarityFilter: {
 	Label: Enable Rarity Filter
-	Tooltip: ""
+	Tooltip: This switch is in Rarity Filter Config
 }
 
 EnableSellValueFilter: {
 	Label: Enable Sell Value Filter
-	Tooltip: ""
+	Tooltip: This switch is in Sell Value Filter Config
 }
 
 EnableItemTypeFilter: {
 	Label: Enable Item Type Filter
-	Tooltip: ""
+	Tooltip: This switch is in Item Type Filter Config
 }
 
 EnableItemIDFilter: {
 	Label: Enable Item ID Filter
-	Tooltip: ""
+	Tooltip: This switch is in Item ID Filter Config
 }

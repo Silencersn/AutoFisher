@@ -2,30 +2,36 @@ Tooltip: ""
 
 Enable: {
 	Label: 启用
-	Tooltip: ""
+	Tooltip:
+		'''
+		所有过滤器仅在该选项启用，且目标过滤器对应配置中的启用选项也启用时，才会正常工作
+		例:
+		启用：开；启用渔获品质过滤器：关；启用物品ID过滤器：开 -> 渔获品质过滤器不工作而物品ID过滤器工作
+		启用：关；启用渔获品质过滤器：关；启用物品ID过滤器：开 -> 两个过滤器均不工作
+		'''
 }
 
 EnableCatchQualityFilter: {
 	Label: 启用渔获品质过滤器
-	Tooltip: ""
+	Tooltip: 该选项在渔获品质过滤器配置中
 }
 
 EnableRarityFilter: {
 	Label: 启用稀有度过滤器
-	Tooltip: ""
+	Tooltip: 该选项在稀有度过滤器配置中
 }
 
 EnableSellValueFilter: {
 	Label: 启用卖出价格过滤器
-	Tooltip: ""
+	Tooltip: 该选项在卖出价格过滤器配置中
 }
 
 EnableItemTypeFilter: {
 	Label: 启用物品类型过滤器
-	Tooltip: ""
+	Tooltip: 该选项在物品类型过滤器配置中
 }
 
 EnableItemIDFilter: {
 	Label: 启用物品ID过滤器
-	Tooltip: ""
+	Tooltip: 该选项在物品ID过滤器配置中
 }

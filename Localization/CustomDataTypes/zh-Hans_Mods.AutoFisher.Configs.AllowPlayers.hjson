@@ -1,4 +1,8 @@
-Tooltip: ""
+Tooltip:
+	'''
+	该模块被设计用于在多人游戏中限制其它玩家
+	单人游戏可忽略
+	'''
 
 EnableMod: {
 	Label: 启用模组

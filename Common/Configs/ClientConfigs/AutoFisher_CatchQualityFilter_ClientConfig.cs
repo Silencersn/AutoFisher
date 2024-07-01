@@ -7,6 +7,8 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         public override ConfigScope Mode => ConfigScope.ClientSide;
         bool IFilterConfig.Enable => EnableCatchQualityFilter;
 
+        public PromptEnableAllFilters PromptEnableAllFilters = new();
+
         [Header("CatchQualityFilter")]
         [DefaultValue(false)]
         public bool EnableCatchQualityFilter;

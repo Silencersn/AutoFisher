@@ -30,3 +30,8 @@ TotalValue: {
 	Label: 总价值
 	Tooltip: 该价格为物品单价
 }
+
+PromptEnableAllFilters: {
+	Label: 提示
+	Tooltip: ""
+}

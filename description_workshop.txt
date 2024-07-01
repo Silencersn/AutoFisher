@@ -15,6 +15,10 @@ Github: https://github.com/Silencersn/AutoFisher
 By Bilibili@Silencersn
 
 [h1]更新日志 / Update Logs[/h1]
+(2024/7/1 15:00) v2.3.1
+【改进】为部分配置项添加了一些提示
+【改进】修改了部分配置项的限制
+
 (2024/6/1 11:00) v2.3
 【新增】钓鱼时可切换物品（服务端配置，默认关闭）
 【新增】通过自动卖出获取的钱币统计（显示在渔获统计）

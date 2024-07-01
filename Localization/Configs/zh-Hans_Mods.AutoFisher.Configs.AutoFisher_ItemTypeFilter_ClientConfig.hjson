@@ -40,3 +40,8 @@ ModItems: {
 	Label: 模组物品
 	Tooltip: ""
 }
+
+PromptEnableAllFilters: {
+	Label: 提示
+	Tooltip: ""
+}

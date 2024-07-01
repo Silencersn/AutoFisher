@@ -23,6 +23,8 @@ namespace AutoFisher.Common.Configs.ClientConfigs
             return true;
         }
 
+        public PromptEnableAllFilters PromptEnableAllFilters = new();
+
         [Header("ItemIDFilter")]
         [DefaultValue(false)]
         public bool EnableItemIDFilter;

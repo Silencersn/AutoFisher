@@ -2,25 +2,25 @@ Tooltip: ""
 
 ConsumeBait: {
 	Label: Consume Bait
-	Tooltip: ""
+	Tooltip: If enable, it is possible to consume baits when dropping
 }
 
 BreakFishingLine: {
 	Label: Break Fishing Line
-	Tooltip: ""
+	Tooltip: If enable, it is possible that the fishing line breaks when dropping, and lead to lose the catches
 }
 
 FishInWater: {
 	Label: Fish In Water
-	Tooltip: The player can be submerged in liquids
+	Tooltip: If enable, the player can be submerged in liquids
 }
 
 FishInShimmer: {
 	Label: Fish In Shimmer
-	Tooltip: The bobbers do not disappear in the shimmer
+	Tooltip: If enable, the bobbers do not disappear in the shimmer
 }
 
 ChangeHeldItemWhenFishing: {
 	Label: Change Held Item When Fishing
-	Tooltip: ""
+	Tooltip: If enable, the player can change item and that will not stop fishing
 }

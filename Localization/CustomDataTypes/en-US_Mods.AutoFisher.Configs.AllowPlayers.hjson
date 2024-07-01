@@ -1,4 +1,8 @@
-Tooltip: ""
+Tooltip:
+	'''
+	this module is designed for multiplayer to restrict other players
+	Single player can ignore this
+	'''
 
 EnableMod: {
 	Label: Enable Mod

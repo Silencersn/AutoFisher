@@ -15,6 +15,10 @@ Github: https://github.com/Silencersn/AutoFisher
 By Bilibili@Silencersn
 
 [h1]Update Logs[/h1]
+(2024/7/1 15:00) v2.3.1
+[IMPROVE] Add some hints to some config options
+[IMPROVE] Modif the restrictions of some config options
+
 (2024/6/1 11:00) v2.3
 [NEW] Held item can be switched when fishing (server configuration, disabled by default)
 [NEW] Coin statistics obtained through automatic selling (displayed in Catches Counter)

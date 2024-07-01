@@ -17,11 +17,11 @@ TurnBlockListToAllowList: {
 
 BlockList: {
 	Label: Block List
-	Tooltip: ""
+	Tooltip: If [Turn Block List To Allow List] On, this is Allow List
 }
 
 CatchesInTheLakeWhereCurrentOrLastFishing: {
-	Label: Catches In The Lake Where Current Or Last Fishing
+	Label: Possible Catches In Current or Last Fishing
 	Tooltip: ""
 }
 
@@ -37,4 +37,9 @@ Attempts: {
 CalculateImmediately: {
 	Tooltip: If game lags when start fishing, turn it off
 	Label: Finish Calculating Immediately
+}
+
+PromptEnableAllFilters: {
+	Label: Prompt
+	Tooltip: ""
 }

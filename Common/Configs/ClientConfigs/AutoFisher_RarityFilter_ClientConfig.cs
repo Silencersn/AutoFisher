@@ -7,6 +7,8 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         public override ConfigScope Mode => ConfigScope.ClientSide;
         bool IFilterConfig.Enable => EnableRarityFilter;
 
+        public PromptEnableAllFilters PromptEnableAllFilters = new();
+
         [Header("RarityFilter")]
         [DefaultValue(false)]
         public bool EnableRarityFilter;

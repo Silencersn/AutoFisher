@@ -3,7 +3,7 @@ Headers.CatchQualityFilter: 渔获品质过滤器
 
 EnableCatchQualityFilter: {
 	Label: 启用渔获品质过滤器
-	Tooltip: ""
+	Tooltip: 提示：部分鱼有多种品质，因此通过过滤某一品质来过滤某一种鱼并不总是有效
 }
 
 Common: {
@@ -28,5 +28,10 @@ VeryRare: {
 
 ExtremelyRare: {
 	Label: 极度罕见
+	Tooltip: ""
+}
+
+PromptEnableAllFilters: {
+	Label: 提示
 	Tooltip: ""
 }

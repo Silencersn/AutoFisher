@@ -30,6 +30,6 @@ AutoUseChumBuckets: {
 	Tooltip:
 		'''
 		the count of chums in the pond
-		the larger it is, the higher the fishing power is
+		the larger it is, the higher the fishing power is, the max significant num in vanilla is 3
 		'''
 }

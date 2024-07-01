@@ -17,11 +17,11 @@ TurnBlockListToAllowList: {
 
 BlockList: {
 	Label: 黑名单
-	Tooltip: ""
+	Tooltip: 如果【将黑名单反转为白名单】开启，此项视为白名单
 }
 
 CatchesInTheLakeWhereCurrentOrLastFishing: {
-	Label: 在当前或上次钓鱼所在的水域中可获取的渔获
+	Label: 在当前或上次钓鱼中可能获取的渔获
 	Tooltip: ""
 }
 
@@ -37,4 +37,9 @@ Attempts: {
 CalculateImmediately: {
 	Tooltip: 若开始钓鱼时游戏卡顿，请关闭该项
 	Label: 立即完成计算
+}
+
+PromptEnableAllFilters: {
+	Label: 提示
+	Tooltip: ""
 }

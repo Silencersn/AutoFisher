@@ -40,3 +40,8 @@ ModItems: {
 	Label: Mod Items
 	Tooltip: ""
 }
+
+PromptEnableAllFilters: {
+	Label: Prompt
+	Tooltip: ""
+}

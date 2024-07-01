@@ -1,4 +1,4 @@
-Tooltip: ""
+Tooltip: The order of finding is: Inventory -> Open Void Bag -> Piggy Bank -> Safe -> Sentinel Furnace
 
 Enable: {
 	Label: Enable

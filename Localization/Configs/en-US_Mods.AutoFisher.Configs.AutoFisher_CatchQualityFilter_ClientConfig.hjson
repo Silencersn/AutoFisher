@@ -3,7 +3,7 @@ Headers.CatchQualityFilter: Catch Quality Filter
 
 EnableCatchQualityFilter: {
 	Label: Enable Catch Quality Filter
-	Tooltip: ""
+	Tooltip: Tip: Some fish have different quality, so it may be useless to filter a certain type of fish by this
 }
 
 Common: {
@@ -28,5 +28,10 @@ VeryRare: {
 
 ExtremelyRare: {
 	Label: Extremely Rare
+	Tooltip: ""
+}
+
+PromptEnableAllFilters: {
+	Label: Prompt
 	Tooltip: ""
 }

@@ -1,1 +1,16 @@
 InfoDisplays.PondStateInfoDisplay.DisplayName: Pond State Info Display
+
+Configs: {
+	PromptEnableAllFilters: {
+		Tooltip: ""
+
+		EnableAllFilters: {
+			Label: Enable Filters
+			Tooltip:
+				'''
+				This switch is in Common Client Config
+				If this switch is Off, the filter will NOT work
+				'''
+		}
+	}
+}

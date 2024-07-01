@@ -85,3 +85,8 @@ Master: {
 	Label: "[c/FFC800:M][c/FF8C00:a][c/FF5000:s][c/FF1400:t][c/FF2800:e][c/FF6400:r]"
 	Tooltip: ""
 }
+
+PromptEnableAllFilters: {
+	Label: Prompt
+	Tooltip: ""
+}
