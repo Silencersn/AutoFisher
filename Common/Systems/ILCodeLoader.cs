@@ -186,7 +186,7 @@ namespace AutoFisher.Common.Systems
         private static bool IsUniqueStack(bool uniqueStack)
         {
             if (ConfigContent.NotEnableMod) return uniqueStack;
-            return !ConfigContent.Sever.Common.FishingQuests.CanPickUpQuestFishWhenSameOneIsInInventory;
+            return uniqueStack && !ConfigContent.Sever.Common.FishingQuests.CanPickUpQuestFishWhenSameOneIsInInventory;
         }
 
         /// <summary>
