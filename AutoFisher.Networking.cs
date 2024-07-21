@@ -2,7 +2,8 @@
 {
     public enum AFMessageType : byte
     {
-        AutoSpawnNPC
+        AutoSpawnNPC,
+        SwapAnglerQuest
     }
 
     public partial class AutoFisher
@@ -14,7 +15,6 @@
             switch (msgType)
             {
                 case AFMessageType.AutoSpawnNPC:
-
                     int x = reader.ReadInt32();
                     int y = reader.ReadInt32();
                     int type = reader.ReadInt32();
@@ -46,6 +46,10 @@
                         npc.playerInteraction[whoAmI] = true;
                         npc.StrikeInstantKill();
                     }
+                    break;
+
+                case AFMessageType.SwapAnglerQuest:
+                    Main.AnglerQuestSwap();
                     break;
             }
         }
