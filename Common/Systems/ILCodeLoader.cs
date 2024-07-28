@@ -260,7 +260,7 @@ namespace AutoFisher.Common.Systems
             info.filtered = CatchFilters.FitsFilters(item, attempt);
             info.fishingLineBreaks =
                 ConfigContent.Sever.Common.Regulation.BreakFishingLine &&
-                !player.accTackleBox &&
+                !player.accFishingLine &&
                 !(player.sonarPotion && info.filtered) &&
                 Main.rand.NextBool(7);
 
