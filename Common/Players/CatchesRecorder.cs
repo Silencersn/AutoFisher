@@ -6,6 +6,7 @@ namespace AutoFisher.Common.Players
     {
         public Dictionary<ItemDefinition, int> TotalCatches = [];
         public Dictionary<ItemDefinition, int> CurrentOrLastCatches = [];
+        public ItemDefinition LastCatchedItem = new();
         public long[] Coins = [0, 0, 0, 0];
 
         public override void SaveData(TagCompound tag)
@@ -84,6 +85,7 @@ namespace AutoFisher.Common.Players
         public void AddCatch(int type, int stack)
         {
             ItemDefinition definition = new(type);
+            LastCatchedItem = definition;
             if (!TotalCatches.ContainsKey(definition)) TotalCatches[definition] = 0;
             if (!CurrentOrLastCatches.ContainsKey(definition)) CurrentOrLastCatches[definition] = 0;
             TotalCatches[definition] += stack;
@@ -131,6 +133,17 @@ namespace AutoFisher.Common.Players
                 return recorder.CurrentOrLastCatches;
             }
             return [];
+        }
+        public static ItemDefinition GetLocalPlayerLastCatchedItem(out int count)
+        {
+            Player player = Main.LocalPlayer;
+            if (player.TryGetModPlayer(out CatchesRecorder recorder))
+            {
+                recorder.TotalCatches.TryGetValue(recorder.LastCatchedItem, out count);
+                return recorder.LastCatchedItem;
+            }
+            count = 0;
+            return new();
         }
         public static long[] GetLocalPlayerCoins()
         {

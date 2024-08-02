@@ -8,13 +8,28 @@ namespace AutoFisher.Common.GlobalProjectiles
 {
     public class BobberManager : GlobalProjectile
     {
+        private class Cleaner : ModSystem
+        {
+            public override void OnWorldUnload()
+            {
+                MainBobbers.Clear();
+                AutoFisherBobbers.Clear();
+                ActiveBobbers.Clear();
+                WetBobbers.Clear();
+            }
+        }
+
         public static bool IsFishing => WetBobbers.Count > 0;
 
-        public static List<Projectile> MainBobbers { get; private set; } = [];
-        public static List<Projectile> AutoFisherBobbers { get; private set; } = [];
+        public static Projectile? Bobber => MainBobbers.Intersect(WetBobbers).FirstOrDefault();
 
-        public static List<Projectile> ActiveBobbers { get; private set; } = [];
-        public static List<Projectile> WetBobbers { get; private set; } = [];
+        public static HashSet<Projectile> MainBobbers { get; private set; } = [];
+        public static HashSet<Projectile> AutoFisherBobbers { get; private set; } = [];
+
+        public static HashSet<Projectile> ActiveBobbers { get; private set; } = [];
+        public static HashSet<Projectile> WetBobbers { get; private set; } = [];
+
+        public static Dictionary<Projectile, Item> OwnerFishingRodOfBobbers { get; private set; } = [];
 
         public static Projectile? Calculater { get; private set; } = null;
 
@@ -26,6 +41,11 @@ namespace AutoFisher.Common.GlobalProjectiles
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             if (projectile.owner != Main.myPlayer) return;
+
+            if (source is EntitySource_ItemUse_WithAmmo itemUse && itemUse.Item.fishingPole > 0)
+            {
+                OwnerFishingRodOfBobbers[projectile] = itemUse.Item;
+            }
 
             ActiveBobbers.Add(projectile);
             if (source is AEntitySource_AutoFisher)
@@ -47,6 +67,7 @@ namespace AutoFisher.Common.GlobalProjectiles
             AutoFisherBobbers.Remove(projectile);
             ActiveBobbers.Remove(projectile);
             WetBobbers.Remove(projectile);
+            OwnerFishingRodOfBobbers.Remove(projectile);
             if (projectile == Calculater) Calculater = null;
         }
 
@@ -54,8 +75,8 @@ namespace AutoFisher.Common.GlobalProjectiles
         {
             if (projectile.owner != Main.myPlayer) return;
 
-            if (!projectile.wet && WetBobbers.Contains(projectile) || !projectile.active) WetBobbers.Remove(projectile);
-            else if(projectile.wet && !WetBobbers.Contains(projectile)) WetBobbers.Add(projectile);
+            if (!projectile.wet || !projectile.active) WetBobbers.Remove(projectile);
+            else if(projectile.wet && projectile.active) WetBobbers.Add(projectile);
         }
     }
 }

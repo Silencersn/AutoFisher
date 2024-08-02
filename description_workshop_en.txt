@@ -1,32 +1,39 @@
 [h1]Fishing without clicking[/h1]
-Automatically simulate the vanilla fishing
-Automatically open crates and oysters
-Automatically filter unwanted catches
-Automatically use potions
-Automatically find baits in personal storage items (e.t. Piggy Bank)
-Modify the influencing factors of fishing power
-Automatically catch and kill NPCs
-Automatically sell catches
-Multiple Fishing Lines
-Remove restrictions on quest fish
-Catch Counter
+Auto Fish
+Auto Filter Catches
+Auto Open Crates/Oysters
+Auto Use Fishing Potions/Crate Potions/Sonar Potions/Ales/Sakes/Chum Buckets
+Auto Sell Catches
+Auto Drop and Kill NPCs
+Auto Find Baits in Inventory/VoidBag/Piggy Bank/Safe/Defender's Forge
+Allow Players to Fish with Multiple Fishing Lines
+Allow Players to Fish without Consuming Baits
+Allow Players to Drop without Breaking Fishing Lines
+Allow Players to Fish when Staying in Water
+Allow Players to Fish in Shimmer
+Allow Players to Change Held Item when Fishing
+Allow Players to Modify Fishing Power Influences
+Allow Players to Repeat Dropping Quest Fish
+Allow Players to Refresh Angler Quest after Finishing it
+Allow Players to Generate Effects by Placing Angler Armors in Vanity Slots/Inventory
+Record Player's Catches
+Forecast Player's Catches
+InfoDisplay for Lake Size/Liquid Type/Chum Buckets Count/Catch Count
+InfoDisplay for Quest Fish Type/Catch Location
 
 Github: https://github.com/Silencersn/AutoFisher
 By Bilibili@Silencersn
 
 [h1]Update Logs[/h1]
-(2024/7/1 15:00) v2.3.1
-[IMPROVE] Add some hints to some config options
-[IMPROVE] Modif the restrictions of some config options
+(2024/8/2 11:00) v2.4
+[NEW] Fishing-related infor displays: lake size, bait buckets count, catch count, and quest fish
+[IMPROVE] Added more detailed descriptions to some config options
+[FIX] The catch which is caught successfully and filtered will not be countered by Catch Counter
+[FIX] When switching mod fishing rods, the color of the fishing line may be wrong
+[FIX] After turning off the Quest Fish Pickup, normal items will also not be picked up (thanks @µÚÒ»ÐòÁÐ)
+[FIX] Change Angler Quest did not take effect in multiplayer mode (thanks @lalaleo)
+[FIX] Broken Fishing Line did not judged the High Test Fishing Line (thanks @Tremor)
+[FIX] Exiting the game while throwing a fishing rod may cause some malfunctions
 
-(2024/6/1 11:00) v2.3
-[NEW] Held item can be switched when fishing (server configuration, disabled by default)
-[NEW] Coin statistics obtained through automatic selling (displayed in Catches Counter)
-[IMPROVE] Optimized some filters
-[IMPROVE] Catch Calculator can be set to not calculate immediately (if the buoy freezes when entering the water, this can be enabled)
-[IMPROVE] Auto Kill will be counted by the Bestiary and will trigger the Tally Counter
-[FIX] Some potential issues related to the Angler armor function
-[FIX] Some config defaults are incorrect
-[FIX] None item would be displayed in the catch stats
-[FIX] Fishing power is repeated due to time
-[FIX] Fishing power modifications from other mods were not accepted
+Intact Update Log:
+https://github.com/Silencersn/AutoFisher/blob/main/log.txt

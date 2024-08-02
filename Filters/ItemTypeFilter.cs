@@ -16,26 +16,28 @@
             if (fishes.NotQueseFish && IsFish[type]) return true;
             if (fishes.QueseFish && item.questItem) return true;
 
-            if (Config.Crates.PreHardmodeCrates && ItemID.Sets.IsFishingCrate[type] && !ItemID.Sets.IsFishingCrateHardmode[type]) return true;
-            if (Config.Crates.HardmodeCrates && ItemID.Sets.IsFishingCrateHardmode[type]) return true;
+            var crates = Config.Crates;
+            if (crates.PreHardmodeCrates && ItemID.Sets.IsFishingCrate[type] && !ItemID.Sets.IsFishingCrateHardmode[type]) return true;
+            if (crates.HardmodeCrates && ItemID.Sets.IsFishingCrateHardmode[type]) return true;
 
-            if (Config.Junks.OldShoe && type is ItemID.OldShoe) return true;
-            if (Config.Junks.Seaweed && type is ItemID.FishingSeaweed) return true;
-            if (Config.Junks.TinCan && type is ItemID.TinCan) return true;
-            if (Config.Junks.JojaCola && type is ItemID.JojaCola) return true;
+            var junks = Config.Junks;
+            if (junks.OldShoe && type is ItemID.OldShoe) return true;
+            if (junks.Seaweed && type is ItemID.FishingSeaweed) return true;
+            if (junks.TinCan && type is ItemID.TinCan) return true;
+            if (junks.JojaCola && type is ItemID.JojaCola) return true;
 
-            var forAllItems = Config.AllItems;
-            if (forAllItems.Weapon && AllItems.FitsFilter(item, ItemType.Weapon)) return true;
-            if (forAllItems.Armor && AllItems.FitsFilter(item, ItemType.Armor)) return true;
-            if (forAllItems.Vanity && AllItems.FitsFilter(item, ItemType.Vanity)) return true;
-            if (forAllItems.BuildingBlock && AllItems.FitsFilter(item, ItemType.BuildingBlock)) return true;
-            if (forAllItems.Furniture && AllItems.FitsFilter(item, ItemType.Furniture)) return true;
-            if (forAllItems.Accessories && AllItems.FitsFilter(item, ItemType.Accessories)) return true;
-            if (forAllItems.MiscAccessories && AllItems.FitsFilter(item, ItemType.MiscAccessories)) return true;
-            if (forAllItems.Consumables && AllItems.FitsFilter(item, ItemType.Consumables)) return true;
-            if (forAllItems.Tools && AllItems.FitsFilter(item, ItemType.Tools)) return true;
-            if (forAllItems.Materials && AllItems.FitsFilter(item, ItemType.Materials)) return true;
-            if (forAllItems.Misc && AllItems.FitsFilter(item, ItemType.Misc)) return true;
+            var allItems = Config.AllItems;
+            if (allItems.Weapon && AllItems.FitsFilter(item, ItemType.Weapon)) return true;
+            if (allItems.Armor && AllItems.FitsFilter(item, ItemType.Armor)) return true;
+            if (allItems.Vanity && AllItems.FitsFilter(item, ItemType.Vanity)) return true;
+            if (allItems.BuildingBlock && AllItems.FitsFilter(item, ItemType.BuildingBlock)) return true;
+            if (allItems.Furniture && AllItems.FitsFilter(item, ItemType.Furniture)) return true;
+            if (allItems.Accessories && AllItems.FitsFilter(item, ItemType.Accessories)) return true;
+            if (allItems.MiscAccessories && AllItems.FitsFilter(item, ItemType.MiscAccessories)) return true;
+            if (allItems.Consumables && AllItems.FitsFilter(item, ItemType.Consumables)) return true;
+            if (allItems.Tools && AllItems.FitsFilter(item, ItemType.Tools)) return true;
+            if (allItems.Materials && AllItems.FitsFilter(item, ItemType.Materials)) return true;
+            if (allItems.Misc && AllItems.FitsFilter(item, ItemType.Misc)) return true;
 
             return false;
         }

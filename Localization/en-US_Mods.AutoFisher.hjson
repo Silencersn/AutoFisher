@@ -1,4 +1,11 @@
-InfoDisplays.PondStateInfoDisplay.DisplayName: Pond State Info Display
+InfoDisplays: {
+	PondStateChumCountInfoDisplay.DisplayName: Chum Bucket Count
+	PondStateNumWatersInfoDisplay.DisplayName: Lake Size
+	ChumCountText: "{0} Buckets"
+	NumWatersText: "{0} Tiles"
+	QuestFishInfoDisplay.DisplayName: Quest Fish
+	CatchesRecorderInfoDisplay.DisplayName: Catch Count
+}
 
 Configs: {
 	PromptEnableAllFilters: {

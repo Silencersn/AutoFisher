@@ -33,7 +33,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         [Slider]
         public int Copper;
         [ShowDespiteJsonIgnore]
-        [Range(0, 99999999)]
+        [Range(0, 99_99_99_99)]
         [Increment(1)]
         public int TotalValue
         {

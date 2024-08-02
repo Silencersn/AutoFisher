@@ -29,3 +29,8 @@ OnlyPositiveLuck: {
 	Label: 仅正的运气
 	Tooltip: ""
 }
+
+OnlyPositiveInfluences: {
+	Label: 仅正的影响
+	Tooltip: ""
+}

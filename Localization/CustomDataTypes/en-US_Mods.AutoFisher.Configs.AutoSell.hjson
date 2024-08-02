@@ -12,7 +12,7 @@ AutoSellAllCatches: {
 
 AutoSellFilteredCatches: {
 	Label: Auto Sell Filtered Catches
-	Tooltip: ""
+	Tooltip: Only when player does not has Sonar Buff, it works
 }
 
 AutoSellUnfilteredCatches: {

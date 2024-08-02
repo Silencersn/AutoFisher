@@ -6,4 +6,9 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Content\InfoDisplays\CatchesRecorderInfoDisplay.png" />
+    <None Remove="Content\PondStateNumWatersInfoDisplay.png" />
+    <None Remove="Content\QuestFishInfoDisplay.png" />
+  </ItemGroup>
 </Project>

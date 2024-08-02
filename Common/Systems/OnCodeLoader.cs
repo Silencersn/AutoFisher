@@ -61,7 +61,7 @@
         {
             orig(x, y, out lava, out honey, out numWaters, out chumCount);
             if (ConfigContent.NotEnableMod) return;
-            if (!ConfigContent.Sever.Common.FishingPowerInfluences.LakeSize) numWaters = Math.Max(numWaters, 301);
+            if (!ConfigContent.Sever.Common.FishingPowerInfluences.LakeSize) numWaters = Math.Max(numWaters, 300);
         }
 
         /// <summary>
@@ -126,13 +126,14 @@
                 {
                     levelMultipliers *= 0.9f;
                 }
-                if (Main.bloodMoon)
+                if (Main.bloodMoon) // TODO: 单独配置
                 {
                     levelMultipliers *= 1.1f;
                 }
             }
 
             PlayerLoader.GetFishingLevel(self, pole, bait, ref levelMultipliers);
+            if (ConfigContent.Sever.Common.FishingPowerInfluences.OnlyPositiveInfluences) levelMultipliers = Math.Max(1f, levelMultipliers);
             return levelMultipliers;
         }
 

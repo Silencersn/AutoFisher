@@ -1,4 +1,11 @@
-// InfoDisplays.PondStateInfoDisplay.DisplayName: Pond State Info Display
+InfoDisplays: {
+	PondStateChumCountInfoDisplay.DisplayName: 鱼饵桶数
+	PondStateNumWatersInfoDisplay.DisplayName: 湖泊大小
+	ChumCountText: "{0} 桶"
+	NumWatersText: "{0} 格 {1}"
+	QuestFishInfoDisplay.DisplayName: 任务鱼
+	CatchesRecorderInfoDisplay.DisplayName: 渔获数
+}
 
 Configs: {
 	PromptEnableAllFilters: {

@@ -4,16 +4,23 @@
     {
 #pragma warning disable CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
         // Infomation
-        public static LocalizedText CatchInfomationText { get; set; }
-        public static LocalizedText NotCatchInfomationText { get; set; }
-        public static LocalizedText FilteredText { get; set; }
-        public static LocalizedText AutoOpenedText { get; set; }
-        public static LocalizedText AutoSoldText { get; set; }
-        public static LocalizedText ConsumeBaitText { get; set; }
-        public static LocalizedText AutoKilledText { get; set; }
-        public static LocalizedText FishingLineBreaksText { get; set; }
+        public static LocalizedText CatchInfomationText { get; private set; }
+        public static LocalizedText NotCatchInfomationText { get; private set; }
+        public static LocalizedText FilteredText { get; private set; }
+        public static LocalizedText AutoOpenedText { get; private set; }
+        public static LocalizedText AutoSoldText { get; private set; }
+        public static LocalizedText ConsumeBaitText { get; private set; }
+        public static LocalizedText AutoKilledText { get; private set; }
+        public static LocalizedText FishingLineBreaksText { get; private set; }
         // Debug
-        public static LocalizedText PromptText { get; set; }
+        public static LocalizedText PromptText { get; private set; }
+        // InfoDisplays
+        public static LocalizedText NumWatersText { get; private set; }
+        public static LocalizedText ChumCountText { get; private set; }
+        public static LocalizedText LavaText { get; private set; }
+        public static LocalizedText HoneyText { get; private set; }
+        public static LocalizedText WaterText { get; private set; }
+
 #pragma warning restore CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 
         public override void OnModLoad()
@@ -31,6 +38,12 @@
             const string KEY_DEBUG = "Mods.AutoFisher.Debug.";
             PromptText = Language.GetOrRegister(KEY_DEBUG + nameof(PromptText));
 
+            const string KEY_INFODISPLAY = "Mods.AutoFisher.InfoDisplays.";
+            NumWatersText = Language.GetOrRegister(KEY_INFODISPLAY + nameof(NumWatersText));
+            ChumCountText = Language.GetOrRegister(KEY_INFODISPLAY + nameof(ChumCountText));
+            LavaText = Language.GetText("LegacyInterface.56");
+            HoneyText = Language.GetText("LegacyInterface.58");
+            WaterText = Language.GetText("LegacyInterface.53");
         }
     }
 }

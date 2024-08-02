@@ -1,3 +1,31 @@
+(2024/7/1 15:00) v2.3.1
+【改进】为部分配置项添加了一些提示
+【改进】修改了部分配置项的限制
+[IMPROVE] Add some hints to some config options
+[IMPROVE] Modif the restrictions of some config options
+
+(2024/6/1 11:00) v2.3
+【新增】钓鱼时可切换物品（服务端配置，默认关闭）
+【新增】通过自动卖出获取的钱币统计（显示在渔获统计）
+【改进】对部分过滤器进行优化
+【改进】渔获计算可被设置为不立即计算（若浮标入水时卡顿，可开启此项）
+【改进】自动击杀会被图鉴计算、会触发杀怪计数器
+【修复】渔夫盔甲生效功能相关的部分潜在问题
+【修复】部分配置默认值错误
+【修复】渔获统计中会显示空物品
+【修复】渔力受时间影响重复
+【修复】未接受其它mod对渔力的修改
+[NEW] Held item can be switched when fishing (server configuration, disabled by default)
+[NEW] Coin statistics obtained through automatic selling (displayed in Catches Counter)
+[IMPROVE] Optimized some filters
+[IMPROVE] Catch Calculator can be set to not calculate immediately (if the buoy freezes when entering the water, this can be enabled)
+[IMPROVE] Auto Kill will be counted by the Bestiary and will trigger the Tally Counter
+[FIX] Some potential issues related to the Angler armor function
+[FIX] Some config defaults are incorrect
+[FIX] None item would be displayed in the catch stats
+[FIX] Fishing power is repeated due to time
+[FIX] Fishing power modifications from other mods were not accepted
+
 (2024/5/6 23:00) v2.2.2.2
 【改进】减少抛出异常时导致mod无法加载的情况
 【改进】渔获信息优化

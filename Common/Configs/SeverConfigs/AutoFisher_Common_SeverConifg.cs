@@ -37,6 +37,7 @@
         private bool allLuck = true;
         private bool positiveLuck = false;
 
+        public bool OnlyPositiveInfluences = false;
         public bool Weather = true;
         public bool Time = true;
         public bool Moon = true;

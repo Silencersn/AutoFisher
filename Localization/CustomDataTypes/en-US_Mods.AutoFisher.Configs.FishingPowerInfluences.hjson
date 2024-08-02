@@ -29,3 +29,8 @@ OnlyPositiveLuck: {
 	Label: Only Positive Luck
 	Tooltip: ""
 }
+
+OnlyPositiveInfluences: {
+	Label: Only Positive Influences
+	Tooltip: ""
+}

@@ -22,5 +22,5 @@ CanPickUpQuestFishWhenSameOneIsInInventory: {
 
 ChangeAnglerQuestAfterThatIsFinished: {
 	Label: Change Angler Quest After That Is Finished
-	Tooltip: ""
+	Tooltip: Need Angler Existing
 }

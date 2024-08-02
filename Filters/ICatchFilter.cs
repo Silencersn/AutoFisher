@@ -20,7 +20,7 @@
         public static ItemTypeFilter ItemTypeFilter { get; } = new();
         public static SellValueFilter SellValueFilter { get; } = new();
 
-        public static readonly ICatchFilter<IFilterConfig>[] Filters =
+        public static readonly ICatchFilter<IFilterConfig>[] DefaultFilters =
         [
             RarityFilter,
             ItemIDFilter,
@@ -37,16 +37,12 @@
 
         public static bool FitsFilters(IEnumerable<ICatchFilter<IFilterConfig>> filters, Item item, FishingAttempt attempt)
         {
-            foreach (var filter in filters)
-            {
-                if (FitsFilter(filter, item, attempt)) return true;
-            }
-            return false;
+            return filters.Any(filter => FitsFilter(filter, item, attempt));
         }
 
         public static bool FitsFilters(Item item, FishingAttempt attempt)
         {
-            return FitsFilters(Filters, item, attempt);
+            return FitsFilters(DefaultFilters, item, attempt);
         }
     }
 }

@@ -22,7 +22,6 @@ namespace AutoFisher.Common.Players
         {
             if (player.HasBuff(buffType)) return;
 
-            //new ModItem().ConsumeItem
             List<Item> traversed = [];
             while (true)
             {

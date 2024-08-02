@@ -5,6 +5,9 @@
         public bool fishingLineBreaks;
         public bool consumedBait;
         public int bait;
+        /// <summary>
+        /// 仅当【鱼线断裂】或【在有声纳药水Buff的情况过被过滤】时为 False
+        /// </summary>
         public bool catchSuccessfully;
 
         public bool filtered;
@@ -24,7 +27,7 @@
     {
         public static void Show(CatchesInfo info)
         {
-            if (info.catchSuccessfully && !info.filtered)
+            if (info.catchSuccessfully)
             {
                 CatchesRecorder.AddCatchToLocalPlayer(info.itemDrop, info.stack);
             }
@@ -50,18 +53,7 @@
             {
                 if (info.filtered && config.ShowFilterInfomation) infoText += FilteredText;
                 if (info.autoOpened && config.ShowAutoOpenInfomation) infoText += AutoOpenedText;
-                if (info.autoSold && config.ShowAutoSellInfomation)
-                {
-                    string temp = string.Empty;
-                    for (int i = 3; i >= 0; i--)
-                    {
-                        if (info.coins[i] > 0)
-                        {
-                            temp += AutoFisherUtils.GetItemIconString(ItemID.CopperCoin + i, info.coins[i]);
-                        }
-                    }
-                    infoText += AutoSoldText.Format(temp);
-                }
+                if (info.autoSold && config.ShowAutoSellInfomation) infoText += Show_GetAutoSellInfo(info.coins);
                 if (info.autoKilled) infoText += AutoKilledText;
             }
             else
@@ -72,6 +64,19 @@
 
             if (info.consumedBait && config.ShowComsumedBaitInfomation) infoText += ConsumeBaitText.Format(info.bait);
             Main.NewText(infoText);
+        }
+
+        private static string Show_GetAutoSellInfo(int[] coins)
+        {
+            string temp = string.Empty;
+            for (int i = 3; i >= 0; i--)
+            {
+                if (coins[i] > 0)
+                {
+                    temp += AutoFisherUtils.GetItemIconString(ItemID.CopperCoin + i, coins[i]);
+                }
+            }
+            return AutoSoldText.Format(temp);
         }
     }
 }

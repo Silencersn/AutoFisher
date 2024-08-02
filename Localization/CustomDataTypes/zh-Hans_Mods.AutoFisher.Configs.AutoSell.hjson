@@ -12,7 +12,7 @@ AutoSellAllCatches: {
 
 AutoSellFilteredCatches: {
 	Label: 自动卖出被过滤的渔获
-	Tooltip: ""
+	Tooltip: 仅当玩家无声纳Buff时有效
 }
 
 AutoSellUnfilteredCatches: {

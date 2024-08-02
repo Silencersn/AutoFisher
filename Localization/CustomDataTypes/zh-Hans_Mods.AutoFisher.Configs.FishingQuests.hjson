@@ -22,5 +22,5 @@ CanPickUpQuestFishWhenSameOneIsInInventory: {
 
 ChangeAnglerQuestAfterThatIsFinished: {
 	Label: 完成渔夫任务时立即刷新任务
-	Tooltip: ""
+	Tooltip: 需要渔夫存在
 }

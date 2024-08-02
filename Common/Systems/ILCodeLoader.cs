@@ -24,10 +24,13 @@ namespace AutoFisher.Common.Systems
         /// <param name="il"></param>
         private void IL_Main_DrawProj_FishingLine(ILContext il)
         {
-            ILCursor c = new(il);
-            c.GotoNext(MoveType.After, i => i.MatchLdloc2());
-            c.Emit(OpCodes.Ldarg_0);
-            c.EmitDelegate(FishingLineColor);
+            TryCatch(() =>
+            {
+                ILCursor c = new(il);
+                c.GotoNext(MoveType.After, i => i.MatchLdloc2());
+                c.Emit(OpCodes.Ldarg_0);
+                c.EmitDelegate(FishingLineColor);
+            }, nameof(FishingLineColor));
         }
         private static Color FishingLineColor(Color source, Projectile proj)
         {
@@ -43,7 +46,22 @@ namespace AutoFisher.Common.Systems
             else if (type is ProjectileID.BobberHotline) source = new Color(255, 226, 116, 100);
             else if (type is ProjectileID.BobberBloody) source = new Color(200, 100, 100, 100);
             else if (type is ProjectileID.BobberScarab) source = new Color(100, 100, 200, 100);
+            float _ = default;
+#pragma warning disable CS0618 // 类型或成员已过时
+            ProjectileLoader.ModifyFishingLine(proj, ref _, ref _, ref source);
+#pragma warning restore CS0618 // 类型或成员已过时
+            FishingLineColor_ModifyFishingLine(proj, ref source);
             return source;
+        }
+        private static void FishingLineColor_ModifyFishingLine(Projectile proj, ref Color lineColor)
+        {
+            if (BobberManager.OwnerFishingRodOfBobbers.TryGetValue(proj, out Item? item))
+            {
+                ModItem modItem = item.ModItem;
+                if (modItem is null) return;
+                Vector2 _ = default;
+                modItem.ModifyFishingLine(proj, ref _, ref lineColor);
+            }
         }
 
         /// <summary>
@@ -266,11 +284,10 @@ namespace AutoFisher.Common.Systems
 
             info.catchSuccessfully = !(info.fishingLineBreaks || player.sonarPotion && info.filtered);
 
-
             if (info.catchSuccessfully)
             {
-                if (!info.filtered) info.autoOpened = DropItem_AutoOpen(player, itemDrop, info.stack);
-                if (!info.autoOpened) info.autoSold = DropItem_AutoSell(player, item, ref info);
+                info.autoSold = DropItem_AutoSell(player, item, ref info);
+                if (!info.filtered && !info.autoSold) info.autoOpened = DropItem_AutoOpen(player, itemDrop, info.stack);
                 if (!info.filtered && !info.autoOpened && !info.autoSold)
                 {
                     //bobber.AI_061_FishingBobber_GiveItemToPlayer(player, itemDrop);
