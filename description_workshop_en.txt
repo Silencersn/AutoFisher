@@ -35,5 +35,11 @@ By Bilibili@Silencersn
 [FIX] Broken Fishing Line did not judged the High Test Fishing Line (thanks @Tremor)
 [FIX] Exiting the game while throwing a fishing rod may cause some malfunctions
 
+(2024/10/1 16:00) v2.4.1
+[IMPROVE] Increased the max stack of quest fish
+[IMPROVE] Added more detail to the icons displayed in the info display
+[IMPROVE] Increased the efficiency of Catches Calculater when [Finish Calculate Immediately] is enabled
+[FIX]: Quest fish cannot be automatically picked up
+
 Intact Update Log:
 https://github.com/Silencersn/AutoFisher/blob/main/log.txt

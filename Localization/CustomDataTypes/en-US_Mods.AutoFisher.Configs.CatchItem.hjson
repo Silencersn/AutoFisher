@@ -9,3 +9,8 @@ ShouldBeInBlockList: {
 	Label: "[On] be added to the block list; [Off] be removed from the block list"
 	Tooltip: ""
 }
+
+Probability: {
+	Label: Probability
+	Tooltip: ""
+}

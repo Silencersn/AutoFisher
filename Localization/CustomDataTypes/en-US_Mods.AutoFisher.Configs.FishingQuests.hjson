@@ -24,3 +24,8 @@ ChangeAnglerQuestAfterThatIsFinished: {
 	Label: Change Angler Quest After That Is Finished
 	Tooltip: Need Angler Existing
 }
+
+IncreaseQuestFishMaxStack: {
+	Label: Increase Max Stack Of Quest Fish
+	Tooltip: Increase to 9999
+}

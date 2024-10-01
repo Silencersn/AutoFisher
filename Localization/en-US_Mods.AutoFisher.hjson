@@ -5,6 +5,8 @@ InfoDisplays: {
 	NumWatersText: "{0} Tiles"
 	QuestFishInfoDisplay.DisplayName: Quest Fish
 	CatchesRecorderInfoDisplay.DisplayName: Catch Count
+	PondStateNumWatersInfoDisplay_Honey.DisplayName: Pond State Num Waters Info Display_ Honey
+	PondStateNumWatersInfoDisplay_Lava.DisplayName: Pond State Num Waters Info Display_ Lava
 }
 
 Configs: {

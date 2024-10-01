@@ -47,18 +47,21 @@ namespace AutoFisher.Common.Configs.ClientConfigs
 
         public ItemDefinition Catch;
         public bool ShouldBeInBlockList;
+        public string Probability;
 
         public CatchItem()
         {
             Catch = new ItemDefinition(ItemID.None);
             ShouldBeInBlockList = false;
+            Probability = "Unknown";
         }
 
-        public CatchItem(int type)
+        public CatchItem(int type, int count, int totalCount)
         {
             Catch = new ItemDefinition(type);
             if (Config is null) ShouldBeInBlockList = false;
             else ShouldBeInBlockList = Config.BlockList.Contains(Catch);
+            Probability = $"{double.Clamp((double)count / totalCount, 0, 1) * 100:0.00}%";
         }
     }
 }

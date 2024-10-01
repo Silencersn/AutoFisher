@@ -24,3 +24,8 @@ ChangeAnglerQuestAfterThatIsFinished: {
 	Label: 完成渔夫任务时立即刷新任务
 	Tooltip: 需要渔夫存在
 }
+
+IncreaseQuestFishMaxStack: {
+	Label: 提高任务鱼的最大堆叠数
+	Tooltip: 提高至 9999
+}

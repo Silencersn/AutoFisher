@@ -1,4 +1,5 @@
-﻿using System.Runtime.Intrinsics.X86;
+﻿using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -58,10 +59,21 @@ namespace AutoFisher.Common.GlobalProjectiles
             var config = ConfigContent.Client.ItemIDFilter;
             Catches.Clear();
 
-            for (int i = config.Attempts; i > 0 && calculater.active && calculater.wet; i--)
+            //for (int i = config.Attempts; i > 0 && calculater.active && calculater.wet; i--)
+            //{
+            //    TryCatch(calculater.FishingCheck, nameof(calculater.FishingCheck));
+            //}
+
+            TryCatch(() =>
             {
-                TryCatch(calculater.FishingCheck, nameof(calculater.FishingCheck));
-            }
+                Parallel.For(0, config.Attempts / 500, i =>
+                {
+                    for (int j = 0; j < 500 && calculater.active && calculater.wet; j++)
+                    {
+                        calculater.FishingCheck();
+                    }
+                });
+            }, nameof(RecalculateCatches));
 
             RefreshConfig();
             calculater.Kill();
@@ -92,9 +104,10 @@ namespace AutoFisher.Common.GlobalProjectiles
         public static void RefreshConfig()
         {
             var config = ConfigContent.Client.ItemIDFilter;
+            var totalCount = Catches.Select(pair => pair.Value).Sum();
             config.CatchesInTheLakeWhereCurrentOrLastFishing =
-                Catches.OrderByDescending(pair => pair.Key)
-                .Select(pair => new CatchItem(pair.Key))
+                Catches.OrderByDescending(pair => pair.Value)
+                .Select(pair => new CatchItem(pair.Key, pair.Value, totalCount))
                 .ToList();
         }
     }

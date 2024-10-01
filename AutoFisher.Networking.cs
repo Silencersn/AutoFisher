@@ -19,7 +19,7 @@
                     int y = reader.ReadInt32();
                     int type = reader.ReadInt32();
                     bool kill = reader.ReadBoolean();
-                    if (Main.netMode != NetmodeID.Server) return;
+                    if (Main.netMode is not NetmodeID.Server) return;
                     if (type is NPCID.TownSlimeRed)
                     {
                         if (NPC.unlockedSlimeRedSpawn)

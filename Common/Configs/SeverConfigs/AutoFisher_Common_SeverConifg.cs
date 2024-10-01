@@ -69,6 +69,8 @@
         public bool CanCatchQuestFishWhenAnglerQuestIsFinished = true;
         public bool CanPickUpQuestFishWhenSameOneIsInInventory = true;
         public bool ChangeAnglerQuestAfterThatIsFinished = false;
+        [ReloadRequired]
+        public bool IncreaseQuestFishMaxStack = true;
     }
 
     public class AnglerArmorsGenerateEffects

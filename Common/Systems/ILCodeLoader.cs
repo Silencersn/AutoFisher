@@ -16,6 +16,7 @@ namespace AutoFisher.Common.Systems
             TryCatch(() => IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += IL_ItemSlot_Draw_SpriteBatch_ItemArray_int_int_Vector2_Color, nameof(IL_ItemSlot_Draw_SpriteBatch_ItemArray_int_int_Vector2_Color));
             TryCatch(() => IL_Main.DrawProj_DrawExtras += IL_Main_DrawProj_DrawExtras, nameof(IL_Main_DrawProj_DrawExtras));
             TryCatch(() => IL_Main.DrawProj_FishingLine += IL_Main_DrawProj_FishingLine, nameof(IL_Main_DrawProj_FishingLine));
+            TryCatch(() => IL_Player.ItemSpace += IL_Player_ItemSpace, nameof(IL_Player_ItemSpace));
         }
 
         /// <summary>
@@ -193,6 +194,15 @@ namespace AutoFisher.Common.Systems
         /// </summary>
         /// <param name="il"></param>
         private void IL_Player_GetItem(ILContext il)
+        {
+            TryCatch(() =>
+            {
+                ILCursor c = new(il);
+                c.GotoNext(MoveType.After, i => i.MatchLdfld<Item>(nameof(Item.uniqueStack)));
+                c.EmitDelegate(IsUniqueStack);
+            }, nameof(IsUniqueStack));
+        }
+        private void IL_Player_ItemSpace(ILContext il)
         {
             TryCatch(() =>
             {

@@ -21,7 +21,7 @@ namespace AutoFisher.Common.GlobalProjectiles
 
         public static bool IsFishing => WetBobbers.Count > 0;
 
-        public static Projectile? Bobber => MainBobbers.Intersect(WetBobbers).FirstOrDefault();
+        public static Projectile? Bobber => MainBobbers.Intersect(WetBobbers).FirstOrDefault() ?? WetBobbers.FirstOrDefault();
 
         public static HashSet<Projectile> MainBobbers { get; private set; } = [];
         public static HashSet<Projectile> AutoFisherBobbers { get; private set; } = [];

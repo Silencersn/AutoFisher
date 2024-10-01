@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoFisher.Content.InfoDisplays
 {
-    public class CatchesRecorderInfoDisplay : InfoDisplay
+    public class CatchesRecorderInfoDisplay : AFishingInfoDisplay
     {
         public override bool Active()
         {

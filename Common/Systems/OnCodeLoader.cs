@@ -8,6 +8,18 @@
             TryCatch(() => On_Player.Fishing_GetBait += On_Player_Fishing_GetBait, nameof(On_Player_Fishing_GetBait));
             TryCatch(() => On_Player.Fishing_GetPowerMultiplier += On_Player_Fishing_GetPowerMultiplier, nameof(On_Player_Fishing_GetPowerMultiplier));
             TryCatch(() => On_Projectile.FishingCheck += On_Projectile_FishingCheck, nameof(On_Projectile_FishingCheck));
+            TryCatch(() => On_Item.DefaultToQuestFish += On_Item_DefaultToQuestFish, nameof(On_Item_DefaultToQuestFish));
+        }
+
+        /// <summary>
+        /// 提高任务鱼的最大堆叠数
+        /// </summary>
+        /// <param name="orig"></param>
+        /// <param name="self"></param>
+        private void On_Item_DefaultToQuestFish(On_Item.orig_DefaultToQuestFish orig, Item self)
+        {
+            orig(self);
+            if (ConfigContent.Sever.Common.FishingQuests.IncreaseQuestFishMaxStack) self.maxStack = Math.Max(self.maxStack, 9999);
         }
 
         /// <summary>

@@ -5,6 +5,8 @@ InfoDisplays: {
 	NumWatersText: "{0} 格 {1}"
 	QuestFishInfoDisplay.DisplayName: 任务鱼
 	CatchesRecorderInfoDisplay.DisplayName: 渔获数
+	// PondStateNumWatersInfoDisplay_Honey.DisplayName: Pond State Num Waters Info Display_ Honey
+	// PondStateNumWatersInfoDisplay_Lava.DisplayName: Pond State Num Waters Info Display_ Lava
 }
 
 Configs: {
