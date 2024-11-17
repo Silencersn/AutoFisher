@@ -263,6 +263,7 @@ namespace AutoFisher.Common.Systems
             if (ConfigContent.Sever.Common.Regulation.FishInWater) return false;
             return wet;
         }
+        private static readonly object _lockCalculater = new();
         private static int DropItem(int itemDrop, Projectile bobber, FishingAttempt attempt)
         {
             if (ConfigContent.NotEnableMod) return itemDrop;
@@ -270,8 +271,12 @@ namespace AutoFisher.Common.Systems
             if (bobber == BobberManager.Calculater)
             {
                 var catches = FishingCatchesCalculator.Catches;
-                catches.TryGetValue(itemDrop, out int num);
-                catches[itemDrop] = num + 1;
+
+                lock (_lockCalculater)
+                {
+                    catches.TryGetValue(itemDrop, out int num);
+                    catches[itemDrop] = num + 1;
+                }
 
                 return 0;
             }
