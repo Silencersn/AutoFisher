@@ -7,82 +7,82 @@ EnableRarityFilter: {
 }
 
 Gray: {
-	Label: "[c/828282:灰色]"
+	Label: 灰色
 	Tooltip: ""
 }
 
 White: {
-	Label: "[c/FFFFFF:白色]"
+	Label: 白色
 	Tooltip: ""
 }
 
 Blue: {
-	Label: "[c/9696FF:蓝色]"
+	Label: 蓝色
 	Tooltip: ""
 }
 
 Green: {
-	Label: "[c/96FF96:绿色]"
+	Label: 绿色
 	Tooltip: ""
 }
 
 Orange: {
-	Label: "[c/FFC896:橙色]"
+	Label: 橙色
 	Tooltip: ""
 }
 
 LightRed: {
-	Label: "[c/FF9696:浅红色]"
+	Label: 浅红色
 	Tooltip: ""
 }
 
 Pink: {
-	Label: "[c/FF96FF:粉红色]"
+	Label: 粉红色
 	Tooltip: ""
 }
 
 LightPurple: {
-	Label: "[c/D2A0FF:浅紫色]"
+	Label: 浅紫色
 	Tooltip: ""
 }
 
 Lime: {
-	Label: "[c/96FF0A:青柠色]"
+	Label: 青柠色
 	Tooltip: ""
 }
 
 Yellow: {
-	Label: "[c/FFFF0A:黄色]"
+	Label: 黄色
 	Tooltip: ""
 }
 
 Cyan: {
-	Label: "[c/05C8FF:青色]"
+	Label: 青色
 	Tooltip: ""
 }
 
 Red: {
-	Label: "[c/FF2864:红色]"
+	Label: 红色
 	Tooltip: ""
 }
 
 Purple: {
-	Label: "[c/B428FF:紫色]"
+	Label: 紫色
 	Tooltip: ""
 }
 
 Quest: {
-	Label: "[c/FFAF00:琥珀色]"
+	Label: 琥珀色（任务）
 	Tooltip: ""
 }
 
 Expert: {
-	Label: "[c/FE7D00:彩][c/DCFF00:虹][c/00EAFF:色]"
+	Label: 彩虹色（专家）
 	Tooltip: ""
 }
 
 Master: {
-	Label: "[c/FF8C00:火][c/FF5000:红][c/FF1400:色]"
+	Label: 火红色（大师）
 	Tooltip: ""
 }
 

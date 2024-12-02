@@ -20,7 +20,9 @@
         public static LocalizedText LavaText { get; private set; }
         public static LocalizedText HoneyText { get; private set; }
         public static LocalizedText WaterText { get; private set; }
-
+        // Config
+        public static LocalizedText UnknownText { get; private set; }
+        public static LocalizedText NoneText { get; private set; }
 #pragma warning restore CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 
         public override void OnModLoad()
@@ -44,6 +46,10 @@
             LavaText = Language.GetText("LegacyInterface.56");
             HoneyText = Language.GetText("LegacyInterface.58");
             WaterText = Language.GetText("LegacyInterface.53");
+
+            const string KEY_CONFIG = "Mods.AutoFisher.Config.";
+            UnknownText = Language.GetOrRegister(KEY_CONFIG + nameof(UnknownText));
+            NoneText = Language.GetOrRegister(KEY_CONFIG + nameof(NoneText));
         }
     }
 }

@@ -59,11 +59,6 @@ namespace AutoFisher.Common.GlobalProjectiles
             var config = ConfigContent.Client.ItemIDFilter;
             Catches.Clear();
 
-            //for (int i = config.Attempts; i > 0 && calculater.active && calculater.wet; i--)
-            //{
-            //    TryCatch(calculater.FishingCheck, nameof(calculater.FishingCheck));
-            //}
-
             TryCatch(() =>
             {
                 Parallel.For(0, config.Attempts / 500, i =>
@@ -90,11 +85,14 @@ namespace AutoFisher.Common.GlobalProjectiles
                 var config = ConfigContent.Client.ItemIDFilter;
                 Catches.Clear();
 
-                for (int i = config.Attempts; i > 0 && !token.IsCancellationRequested && calculater.active && calculater.wet; i--)
-                {
-                    TryCatch(calculater.FishingCheck, nameof(calculater));
-                    if (i % 500 is 1) RefreshConfig();
-                }
+                TryCatch(() =>
+                { 
+                    for (int i = config.Attempts; i > 0 && !token.IsCancellationRequested && calculater.active && calculater.wet; i--)
+                    {
+                        TryCatch(calculater.FishingCheck, nameof(calculater));
+                        if (i % 500 is 1) RefreshConfig();
+                    }
+                }, nameof(RecalculateCatchesAsync));
 
                 RefreshConfig();
                 calculater.Kill();

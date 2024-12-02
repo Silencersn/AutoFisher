@@ -23,3 +23,8 @@ Configs: {
 		}
 	}
 }
+
+Config: {
+	UnknownText: 未知
+	NoneText: 无
+}

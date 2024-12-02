@@ -6,7 +6,7 @@
         {
             if (ConfigContent.NotEnableMod) return;
 
-            var config = ConfigContent.Sever.Common.AnglerArmorsGenerateEffects;
+            var config = ConfigContent.Server.Common.AnglerArmorsGenerateEffects;
 
             if (!config.InVanitySlots &&
                 !config.InInventoryOrVoidBag &&

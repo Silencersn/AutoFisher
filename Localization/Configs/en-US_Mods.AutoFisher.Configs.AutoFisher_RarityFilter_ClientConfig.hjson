@@ -7,82 +7,82 @@ EnableRarityFilter: {
 }
 
 Gray: {
-	Label: "[c/828282:Gray]"
+	Label: Gray
 	Tooltip: ""
 }
 
 White: {
-	Label: "[c/FFFFFF:White]"
+	Label: White
 	Tooltip: ""
 }
 
 Blue: {
-	Label: "[c/9696FF:Blue]"
+	Label: Blue
 	Tooltip: ""
 }
 
 Green: {
-	Label: "[c/96FF96:Green]"
+	Label: Green
 	Tooltip: ""
 }
 
 Orange: {
-	Label: "[c/FFC896:Orange]"
+	Label: Orange
 	Tooltip: ""
 }
 
 LightRed: {
-	Label: "[c/FF9696:Light Red]"
+	Label: Light Red
 	Tooltip: ""
 }
 
 Pink: {
-	Label: "[c/FF96FF:Pink]"
+	Label: Pink
 	Tooltip: ""
 }
 
 LightPurple: {
-	Label: "[c/D2A0FF:Light Purple]"
+	Label: Light Purple
 	Tooltip: ""
 }
 
 Lime: {
-	Label: "[c/96FF0A:Lime]"
+	Label: Lime
 	Tooltip: ""
 }
 
 Yellow: {
-	Label: "[c/FFFF0A:Yellow]"
+	Label: Yellow
 	Tooltip: ""
 }
 
 Cyan: {
-	Label: "[c/05C8FF:Cyan]"
+	Label: Cyan
 	Tooltip: ""
 }
 
 Red: {
-	Label: "[c/FF2864:Red]"
+	Label: Red
 	Tooltip: ""
 }
 
 Purple: {
-	Label: "[c/B428FF:Purple]"
+	Label: Purple
 	Tooltip: ""
 }
 
 Quest: {
-	Label: "[c/FFAF00:Quest]"
+	Label: Amber (Quest)
 	Tooltip: ""
 }
 
 Expert: {
-	Label: "[c/FE0000:E][c/FE7D00:x][c/DCFF00:p][c/00FE46:e][c/00EAFF:r][c/6100FE:t]"
+	Label: Rainbow (Expert)
 	Tooltip: ""
 }
 
 Master: {
-	Label: "[c/FFC800:M][c/FF8C00:a][c/FF5000:s][c/FF1400:t][c/FF2800:e][c/FF6400:r]"
+	Label: Fiery Red (Master)
 	Tooltip: ""
 }
 

@@ -24,6 +24,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         [Increment(100)]
         [Slider]
         public int MaxDisplayCount;
+        [DrawTicks]
         [DefaultValue(SortBy.CountDescending)]
         public SortBy SortBy;
         [ShowDespiteJsonIgnore]
@@ -40,7 +41,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
                 if (coins[1] > 0) result += $"[i/s{coins[1]}:73]";
                 if (coins[2] > 0) result += $"[i/s{coins[2]}:72]";
                 if (coins[3] > 0) result += $"[i/s{coins[3]}:71]";
-                if (result == string.Empty) result = "None";
+                if (result == string.Empty) result = NoneText?.Value!;
                 return result;
             }
         }
@@ -60,6 +61,18 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         {
             var list = dict.Where(pair => pair.Key.Type is not 0)
                 .Select(pair => new ItemCounter(pair.Key, pair.Value));
+
+            return (SortBy switch
+            {
+                SortBy.CountDescending => list.OrderByDescending(counter => counter.Count),
+                SortBy.CountAscending => list.OrderBy(counter => counter.Count),
+                SortBy.IDDescending => list.OrderByDescending(counter => counter.ItemDefinition.Type),
+                SortBy.IDAscending => list.OrderBy(counter => counter.ItemDefinition.Type),
+                SortBy.NameDescending => list.OrderByDescending(counter => counter.ItemDefinition.DisplayName),
+                SortBy.NameAscending => list.OrderBy(counter => counter.ItemDefinition.DisplayName),
+                _ => list.OrderByDescending(counter => counter.Count),
+            }).ThenBy(counter => counter.ItemDefinition.Type).Take(MaxDisplayCount).ToList();
+
             if (SortBy is SortBy.CountDescending) list = list.OrderByDescending(counter => counter.Count);
             else if (SortBy is SortBy.CountAscending) list = list.OrderBy(counter => counter.Count);
             else if (SortBy is SortBy.IDDescending) list = list.OrderByDescending(counter => counter.ItemDefinition.Type);

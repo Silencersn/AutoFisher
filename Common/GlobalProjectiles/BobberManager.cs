@@ -16,6 +16,7 @@ namespace AutoFisher.Common.GlobalProjectiles
                 AutoFisherBobbers.Clear();
                 ActiveBobbers.Clear();
                 WetBobbers.Clear();
+                OwnerFishingRodOfBobbers.Clear();
             }
         }
 
@@ -52,6 +53,8 @@ namespace AutoFisher.Common.GlobalProjectiles
             {
                 AutoFisherBobbers.Add(projectile);
                 if (source is EntitySource_CalculateCatches) Calculater = projectile;
+                else if (source is EntitySource_MultipleFishingLines mult && mult.Owner is not null) OwnerFishingRodOfBobbers[projectile] = mult.Owner;
+
             }
             else
             {

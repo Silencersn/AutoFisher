@@ -36,7 +36,7 @@ namespace AutoFisher.Common.Systems
         private static Color FishingLineColor(Color source, Projectile proj)
         {
             if (ConfigContent.NotEnableMod) return source;
-            if (!ConfigContent.Sever.Common.Regulation.ChangeHeldItemWhenFishing) return source;
+            if (!ConfigContent.Server.Common.Regulation.ChangeHeldItemWhenFishing) return source;
 
             int type = proj.type;
             if (type is ProjectileID.BobberWooden) source = new Color(200, 200, 200, 100);
@@ -81,7 +81,7 @@ namespace AutoFisher.Common.Systems
         private static int HoldStyle(int source)
         {
             if (ConfigContent.NotEnableMod) return source;
-            return ConfigContent.Sever.Common.Regulation.ChangeHeldItemWhenFishing ? -1 : source;
+            return ConfigContent.Server.Common.Regulation.ChangeHeldItemWhenFishing ? -1 : source;
         }
 
         /// <summary>
@@ -109,12 +109,12 @@ namespace AutoFisher.Common.Systems
         private static bool KillBobber(bool source)
         {
             if (ConfigContent.NotEnableMod) return source;
-            return !ConfigContent.Sever.Common.Regulation.ChangeHeldItemWhenFishing;
+            return !ConfigContent.Server.Common.Regulation.ChangeHeldItemWhenFishing;
         }
         private static bool ShimmerWet(bool source)
         {
             if (ConfigContent.NotEnableMod) return source;
-            if (ConfigContent.Sever.Common.Regulation.FishInShimmer) return false;
+            if (ConfigContent.Server.Common.Regulation.FishInShimmer) return false;
             return source;
         }
 
@@ -176,17 +176,17 @@ namespace AutoFisher.Common.Systems
         private static bool WhetherHasQuestFish(bool hasItem)
         {
             if (ConfigContent.NotEnableMod) return hasItem;
-            return !ConfigContent.Sever.Common.FishingQuests.CanCatchQuestFishWhenSameOneIsInInventory;
+            return !ConfigContent.Server.Common.FishingQuests.CanCatchQuestFishWhenSameOneIsInInventory;
         }
         private static bool WhetherExistsAngler(bool anynpcs)
         {
             if (ConfigContent.NotEnableMod) return anynpcs;
-            return anynpcs || ConfigContent.Sever.Common.FishingQuests.CanCatchQuestFishWhenAnglerNotExists;
+            return anynpcs || ConfigContent.Server.Common.FishingQuests.CanCatchQuestFishWhenAnglerNotExists;
         }
         private static bool IsAnglerQuestFinished(bool anglerQuestFinished)
         {
             if (ConfigContent.NotEnableMod) return anglerQuestFinished;
-            return !ConfigContent.Sever.Common.FishingQuests.CanCatchQuestFishWhenAnglerQuestIsFinished;
+            return !ConfigContent.Server.Common.FishingQuests.CanCatchQuestFishWhenAnglerQuestIsFinished;
         }
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace AutoFisher.Common.Systems
         private static bool IsUniqueStack(bool uniqueStack)
         {
             if (ConfigContent.NotEnableMod) return uniqueStack;
-            return uniqueStack && !ConfigContent.Sever.Common.FishingQuests.CanPickUpQuestFishWhenSameOneIsInInventory;
+            return uniqueStack && !ConfigContent.Server.Common.FishingQuests.CanPickUpQuestFishWhenSameOneIsInInventory;
         }
 
         /// <summary>
@@ -260,7 +260,7 @@ namespace AutoFisher.Common.Systems
         private static bool IsWet(bool wet)
         {
             if (ConfigContent.NotEnableMod) return wet;
-            if (ConfigContent.Sever.Common.Regulation.FishInWater) return false;
+            if (ConfigContent.Server.Common.Regulation.FishInWater) return false;
             return wet;
         }
         private static readonly object _lockCalculater = new();
@@ -292,7 +292,7 @@ namespace AutoFisher.Common.Systems
 
             info.filtered = CatchFilters.FitsFilters(item, attempt);
             info.fishingLineBreaks =
-                ConfigContent.Sever.Common.Regulation.BreakFishingLine &&
+                ConfigContent.Server.Common.Regulation.BreakFishingLine &&
                 !player.accFishingLine &&
                 !(player.sonarPotion && info.filtered) &&
                 Main.rand.NextBool(7);
@@ -310,7 +310,7 @@ namespace AutoFisher.Common.Systems
                 }
             }
 
-            info.consumedBait = ConfigContent.Sever.Common.Regulation.ConsumeBait;
+            info.consumedBait = ConfigContent.Server.Common.Regulation.ConsumeBait;
             if (info.filtered && !info.autoSold && player.sonarPotion) info.consumedBait = false;
             else bobber.ReduceRemainingChumsInPool();
             if (info.consumedBait)
@@ -417,7 +417,7 @@ namespace AutoFisher.Common.Systems
 
             CatchesInfo info = default;
             info.bait = attempt.playerFishingConditions.BaitItemType;
-            info.fishingLineBreaks = ConfigContent.Sever.Common.Regulation.BreakFishingLine && !player.accTackleBox && Main.rand.NextBool(7);
+            info.fishingLineBreaks = ConfigContent.Server.Common.Regulation.BreakFishingLine && !player.accTackleBox && Main.rand.NextBool(7);
             info.catchSuccessfully = !info.fishingLineBreaks;
 
             if (!info.fishingLineBreaks)
@@ -461,7 +461,7 @@ namespace AutoFisher.Common.Systems
                 }
             }
 
-            if (ConfigContent.Sever.Common.Regulation.ConsumeBait)
+            if (ConfigContent.Server.Common.Regulation.ConsumeBait)
             {
                 //player.ItemCheck_CheckFishingBobber_PickAndConsumeBait(bobber, out _, out _);
                 DropItemAndSpawnNPC_PickAndConsumeBait(bobber, attempt.playerFishingConditions.Bait, out info.consumedBait);
@@ -536,8 +536,8 @@ namespace AutoFisher.Common.Systems
         private static float Luck(float luck)
         {
             if (ConfigContent.NotEnableMod) return luck;
-            if (ConfigContent.Sever.Common.FishingPowerInfluences.Luck) return luck;
-            if (ConfigContent.Sever.Common.FishingPowerInfluences.OnlyPositiveLuck) return Math.Max(luck, 0);
+            if (ConfigContent.Server.Common.FishingPowerInfluences.Luck) return luck;
+            if (ConfigContent.Server.Common.FishingPowerInfluences.OnlyPositiveLuck) return Math.Max(luck, 0);
             return 0f;
         }
     }

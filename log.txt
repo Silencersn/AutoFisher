@@ -112,7 +112,7 @@ thanks @oinkoinkmooo
 [FIX] Catch Counting Error for Catches with Stack Size > 1
 [FIX] When selling a catch automatically, there will be a sound effect to get coins even if the price is 0
 [FIX] When automatically catching NPCs, always try to consume bait
-[Fix] The Allow Players Enable Auto Find Baits switch in Sever Config is invalid
+[Fix] The Allow Players Enable Auto Find Baits switch in Server Config is invalid
 [FIX] Line Break rule does not apply to Auto Spawn NPC
 
 (2024/4/12 17:00) v2.1.7
@@ -173,7 +173,7 @@ thanks @陈大
 调整代码，提高对其它mod的兼容性
 Modify the code to improve compatibility with other mods
 【新增】当玩家在水中时也可以钓鱼（在服务端配置的【其它】中可以找到开关）
-[NEW] Player can fish in water (in Sever Config - Others)
+[NEW] Player can fish in water (in Server Config - Others)
 
 (2024/3/16 11:00) v1.11
 【新增】物品ID过滤器，可以将物品添加进黑名单/白名单，来防止钓起/仅钓起名单中的物品

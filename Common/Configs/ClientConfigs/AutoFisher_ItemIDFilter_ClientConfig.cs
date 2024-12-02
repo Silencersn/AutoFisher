@@ -28,6 +28,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         [Header("ItemIDFilter")]
         [DefaultValue(false)]
         public bool EnableItemIDFilter;
+        [DefaultValue(false)]
         public bool TurnBlockListToAllowList;
         public List<ItemDefinition> BlockList = [];
         [Header("CalculateCatches")]
@@ -35,6 +36,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
         [Range(0, 5000)]
         [Increment(500)]
         [Slider]
+        [DrawTicks]
         public int Attempts;
         [DefaultValue(true)]
         public bool CalculateImmediately;
@@ -45,15 +47,30 @@ namespace AutoFisher.Common.Configs.ClientConfigs
     {
         private static AutoFisher_ItemIDFilter_ClientConfig Config => ConfigContent.Client.ItemIDFilter;
 
+        private string _probability;
+
         public ItemDefinition Catch;
         public bool ShouldBeInBlockList;
-        public string Probability;
+        public string Probability
+        {
+            get
+            {
+                return _probability ??= UnknownText?.Value!;
+            }
+            set
+            {
+                if (_probability is null || _probability == UnknownText.Value)
+                {
+                    _probability = value;
+                }
+            }
+        }
 
         public CatchItem()
         {
             Catch = new ItemDefinition(ItemID.None);
             ShouldBeInBlockList = false;
-            Probability = "Unknown";
+            _probability = null!;
         }
 
         public CatchItem(int type, int count, int totalCount)
@@ -61,7 +78,7 @@ namespace AutoFisher.Common.Configs.ClientConfigs
             Catch = new ItemDefinition(type);
             if (Config is null) ShouldBeInBlockList = false;
             else ShouldBeInBlockList = Config.BlockList.Contains(Catch);
-            Probability = $"{double.Clamp((double)count / totalCount, 0, 1) * 100:0.00}%";
+            _probability = double.Clamp((double)count / totalCount, 0, 1).ToString("0.##%");
         }
     }
 }

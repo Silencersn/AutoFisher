@@ -19,7 +19,7 @@
         private void On_Item_DefaultToQuestFish(On_Item.orig_DefaultToQuestFish orig, Item self)
         {
             orig(self);
-            if (ConfigContent.Sever.Common.FishingQuests.IncreaseQuestFishMaxStack) self.maxStack = Math.Max(self.maxStack, 9999);
+            if (ConfigContent.Server.Common.FishingQuests.IncreaseQuestFishMaxStack) self.maxStack = Math.Max(self.maxStack, Item.CommonMaxStack);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@
         {
             orig(x, y, out lava, out honey, out numWaters, out chumCount);
             if (ConfigContent.NotEnableMod) return;
-            if (!ConfigContent.Sever.Common.FishingPowerInfluences.LakeSize) numWaters = Math.Max(numWaters, 300);
+            if (!ConfigContent.Server.Common.FishingPowerInfluences.LakeSize) numWaters = Math.Max(numWaters, 300);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@
             }
 
             float levelMultipliers = 1f;
-            if (ConfigContent.Sever.Common.FishingPowerInfluences.Weather)
+            if (ConfigContent.Server.Common.FishingPowerInfluences.Weather)
             {
                 if (Main.raining)
                 {
@@ -104,7 +104,7 @@
                 }
             }
 
-            if (ConfigContent.Sever.Common.FishingPowerInfluences.Time)
+            if (ConfigContent.Server.Common.FishingPowerInfluences.Time)
             {
                 if (Main.dayTime && (Main.time < 5400.0 || Main.time > 48600.0))
                 {
@@ -120,7 +120,7 @@
                 }
             }
 
-            if (ConfigContent.Sever.Common.FishingPowerInfluences.Moon)
+            if (ConfigContent.Server.Common.FishingPowerInfluences.Moon)
             {
                 if (Main.moonPhase == 0)
                 {
@@ -145,7 +145,7 @@
             }
 
             PlayerLoader.GetFishingLevel(self, pole, bait, ref levelMultipliers);
-            if (ConfigContent.Sever.Common.FishingPowerInfluences.OnlyPositiveInfluences) levelMultipliers = Math.Max(1f, levelMultipliers);
+            if (ConfigContent.Server.Common.FishingPowerInfluences.OnlyPositiveInfluences) levelMultipliers = Math.Max(1f, levelMultipliers);
             return levelMultipliers;
         }
 

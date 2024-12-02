@@ -1,7 +1,7 @@
 ﻿#pragma warning disable IDE0001
 global using global::AutoFisher.Common.Configs;
 global using global::AutoFisher.Common.Configs.ClientConfigs;
-global using global::AutoFisher.Common.Configs.SeverConfigs;
+global using global::AutoFisher.Common.Configs.ServerConfigs;
 global using global::AutoFisher.Common.EntitySources;
 global using global::AutoFisher.Common.GlobalProjectiles;
 global using global::AutoFisher.Common.Players;

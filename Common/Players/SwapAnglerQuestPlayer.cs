@@ -11,7 +11,7 @@ namespace AutoFisher.Common.Players
         public override void PostUpdate()
         {
             if (ConfigContent.NotEnableMod) return;
-            if (!ConfigContent.Sever.Common.FishingQuests.ChangeAnglerQuestAfterThatIsFinished) return;
+            if (!ConfigContent.Server.Common.FishingQuests.ChangeAnglerQuestAfterThatIsFinished) return;
             if (!Main.anglerQuestFinished) return;
 
             if (Main.netMode is NetmodeID.SinglePlayer)
@@ -20,7 +20,7 @@ namespace AutoFisher.Common.Players
             }
             else if (Main.netMode is NetmodeID.MultiplayerClient)
             {
-                ModPacket packet = AutoFisher.Instance.GetPacket();
+                ModPacket packet = Mod.GetPacket();
                 packet.Write((byte)AFMessageType.SwapAnglerQuest);
                 packet.Send();
             }
