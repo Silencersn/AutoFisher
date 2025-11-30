@@ -2,7 +2,8 @@ CatchInfomationText: Catch {0}
 NotCatchInfomationText: Not Catch {0}
 FilteredText: " [Filtered]"
 AutoOpenedText: " [Auto Opened]"
-AutoSoldText: " [Auto Sold[{0}]]"
+AutoSoldText: " [Auto Sold{0}]"
 ConsumeBaitText: " [Consume Bait[i:{0}]]"
 AutoKilledText: " [Auto Killed]"
 FishingLineBreaksText: " [Broken Fishing Line]"
+FilteredSonarText: " [Filtered[i:2355]]"

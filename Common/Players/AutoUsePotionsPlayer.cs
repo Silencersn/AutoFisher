@@ -1,46 +1,52 @@
 ﻿using Terraria;
 
-namespace AutoFisher.Common.Players
+namespace AutoFisher.Common.Players;
+
+public class AutoUsePotionsPlayer : ModPlayer
 {
-    public class AutoUsePotionsPlayer : ModPlayer
+    public override void PreUpdate()
     {
-        public override void PreUpdate()
-        {
-            if (ConfigContent.NotEnableMod) return;
-            if (!BobberManager.IsFishing) return;
-            TryAddAllBuffAboutFishing();
-        }
+        if (ConfigContent.NotEnableMod)
+            return;
 
-        private void TryAddAllBuffAboutFishing()
-        {
-            if (ConfigContent.UseFishingPotions) TryAddBuffByUsePotions(Player, BuffID.Fishing);
-            if (ConfigContent.UseCratePotions) TryAddBuffByUsePotions(Player, BuffID.Crate);
-            if (ConfigContent.UseSonarPotions) TryAddBuffByUsePotions(Player, BuffID.Sonar);
-            if (ConfigContent.UseAlesOrSakes) TryAddBuffByUsePotions(Player, BuffID.Tipsy);
-        }
-        private static void TryAddBuffByUsePotions(Player player, int buffType)
-        {
-            if (player.HasBuff(buffType)) return;
+        if (!BobberManager.IsFishing)
+            return;
 
-            List<Item> traversed = [];
-            while (true)
+        TryAddAllBuffAboutFishing();
+    }
+
+    private void TryAddAllBuffAboutFishing()
+    {
+        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Fishing))
+            TryUsePotion(ItemID.FishingPotion);
+
+        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Crate))
+            TryUsePotion(ItemID.CratePotion);
+
+        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Sonar))
+            TryUsePotion(ItemID.SonarPotion);
+
+        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Tipsy))
+            TryUsePotion(ItemID.Sake);
+
+        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Tipsy))
+            TryUsePotion(ItemID.Ale);
+    }
+
+    private void TryUsePotion(int type)
+    {
+        var itemIndex = Player.FindItemInInventoryOrOpenVoidBag(type, out var inVoidBag);
+        if (itemIndex is -1)
+            return;
+        var item = inVoidBag ? Player.bank4.item[itemIndex] : Player.inventory[itemIndex];
+        if (ItemLoader.UseItem(item, Player) is not false)
+        {
+            Player.AddBuff(item.buffType, item.buffTime);
+            if (ItemLoader.ConsumeItem(item, Player))
             {
-                Item? potion = player.FindItem(item => item.buffType == buffType && !traversed.Contains(item), true, true, false, false, false);
-                if (potion is null) return;
-                traversed.Add(potion);
-
-                if (!CombinedHooks.CanUseItem(player, potion)) continue;
-
-                ItemLoader.UseItem(potion, player);
-                player.AddBuff(potion.buffType, potion.buffTime);
-                if (ItemLoader.ConsumeItem(potion, player) && potion.stack > 0)
-                {
-                    potion.stack--;
-                }
-                if (potion.stack <= 0)
-                {
-                    potion.SetDefaults(0);
-                }
+                item.stack--;
+                if (item.stack <= 0)
+                    item.TurnToAir();
             }
         }
     }

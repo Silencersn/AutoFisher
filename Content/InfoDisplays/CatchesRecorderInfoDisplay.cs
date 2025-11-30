@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AutoFisher.Content.InfoDisplays;
 
-namespace AutoFisher.Content.InfoDisplays
+public class CatchesRecorderInfoDisplay : AFishingInfoDisplay
 {
-    public class CatchesRecorderInfoDisplay : AFishingInfoDisplay
+    public override bool Active()
     {
-        public override bool Active()
-        {
-            return BobberManager.IsFishing;
-        }
+        return BobberManager.IsFishing && CatchesRecorder.TryGetLocalPlayerLastCatchedItem(out _, out _);
+    }
 
-        public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
-        {
-            ItemDefinition item = CatchesRecorder.GetLocalPlayerLastCatchedItem(out int count);
-
-            if (count <= 0) return string.Empty;
-
-            return $"{new Item(item.Type).Name}: {count}";
-        }
+    public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
+    {
+        CatchesRecorder.TryGetLocalPlayerLastCatchedItem(out var item, out var count);
+        return $"{item!.DisplayName}: {count}";
     }
 }

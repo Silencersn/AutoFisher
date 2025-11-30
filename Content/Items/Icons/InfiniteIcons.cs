@@ -1,62 +1,61 @@
-﻿namespace AutoFisher.Content.Items.Icons
+﻿namespace AutoFisher.Content.Items.Icons;
+
+public abstract class ItemIcon : ModItem
 {
-    public abstract class ItemIcon : ModItem
+    public override void SetStaticDefaults()
     {
-        public override void SetStaticDefaults()
-        {
-            Item.ResearchUnlockCount = 0;
-        }
-
-        public override LocalizedText Tooltip => LocalizedText.Empty;
-
-        public static string GetIcon<T>() where T : ModItem
-        {
-            return $"[i:{ModContent.ItemType<T>()}]";
-        }
+        Item.ResearchUnlockCount = 0;
     }
 
-    public class TabAccessories : ItemIcon
+    public override LocalizedText Tooltip => LocalizedText.Empty;
+
+    public static string GetIcon<T>() where T : ModItem
     {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabAccessories");
+        return $"[i:{ModContent.ItemType<T>()}]";
     }
-    public class TabAccessoriesMisc : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabAccessoriesMisc");
-    }
-    public class TabArmor : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabArmor");
-    }
-    public class TabBlocks : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabBlocks");
-    }
-    public class TabConsumables : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabConsumables");
-    }
-    public class TabFurniture : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabFurniture");
-    }
-    public class TabMaterials : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabMaterials");
-    }
-    public class TabMisc : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabMisc");
-    }
-    public class TabTools : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabTools");
-    }
-    public class TabVanity : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabVanity");
-    }
-    public class TabWeapons : ItemIcon
-    {
-        public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabWeapons");
-    }
+}
+
+public class TabAccessories : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabAccessories");
+}
+public class TabAccessoriesMisc : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabAccessoriesMisc");
+}
+public class TabArmor : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabArmor");
+}
+public class TabBlocks : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabBlocks");
+}
+public class TabConsumables : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabConsumables");
+}
+public class TabFurniture : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabFurniture");
+}
+public class TabMaterials : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabMaterials");
+}
+public class TabMisc : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabMisc");
+}
+public class TabTools : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabTools");
+}
+public class TabVanity : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabVanity");
+}
+public class TabWeapons : ItemIcon
+{
+    public override LocalizedText DisplayName => Language.GetText("CreativePowers.TabWeapons");
 }

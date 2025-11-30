@@ -5,8 +5,7 @@ InfoDisplays: {
 	NumWatersText: "{0} 格 {1}"
 	QuestFishInfoDisplay.DisplayName: 任务鱼
 	CatchesRecorderInfoDisplay.DisplayName: 渔获数
-	// PondStateNumWatersInfoDisplay_Honey.DisplayName: Pond State Num Waters Info Display_ Honey
-	// PondStateNumWatersInfoDisplay_Lava.DisplayName: Pond State Num Waters Info Display_ Lava
+	FinishedQuestCountInfoDisplay.DisplayName: 已完成渔夫任务数
 }
 
 Configs: {
@@ -18,7 +17,7 @@ Configs: {
 			Tooltip:
 				'''
 				该选项在基础客户端配置中
-				若该选项关闭，则过滤器将不会工作
+				若该选项关闭，则所有过滤器均不会工作
 				'''
 		}
 	}
@@ -27,4 +26,34 @@ Configs: {
 Config: {
 	UnknownText: 未知
 	NoneText: 无
+}
+
+Items: {
+	TerraBait: {
+		DisplayName: 泰拉诱饵
+		Tooltip: ""
+	}
+
+	ZenithBait: {
+		DisplayName: 天顶诱饵
+		Tooltip: ""
+	}
+
+	AnglerWhistle: {
+		DisplayName: 渔夫口哨
+		Tooltip: 听到哨声后，渔夫将会刷新任务
+	}
+
+	FisherCrate: {
+		DisplayName: 渔夫启程匣
+		Tooltip:
+			'''
+			[i:2291]
+			[i/s20:2674]
+			[i:2367]
+			[i:2368]
+			[i:2369]
+			[i:AutoFisher/AnglerWhistle]
+			'''
+	}
 }

@@ -1,22 +1,21 @@
-﻿namespace AutoFisher.Common.EntitySources
+﻿namespace AutoFisher.Common.EntitySources;
+
+public interface IEntitySource_AutoFisher : IEntitySource
 {
-    public interface IEntitySource_AutoFisher : IEntitySource
-    {
 
+}
+
+public abstract class AEntitySource_AutoFisher : IEntitySource_AutoFisher
+{
+    private readonly string _context;
+    public string Context => _context;
+
+    public AEntitySource_AutoFisher()
+    {
+        _context = string.Empty;
     }
-
-    public abstract class AEntitySource_AutoFisher : IEntitySource_AutoFisher
+    public AEntitySource_AutoFisher(string context)
     {
-        private readonly string _context;
-        public string Context => _context;
-
-        public AEntitySource_AutoFisher()
-        {
-            _context = string.Empty;
-        }
-        public AEntitySource_AutoFisher(string context)
-        {
-            _context = context;
-        }
+        _context = context;
     }
 }

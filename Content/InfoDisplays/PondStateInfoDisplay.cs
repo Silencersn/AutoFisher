@@ -1,91 +1,62 @@
 ﻿using AutoFisher.Common.Systems;
 
-namespace AutoFisher.Content.InfoDisplays
+namespace AutoFisher.Content.InfoDisplays;
+
+public class PondStateNumWatersInfoDisplay : AFishingInfoDisplay
 {
-    public abstract class APondStateInfoDisplay : AFishingInfoDisplay
+    public bool Lava;
+    public bool Honey;
+    public int NumWaters;
+    public int ChumCount;
+
+    public string LavaTexture => base.Texture + "_Lava";
+    public string HoneyTexture => base.Texture + "_Honey";
+    public override string Texture => Lava ? LavaTexture : Honey ? HoneyTexture : base.Texture;
+
+    public override bool Active()
     {
-        public static bool Lava { get; private set; }
-        public static bool Honey { get; private set; }
-        public static int NumWaters { get; private set; }
-        public static int ChumCount { get; private set; }
-
-        public override bool Active()
-        {
-            return base.Active() && Updater.TryFlushPondStateInfo();
-        }
-
-        private class Updater : ModSystem
-        {
-            private static int last = 0;
-            private static int current = 0;
-
-            public override void PreUpdateWorld()
-            {
-                current++;
-            }
-
-            public static bool TryFlushPondStateInfo()
-            {
-                if (last == current) return true;
-                Projectile? bobber = BobberManager.Bobber;
-                if (bobber is null) return false;
-                int x = (int)(bobber.Center.X / 16f);
-                int y = (int)(bobber.Center.Y / 16f);
-                RF_Projectile.GetFishingPondState(x, y, out bool lava, out bool honey, out int numWaters, out int chumCount);
-                Lava = lava;
-                Honey = honey;
-                NumWaters = numWaters;
-                ChumCount = chumCount;
-                last = current;
-                return true;
-            }
-        }
+        if (!base.Active()) return false;
+        return TryFlushPondStateInfo();
     }
 
-    public class PondStateNumWatersInfoDisplay : APondStateInfoDisplay
+    public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
     {
-        public override bool Active()
-        {
-            return base.Active() && !Lava && !Honey;
-        }
-
-        public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
-        {
-            return NumWatersText.Format(NumWaters, WaterText);
-        }
+        return NumWatersText.Format(NumWaters, Lava ? LavaText : Honey ? HoneyText : WaterText);
     }
 
-    public class PondStateNumWatersInfoDisplay_Lava : APondStateInfoDisplay
+    public bool TryFlushPondStateInfo()
     {
-        public override bool Active()
-        {
-            return base.Active() && Lava;
-        }
+        Projectile? bobber = BobberManager.Bobber;
+        if (bobber is null) return false;
+        int x = (int)(bobber.Center.X / 16f);
+        int y = (int)(bobber.Center.Y / 16f);
+        RF_Projectile.GetFishingPondState(x, y, out Lava, out Honey, out NumWaters, out ChumCount);
+        return true;
+    }
+}
 
-        public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
-        {
-            return NumWatersText.Format(NumWaters, LavaText);
-        }
+public class PondStateChumCountInfoDisplay : AFishingInfoDisplay
+{
+    public int ChumCount;
+
+    public override bool Active()
+    {
+        if (!base.Active()) return false;
+        return TryFlushPondStateInfo();
     }
 
-    public class PondStateNumWatersInfoDisplay_Honey : APondStateInfoDisplay
+    public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
     {
-        public override bool Active()
-        {
-            return base.Active() && Honey;
-        }
-
-        public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
-        {
-            return NumWatersText.Format(NumWaters, HoneyText);
-        }
+        return ChumCountText.Format(ChumCount);
     }
 
-    public class PondStateChumCountInfoDisplay : APondStateInfoDisplay
+    public bool TryFlushPondStateInfo()
     {
-        public override string DisplayValue(ref Color displayColor, ref Color displayShadowColor)
-        {
-            return ChumCountText.Format(ChumCount);
-        }
+        Projectile? bobber = BobberManager.Bobber;
+        if (bobber is null) return false;
+        int x = (int)(bobber.Center.X / 16f);
+        int y = (int)(bobber.Center.Y / 16f);
+        RF_Projectile.GetFishingPondState(x, y, out _, out _, out _, out ChumCount);
+        return true;
     }
 }

@@ -5,12 +5,17 @@ Catch: {
 	Tooltip: ""
 }
 
-ShouldBeInBlockList: {
-	Label: "[On] be added to the block list; [Off] be removed from the block list"
-	Tooltip: ""
-}
+//ShouldBeInBlockList: {
+//	Label: "[On] be added to the block list; [Off] be removed from the block list"
+//	Tooltip: ""
+//}
 
 Probability: {
 	Label: Probability
 	Tooltip: ""
+}
+
+ClickToAddCatchToBlockList: {
+	Label: "[ Click ] to Add Catch to [ Block List ] / [ Allow List ]"
+	Tooltip: Click and revisit the configuration to see the changes
 }

@@ -5,12 +5,17 @@ Catch: {
 	Tooltip: ""
 }
 
-ShouldBeInBlockList: {
-	Label: "[开] 加入黑名单；[关] 移出黑名单"
-	Tooltip: ""
-}
+//ShouldBeInBlockList: {
+//	Label: "[On] be added to the block list; [Off] be removed from the block list"
+//	Tooltip: ""
+//}
 
 Probability: {
 	Label: 概率
 	Tooltip: ""
+}
+
+ClickToAddCatchToBlockList: {
+	Label: 【点击】以添加该渔获至【黑名单】/【白名单】中
+	Tooltip: 点击后重新访问该配置即可看到更改
 }

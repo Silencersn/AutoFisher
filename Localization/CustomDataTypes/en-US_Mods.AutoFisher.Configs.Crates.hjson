@@ -9,3 +9,8 @@ HardmodeCrates: {
 	Label: "[i:3979] Hardmode Crates"
 	Tooltip: ""
 }
+
+NonCrates: {
+	Label: Non-Crates
+	Tooltip: ""
+}

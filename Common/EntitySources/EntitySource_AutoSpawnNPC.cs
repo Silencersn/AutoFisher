@@ -1,11 +1,10 @@
-﻿namespace AutoFisher.Common.EntitySources
+﻿namespace AutoFisher.Common.EntitySources;
+
+public class EntitySource_AutoSpawnNPC : EntitySource_FishedOut, IEntitySource_AutoFisher
 {
-    public class EntitySource_AutoSpawnNPC : EntitySource_FishedOut, IEntitySource_AutoFisher
+    public bool AutoKill;
+    public EntitySource_AutoSpawnNPC(Player player, bool autoKill) : base(player)
     {
-        public bool AutoKill;
-        public EntitySource_AutoSpawnNPC(Player player, bool autoKill) : base(player)
-        {
-            AutoKill = autoKill;
-        }
+        AutoKill = autoKill;
     }
 }

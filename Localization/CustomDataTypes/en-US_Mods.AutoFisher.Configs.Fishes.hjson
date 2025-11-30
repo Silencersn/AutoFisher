@@ -6,11 +6,16 @@ AllFishes: {
 }
 
 NotQueseFish: {
-	Label: Not Quest Fish
+	Label: Common Fish
 	Tooltip: ""
 }
 
 QueseFish: {
 	Label: Quest Fish
+	Tooltip: ""
+}
+
+NotFish: {
+	Label: Not Fish
 	Tooltip: ""
 }

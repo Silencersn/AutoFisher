@@ -6,11 +6,16 @@ AllFishes: {
 }
 
 NotQueseFish: {
-	Label: 非任务鱼
+	Label: 普通鱼类
 	Tooltip: ""
 }
 
 QueseFish: {
 	Label: 任务鱼
+	Tooltip: ""
+}
+
+NotFish: {
+	Label: 非鱼类
 	Tooltip: ""
 }

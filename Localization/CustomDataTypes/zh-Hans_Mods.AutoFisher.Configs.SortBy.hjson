@@ -1,7 +1,31 @@
 Tooltip: ""
-CountDescending.Label: 数量 降序
-CountAscending.Label: 数量 升序
-IDDescending.Label: ID 降序
-IDAscending.Label: ID 升序
-NameDescending.Label: 名称 降序
-NameAscending.Label: 名称 升序
+
+CountDescending: {
+	Label: 数量 降序
+	// Tooltip: ""
+}
+
+CountAscending: {
+	Label: 数量 升序
+	// Tooltip: ""
+}
+
+IDDescending: {
+	Label: ID 降序
+	// Tooltip: ""
+}
+
+IDAscending: {
+	Label: ID 升序
+	// Tooltip: ""
+}
+
+NameDescending: {
+	Label: 名称 降序
+	// Tooltip: ""
+}
+
+NameAscending: {
+	Label: 名称 升序
+	// Tooltip: ""
+}

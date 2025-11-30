@@ -24,3 +24,8 @@ AnglerArmorsGenerateEffects: {
 	Label: Angler Armors Generate Effects
 	Tooltip: ""
 }
+
+DisableNewItemOfThisMod: {
+	Label: Disable New Items of This Mod
+	Tooltip: ""
+}

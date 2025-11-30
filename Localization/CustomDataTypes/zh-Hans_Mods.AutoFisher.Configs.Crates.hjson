@@ -9,3 +9,8 @@ HardmodeCrates: {
 	Label: "[i:3979] 困难模式的宝匣"
 	Tooltip: ""
 }
+
+NonCrates: {
+	Label: 非宝匣
+	Tooltip: ""
+}

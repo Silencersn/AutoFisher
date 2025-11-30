@@ -1,14 +1,14 @@
-﻿namespace AutoFisher.Common.Configs
-{
-    public interface IFilterConfig
-    {
-        public bool Enable { get; }
-    }
+﻿namespace AutoFisher.Common.Configs;
 
-    public class PromptEnableAllFilters
+public interface IFilterConfig
+{
+    public bool Enable { get; }
+}
+
+public class PromptEnableAllFilters
+{
+    public bool EnableAllFilters
     {
-#pragma warning disable CA1822 // 将成员标记为 static
-        public bool EnableAllFilters => (ConfigContent.Client.Common?.Filters.Enable).GetValueOrDefault();
-#pragma warning restore CA1822 // 将成员标记为 static
+        get => ConfigContent.Client.Common?.Filters.Enable ?? false;
     }
 }

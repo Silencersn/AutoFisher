@@ -1,7 +1,31 @@
 Tooltip: ""
-CountDescending.Label: Count Descending
-CountAscending.Label: Count Ascending
-IDDescending.Label: ID Descending
-IDAscending.Label: ID Ascending
-NameDescending.Label: Name Descending
-NameAscending.Label: Name Ascending
+
+CountDescending: {
+	Label: Count Descending
+	Tooltip: ""
+}
+
+CountAscending: {
+	Label: Count Ascending
+	Tooltip: ""
+}
+
+IDDescending: {
+	Label: ID Descending
+	Tooltip: ""
+}
+
+IDAscending: {
+	Label: ID Ascending
+	Tooltip: ""
+}
+
+NameDescending: {
+	Label: Name Descending
+	Tooltip: ""
+}
+
+NameAscending: {
+	Label: Name Ascending
+	Tooltip: ""
+}

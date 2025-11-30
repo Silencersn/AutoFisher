@@ -5,8 +5,7 @@ InfoDisplays: {
 	NumWatersText: "{0} Tiles"
 	QuestFishInfoDisplay.DisplayName: Quest Fish
 	CatchesRecorderInfoDisplay.DisplayName: Catch Count
-	PondStateNumWatersInfoDisplay_Honey.DisplayName: Pond State Num Waters Info Display_ Honey
-	PondStateNumWatersInfoDisplay_Lava.DisplayName: Pond State Num Waters Info Display_ Lava
+	FinishedQuestCountInfoDisplay.DisplayName: Finished Quest Count
 }
 
 Configs: {
@@ -17,8 +16,8 @@ Configs: {
 			Label: Enable Filters
 			Tooltip:
 				'''
-				This switch is in Common Client Config
-				If this switch is Off, the filter will NOT work
+				This switch is in Auto Fisher Client Config
+				If this switch is Off, all the filters will NOT work
 				'''
 		}
 	}
@@ -27,4 +26,34 @@ Configs: {
 Config: {
 	UnknownText: Unknown
 	NoneText: None
+}
+
+Items: {
+	TerraBait: {
+		DisplayName: Terra Bait
+		Tooltip: ""
+	}
+
+	ZenithBait: {
+		DisplayName: Zenith Bait
+		Tooltip: ""
+	}
+
+	AnglerWhistle: {
+		DisplayName: Angler Whistle
+		Tooltip: Upon hearing the whistle, the Angler will swap the quest
+	}
+
+	FisherCrate: {
+		DisplayName: Fisher Starter Crate
+		Tooltip:
+			'''
+			[i:2291]
+			[i/s20:2674]
+			[i:2367]
+			[i:2368]
+			[i:2369]
+			[i:AutoFisher/AnglerWhistle]
+			'''
+	}
 }

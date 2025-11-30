@@ -24,3 +24,8 @@ AnglerArmorsGenerateEffects: {
 	Label: 渔夫盔甲生效位置
 	Tooltip: ""
 }
+
+DisableNewItemOfThisMod: {
+	Label: 禁用该模组物品
+	Tooltip: ""
+}
