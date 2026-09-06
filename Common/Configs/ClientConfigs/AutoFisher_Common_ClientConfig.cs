@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace AutoFisher.Common.Configs.ClientConfigs;
 
@@ -8,6 +8,8 @@ public class AutoFisher_Common_ClientConfig : ModConfig
 
     [DefaultValue(true)]
     public bool EnableMod;
+    [DefaultValue(false)]
+    public bool EnableMultipleFishingLinesWhenModDisabled;
 
     public CatchesInfomation CatchesInfomation = new();
     public MultipleFishingLines MultipleFishingLines = new();

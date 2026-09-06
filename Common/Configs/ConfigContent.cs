@@ -55,6 +55,7 @@ public static class ConfigContent
         private static AutoFisher_ItemTypeFilter_ClientConfig? _itemTypeFilter = null;
         private static AutoFisher_ItemIDFilter_ClientConfig? _itemIDFilter = null;
         private static AutoFisher_Recorder_ClientConfig? _recorder = null;
+        private static AutoFisher_AutoOpenFilter_ClientConfig? _autoOpenFilter = null;
 
         public static AutoFisher_Common_ClientConfig Common
         {
@@ -112,7 +113,14 @@ public static class ConfigContent
                 return _recorder;
             }
         }
-
+        public static AutoFisher_AutoOpenFilter_ClientConfig AutoOpenFilter
+        {
+            get
+            {
+                _autoOpenFilter ??= ModContent.GetInstance<AutoFisher_AutoOpenFilter_ClientConfig>();
+                return _autoOpenFilter;
+            }
+        }
     }
 
     public static class Server

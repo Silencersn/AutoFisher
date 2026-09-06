@@ -46,3 +46,8 @@ Filters: {
 	Label: Filters
 	Tooltip: ""
 }
+
+EnableMultipleFishingLinesWhenModDisabled: {
+	Label: Enable Multiple Fishing Lines When Mod Disabled
+	Tooltip: ""
+}

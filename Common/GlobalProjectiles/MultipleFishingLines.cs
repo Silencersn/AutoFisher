@@ -1,4 +1,4 @@
-﻿namespace AutoFisher.Common.GlobalProjectiles;
+namespace AutoFisher.Common.GlobalProjectiles;
 
 public class MultipleFishingLines : GlobalProjectile
 {
@@ -14,7 +14,8 @@ public class MultipleFishingLines : GlobalProjectile
 
         CatchesRecorder.ClearLocalPlayerData(false);
 
-        if (ConfigContent.NotEnableMod)
+        if (ConfigContent.NotEnableMod &&
+            !ConfigContent.Client.Common.EnableMultipleFishingLinesWhenModDisabled)
             return;
 
         if (!ConfigContent.MultipleFishingLines)

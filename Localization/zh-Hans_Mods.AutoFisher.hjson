@@ -21,6 +21,25 @@ Configs: {
 				'''
 		}
 	}
+
+	AutoFisher_AutoOpenFilter_ClientConfig: {
+		DisplayName: 自动打开过滤器
+
+		EnableAutoOpenFilter: {
+			Label: 启用自动打开过滤器
+			Tooltip: ""
+		}
+
+		TurnBlockListToAllowList: {
+			Label: 将黑名单反转为白名单
+			Tooltip: ""
+		}
+
+		BlockList: {
+			Label: 黑名单
+			Tooltip: ""
+		}
+	}
 }
 
 Config: {

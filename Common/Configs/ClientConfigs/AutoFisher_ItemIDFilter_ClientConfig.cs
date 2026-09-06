@@ -27,8 +27,6 @@ public class AutoFisher_ItemIDFilter_ClientConfig : ModConfig, IFilterConfig
     [Slider]
     [DrawTicks]
     public int Attempts;
-    [DefaultValue(true)]
-    public bool CalculateImmediately;
     public List<CatchItem> CatchesInTheLakeWhereCurrentOrLastFishing = [];
 }
 

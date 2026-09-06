@@ -1,4 +1,5 @@
-﻿using Mono.Cecil.Cil;
+﻿using AutoFisher.Common.GlobalItems;
+using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using Terraria.UI;
 
@@ -205,8 +206,13 @@ public class ILCodeLoader : ModSystem
     }
     private static bool IsAnglerQuestFinished(bool anglerQuestFinished)
     {
-        if (ConfigContent.NotEnableMod) return anglerQuestFinished;
-        return !ConfigContent.Server.Common.FishingQuests.CanCatchQuestFishWhenAnglerQuestIsFinished;
+        if (ConfigContent.NotEnableMod)
+            return anglerQuestFinished;
+
+        if (ConfigContent.Server.Common.FishingQuests.CanCatchQuestFishWhenAnglerQuestIsFinished)
+            return false;
+
+        return anglerQuestFinished;
     }
 
     /// <summary>
@@ -326,7 +332,7 @@ public class ILCodeLoader : ModSystem
                 info.autoOpened = DropItem_AutoOpen(player, itemDrop, info.stack);
 
                 // 未被过滤、未被打开且未被卖出，则将渔获直接给予玩家
-                if (!info.autoSold)
+                if (!info.autoOpened)
                     AutoFisherUtils.TryGiveItemToPlayerElseDropItem(bobber, player, item, true);
             }
         }
@@ -378,30 +384,39 @@ public class ILCodeLoader : ModSystem
     }
     private static bool DropItem_AutoOpen(Player player, int type, int stack)
     {
-        if (ConfigContent.OpenCrates)
+        FilterAutoOpenResultsGlobalItem.Enabled = true;
+        var result = DropItem_AutoOpenImpl(player, type, stack);
+        FilterAutoOpenResultsGlobalItem.Enabled = false;
+        return result;
+
+        static bool DropItem_AutoOpenImpl(Player player, int type, int stack)
         {
-            if (ItemID.Sets.IsFishingCrate[type])
+            if (ConfigContent.OpenCrates)
             {
-                for (int i = 0; i < stack; i++)
+                if (ItemID.Sets.IsFishingCrate[type])
                 {
-                    player.OpenFishingCrate(type);
+                    for (int i = 0; i < stack; i++)
+                    {
+                        player.OpenFishingCrate(type);
+                    }
+                    return true;
                 }
-                return true;
             }
-        }
-        if (ConfigContent.OpenOysters)
-        {
-            if (type == ItemID.Oyster)
+            if (ConfigContent.OpenOysters)
             {
-                for (int i = 0; i < stack; i++)
+                if (type == ItemID.Oyster)
                 {
-                    player.OpenOyster(type);
+                    for (int i = 0; i < stack; i++)
+                    {
+                        player.OpenOyster(type);
+                    }
+                    return true;
                 }
-                return true;
             }
+            return false;
         }
-        return false;
     }
+
     private static bool DropItem_AutoSell(Player player, Item item, ref CatchesInfo info)
     {
         if (ConfigContent.SellAllCatches || ConfigContent.SellFilteredCatches && info.filtered || ConfigContent.SellUnfilteredCatches && !info.filtered)

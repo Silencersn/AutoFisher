@@ -7,8 +7,6 @@ namespace AutoFisher.Common.GlobalProjectiles;
 public class FishingCatchesCalculator : GlobalProjectile
 {
     private static bool NeedToRecalculate = false;
-    private static CancellationTokenSource? cts = null;
-
     public static readonly ConcurrentDictionary<int, int> Catches = [];
 
     public override void OnSpawn(Projectile projectile, IEntitySource source)
@@ -32,18 +30,7 @@ public class FishingCatchesCalculator : GlobalProjectile
         NeedToRecalculate = false;
 
         var calculater = OnSpawn_CreateCalculater(projectile);
-
-        TryCatch(() =>
-        {
-            if (ConfigContent.Client.ItemIDFilter.CalculateImmediately)
-            {
-                RecalculateCatches(calculater);
-            }
-            else
-            {
-                RecalculateCatchesAsync(calculater);
-            }
-        }, nameof(RecalculateCatches));
+        RecalculateCatches(calculater);
     }
 
     private static Projectile OnSpawn_CreateCalculater(Projectile bobber)
@@ -55,47 +42,17 @@ public class FishingCatchesCalculator : GlobalProjectile
 
     public static void RecalculateCatches(Projectile calculater)
     {
-        var config = ConfigContent.Client.ItemIDFilter;
+        var attempts = ConfigContent.Client.ItemIDFilter.Attempts;
         Catches.Clear();
 
         TryCatch(() =>
         {
-            Parallel.For(0, config.Attempts / 500, i =>
-            {
-                for (int j = 0; j < 500 && calculater.active && calculater.wet; j++)
-                {
-                    calculater.FishingCheck();
-                }
-            });
+            for (int i = 0; i < attempts; i++)
+                calculater.FishingCheck();
         }, nameof(RecalculateCatches));
 
         RefreshConfig();
         calculater.Kill();
-    }
-
-    public static async void RecalculateCatchesAsync(Projectile calculater)
-    {
-        cts?.Cancel();
-        cts = new CancellationTokenSource();
-        CancellationToken token = cts.Token;
-
-        await Task.Run(() =>
-        {
-            var config = ConfigContent.Client.ItemIDFilter;
-            Catches.Clear();
-
-            TryCatch(() =>
-            {
-                for (int i = config.Attempts; i > 0 && !token.IsCancellationRequested && calculater.active && calculater.wet; i--)
-                {
-                    TryCatch(calculater.FishingCheck, nameof(calculater));
-                    if (i % 500 is 1) RefreshConfig();
-                }
-            }, nameof(RecalculateCatchesAsync));
-
-            RefreshConfig();
-            calculater.Kill();
-        }, token);
     }
 
     public static void RefreshConfig()
@@ -103,7 +60,9 @@ public class FishingCatchesCalculator : GlobalProjectile
         var config = ConfigContent.Client.ItemIDFilter;
         var totalCount = Catches.Select(pair => pair.Value).Sum();
         config.CatchesInTheLakeWhereCurrentOrLastFishing =
-            Catches.OrderByDescending(pair => pair.Value)
+            Catches
+            .Where(pair => pair.Key is not ItemID.None)
+            .OrderByDescending(pair => pair.Value)
             .Select(pair => new CatchItem(pair.Key, pair.Value, totalCount))
             .ToList();
     }

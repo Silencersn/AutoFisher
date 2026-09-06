@@ -21,6 +21,25 @@ Configs: {
 				'''
 		}
 	}
+
+	AutoFisher_AutoOpenFilter_ClientConfig: {
+		DisplayName: Auto Open Filter
+
+		EnableAutoOpenFilter: {
+			Label: Enable Auto Open Filter
+			Tooltip: ""
+		}
+
+		TurnBlockListToAllowList: {
+			Label: Turn Block List To Allow List
+			Tooltip: ""
+		}
+
+		BlockList: {
+			Label: Block List
+			Tooltip: ""
+		}
+	}
 }
 
 Config: {

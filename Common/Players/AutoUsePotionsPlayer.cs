@@ -1,4 +1,4 @@
-﻿using Terraria;
+using Terraria;
 
 namespace AutoFisher.Common.Players;
 
@@ -20,17 +20,17 @@ public class AutoUsePotionsPlayer : ModPlayer
         if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Fishing))
             TryUsePotion(ItemID.FishingPotion);
 
-        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Crate))
+        if (ConfigContent.UseCratePotions && !Player.HasBuff(BuffID.Crate))
             TryUsePotion(ItemID.CratePotion);
 
-        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Sonar))
+        if (ConfigContent.UseSonarPotions && !Player.HasBuff(BuffID.Sonar))
             TryUsePotion(ItemID.SonarPotion);
 
-        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Tipsy))
-            TryUsePotion(ItemID.Sake);
-
-        if (ConfigContent.UseFishingPotions && !Player.HasBuff(BuffID.Tipsy))
+        if (ConfigContent.UseAlesOrSakes && !Player.HasBuff(BuffID.Tipsy))
             TryUsePotion(ItemID.Ale);
+
+        if (ConfigContent.UseAlesOrSakes && !Player.HasBuff(BuffID.Tipsy))
+            TryUsePotion(ItemID.Sake);
     }
 
     private void TryUsePotion(int type)

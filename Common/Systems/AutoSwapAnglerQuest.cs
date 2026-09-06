@@ -6,17 +6,19 @@ public class AutoSwapAnglerQuest : ModSystem
     {
         if (ConfigContent.NotEnableMod) return;
         if (!ConfigContent.Server.Common.FishingQuests.ChangeAnglerQuestAfterThatIsFinished) return;
-        if (!Main.anglerQuestFinished) return;
 
-        if (Main.netMode is NetmodeID.SinglePlayer)
+        if (Main.netMode is NetmodeID.Server)
         {
-            Main.AnglerQuestSwap();
+            var fishedCount = Main.anglerWhoFinishedToday.Count;
+            foreach (var _ in Main.ActivePlayers)
+                fishedCount--;
+            if (fishedCount >= 0)
+                Main.AnglerQuestSwap();
         }
-        else if (Main.netMode is NetmodeID.MultiplayerClient)
+        else // if (Main.netMode is NetmodeID.SinglePlayer)
         {
-            ModPacket packet = Mod.GetPacket();
-            packet.Write((byte)AFMessageType.SwapAnglerQuest);
-            packet.Send();
+            if (Main.anglerQuestFinished)
+                Main.AnglerQuestSwap();
         }
     }
 }

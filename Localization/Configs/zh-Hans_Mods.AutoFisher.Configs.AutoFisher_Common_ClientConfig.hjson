@@ -46,3 +46,8 @@ Filters: {
 	Label: 过滤器
 	Tooltip: ""
 }
+
+EnableMultipleFishingLinesWhenModDisabled: {
+	Label: 禁用模组时也可启用多线钓鱼
+	Tooltip: ""
+}
